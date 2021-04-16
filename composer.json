@@ -1,0 +1,15 @@
+{
+  "name": "unt/wp",
+  "description": "UNT Theme",
+  "type":"wordpress-theme",
+  "minimum-stability" : "stable",
+  "require": {
+    "monolog/monolog": "^1.24",
+    "vlucas/phpdotenv": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Unt\\": "core"
+    }
+  }
+}

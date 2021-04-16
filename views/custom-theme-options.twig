@@ -1,0 +1,32 @@
+{#  data-main-color : est utilisé dans la preview pour remplacer mainColor par la nouvelle couleur selectionnée#}
+<style id="custom-theme-options" data-main-color="{{ themeOptions.mainColor }}">
+    :root {
+        /* :root is a clever way of saying "the outer-most element" */
+        --main-color: {{ themeOptions.mainColor }}; /* the default */
+    }
+    .home-header {
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05) ), url({{ themeOptions.headerBackgroundImage }}) no-repeat top;
+    }
+    .inscription-newsletter-wrapper {
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({{ assets.imageUrl('background-newsletter.jpg') }}) no-repeat top;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        cssVars({
+            watch: true,
+            variables: {
+                '--main-color': '{{ themeOptions.mainColor }}'
+            }
+        });
+    })
+</script>
+
+<script id="custom-js-global-options">
+    var untConfig = {
+        queryUrl: '{{ configURLList.solrUrl }}',
+        autocompIndex: '{{ configURLList.autocompIndex }}',
+        siteLink: '{{ site.link }}'
+    };
+</script>

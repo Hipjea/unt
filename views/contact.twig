@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="content-text">
+        <h1>{{ post.post_title }}</h1>
+        <br/>
+        {{  post.post_content|shortcodes }}
+    </div>
+{% endblock %}

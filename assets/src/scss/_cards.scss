@@ -1,0 +1,126 @@
+.carte-actualite-lien {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.carte-actualite {
+  background-color: $whiteBg;
+  color: $colorH1;
+  border-bottom: 2px var(--main-color) solid;
+  border-radius: 2px;
+  font-size: 14px;
+  height: 300px;
+  margin-bottom: 20px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 3px 3px 8px $grayAlt;
+  }
+
+  .carte-actualite-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .carte-actualite-texte {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .carte-actualite-footer {
+    bottom: 0;
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .carte-actualite-date-footer {
+    position: absolute;
+    right: 5px;
+  }
+
+  h1 {
+    color: $colorH1 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+}
+
+.scale-card-link {
+  .scale-card {
+    height: 200px;
+    border-bottom: 0px;
+    transform: scale(.5);
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+
+    &.inview {
+      transform: scale(1);
+    }
+  }
+}
+
+.projects-spread {
+  width: 350px;
+  height: 250px;
+  position: relative;
+  margin-bottom: 100px;
+
+  .card {
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    border: 0;
+    border-top: 3px solid var(--main-color);
+    border-radius: 0px;
+    box-shadow: 0px 2px 3px #D5D5D5;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) {
+      @include cardSpread(0px, 0px, -14deg);
+    }
+
+    &:nth-child(2) {
+      @include cardSpread(70px, -4px, -7deg);
+    }
+
+    &:nth-child(3) {
+      @include cardSpread(140px, -2px, 0deg);
+    }
+
+    &:nth-child(4) {
+      @include cardSpread(210px, 0px, 20deg);
+    }
+
+    &:hover {
+      -webkit-box-shadow: 1px 1px 7px rgba(0,0,0,0.4);
+      box-shadow: 1px 1px 7px rgba(0,0,0,0.4);
+      z-index: 100;
+      cursor: pointer;
+
+      &:nth-child(1) {
+        @include cardSpread(0px, -35px, 0deg);
+      }
+  
+      &:nth-child(2) {
+        @include cardSpread(70px, -35px, 0deg);
+      }
+  
+      &:nth-child(3) {
+        @include cardSpread(140px, -35px, 0deg);
+      }
+  
+      &:nth-child(4) {
+        @include cardSpread(210px, -35px, 0deg);
+      }
+    }
+  }
+}

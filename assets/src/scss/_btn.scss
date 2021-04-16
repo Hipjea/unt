@@ -1,0 +1,45 @@
+.btn-primary {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  box-shadow: none;
+  color: $colorBtnPrimary !important;
+}
+
+.btn-primary:hover {
+  color: $colorBtnPrimary;
+}
+
+.btn-outline-primary.btn-fiche-suplomfr {
+  border-color: $colorBtnOutline;
+  color: $colorBtnOutline;
+}
+
+.btn-outline-primary.btn-fiche-suplomfr:hover {
+  background-color: transparent;
+  color: $colorBtnOutline;
+}
+
+.btn:focus,
+.btn-primary:focus {
+  box-shadow: none;
+}
+
+.btn-outline-primary {
+  border-color: var(--main-color);
+  box-shadow: 0px 3px 6px $colorBtnBoxshadow;
+  color: var(--main-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: transparent;
+  color: var(--main-color);
+}
+
+.btn-ressource {
+  font-size: 14px;
+}
+
+.btn {
+  background-color: #F2F2F2;
+  color: #3A3A3A;
+}

@@ -1,0 +1,43 @@
+<div class="footer-content">
+    <div class="row">
+        {% for menuItem in footer %}
+            <div class="col-sm">
+                <h1>{{ menuItem.title }}</h1>
+                <div>
+                    {% for subMenuItem in menuItem.subMenus %}
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                            <a href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
+                        </li>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="footer-logo">
+    <a target="_blank" href="http://univ-numerique.fr/">
+        <img class="footer-logo-img" src="{{ assets.imageUrl('logoUN-blanc.png') }}"/>
+    </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="lien-footer"><a href="https://www.uved.fr/" target="_blank">Environnement</a></div>
+                <div class="lien-footer"><a href="http://www.iutenligne.net/" target="_blank">Enseignement Technologique</a></div>
+            </div>
+            <div class="col-sm">
+                <div class="lien-footer"><a href="https://www.uness.fr/" target="_blank">Santé et sport</a></div>
+                <div class="lien-footer"><a href="https://cours.unjf.fr/" target="_blank">Sciences Juridiques et Politiques</a></div>
+            </div>
+            <div class="col-sm">
+                <div class="lien-footer"><a href="http://www.unt.fr/" target="_blank">Humanités</a></div>
+                <div class="lien-footer"><a href="http://www.unisciel.fr/" target="_blank">Sciences fondamentales</a></div>
+            </div>
+            <div class="col-sm">
+                <div class="lien-footer"><a href="http://www.aunege.fr/" target="_blank">Economie et gestion</a></div>
+                <div class="lien-footer"><a href="http://www.unit.eu/" target="_blank">Sciences de l'ingénieur</a></div>
+            </div>
+        </div>
+    </div>
+</div>

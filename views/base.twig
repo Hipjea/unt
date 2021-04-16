@@ -1,0 +1,91 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+	<body class="{{body_class}}" data-template="base.twig">
+		<header class="header" >
+			{% block header %}
+				<div class="home-header" id="home-header">
+					<div class="menu-header-bar">
+						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+							<a class="navbar-brand" href="{{ site.link }}/">
+								<img id="logo-header-menu" class="header-logo" src="{{themeOptions.headerLogo }}" data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
+							</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav ml-auto">
+									{% for menuItem in header %}
+										{% if menuItem.subMenus is not empty %}
+											<li class="nav-item menu-item dropdown">
+												<a class="nav-link dropdown-toggle" href="{{ menuItem.value }}" aria-expanded="false">
+													{{ menuItem.title }}
+												</a>
+												<ul class="dropdown-menu">
+                                                    {% include "partial/recursive-menu.twig" with {'menuItem': menuItem.subMenus} %}
+												</ul>
+											</li>
+										{% else %}
+											<li class="nav-item menu-item active">
+												<a href="{{ menuItem.value }}">{{ menuItem.title }}</a>
+											</li>
+										{% endif %}
+									{% endfor %}
+									<li class="nav-item item-langues">
+                                        {% do action('icl_language_selector') %}
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+
+					<div class="header-title">
+						<h1 id="header-title">{{ themeOptions.headerTitle }}</h1>
+						<h2 id="header-sub-title">{{ themeOptions.headerSubtitle }}</h2>
+					</div>
+
+					{% if themeOptions.solrEnabled or themeOptions.externalSearchUrl %}
+					<div id="search-wrapper" class="research" data-solr-enabled="{{ themeOptions.solrEnabled }}" data-external-search-url="{{ themeOptions.externalSearchUrl }}">
+						<div class="input-group">
+							<input id="search-navbar" value="{{ currentQuery }}" type="text" class="form-control" placeholder="{{ appMessage[currentLang].baseRechercheParmi }}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button id="launch-search-btn" class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			{% endblock %}
+		</header>
+
+		<section id="content" role="main" class="content-wrapper">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+			<div class="footer-copyright" id="footer-copyright">
+				 {{ themeOptions.footerCopyright }}
+			</div>
+		{% endblock %}
+	</body>
+</html>

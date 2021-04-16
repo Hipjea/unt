@@ -1,0 +1,434 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% set currentPageUrl = site.site_url~currentUri~'?lang='~currentLang %}
+    <div class="content-text">
+        <div class="container major-container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="arbre-recherche">
+                        {% if themeOptions.facetEstampillageVisibility == 1 and facettes.facet_fields.estampillage is not empty %}
+                            <a class="tree-title btn" data-toggle="collapse" href="#estampillage-tree" role="button" aria-expanded="true" aria-controls="estampillage-tree">
+                                <div>
+                                    <div class="align-left">
+                                        <span class="tree-root">
+                                            {{ appMessage[currentLang].resultatsFacetteEstampillage }}
+                                        </span>
+                                    </div>
+                                    <div class="align-right"><i class="fas fa-sort-up"></i></div>
+                                    <div class="clearFloat"></div>
+                                </div>
+                            </a>
+                            <div id="estampillage-tree" class="collapse show">
+                                <ul>
+                                    {% for i in 0..facettes.facet_fields.estampillage|length-1 %}
+                                        {% if i is even and facettes.facet_fields.estampillage[i] == "true" %}
+                                            {% set selectedClass = "" %}
+                                            {% for j in 0..currentFacettes|length-1 %}
+                                                {% if currentFacettes[j].name == "estampillage" and facettes.facet_fields.estampillage[i] in currentFacettes[j].value %}
+                                                    {% set selectedClass = "isSelected" %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.estampillage[i] }}">
+                                                {{ appMessage[currentLang].resultatsFacetteEstampillage }} ({{ facettes.facet_fields.estampillage[i+1] }})
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <hr/>
+                        {% endif %}
+
+                        {% if themeOptions.facetDisciplineVisibility == 1 and facettes.facet_fields.discipline_facet is not empty %}
+                            <a class="tree-title btn" data-toggle="collapse" href="#discipline-tree" role="button" aria-expanded="true" aria-controls="discipline-tree">
+                                <div>
+                                    <div class="align-left">
+                                        <span class="tree-root">
+                                            {{ appMessage[currentLang].resultatsFacetteDisciplines }}
+                                        </span>
+                                    </div>
+                                    <div class="align-right"><i class="fas fa-sort-up"></i></div>
+                                    <div class="clearFloat"></div>
+                                </div>
+
+                            </a>
+                            <div id="discipline-tree" class="collapse show">
+                                <ul>
+                                    {% for i in 0..facettes.facet_fields.discipline_facet|length-1 %}
+                                    {% if i is even %}
+                                    {% set value = facettes.facet_fields.discipline_facet[i]|split('#/')[facettes.facet_fields.discipline_facet[i]|split('#/')|length-1] %}
+                                    {% set value = value|replace({'#': '', '/': ''}) %}
+                                    {% set occurences = facettes.facet_fields.discipline_facet[i+1] %}
+                                    {% set currentLength =  facettes.facet_fields.discipline_facet[i]|split('#/')|length %}
+                                    {% set nextLength =  facettes.facet_fields.discipline_facet[i+2]|split('#/')|length %}
+                                    {% set selectedClass = "" %}
+                                    {% for j in 0..currentFacettes|length-1 %}
+                                        {% if currentFacettes[j].name == "discipline_facet" and facettes.facet_fields.discipline_facet[i] in currentFacettes[j].value %}
+                                            {% set selectedClass = "isSelected" %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if currentLength < nextLength %}
+                                    <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.discipline_facet[i] }}">{{ value }} ({{ occurences }})
+                                        <ul>
+                                            {% endif %}
+                                            {% if currentLength == nextLength %}
+                                                <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.discipline_facet[i] }}">{{ value }} ({{ occurences }})</li>
+                                            {% endif %}
+                                            {% if currentLength > nextLength %}
+                                            {% set cpt = currentLength - nextLength %}
+                                            <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.discipline_facet[i] }}">{{ value }} ({{ occurences }})</li>
+                                            {% for j in 1..cpt %}
+                                        </ul>
+                                        {% endfor %}
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endfor %}
+                                </ul>
+                            </div>
+                            <hr/>
+                        {% endif %}
+
+                        {% if themeOptions.facetNiveauVisibility == 1 and facettes.facet_fields.niveaux_facet is not empty %}
+                            <a class="tree-title btn" data-toggle="collapse" href="#niveau-tree" role="button" aria-expanded="true" aria-controls="niveau-tree">
+                                <div>
+                                    <div class="align-left">
+                                        <span class="tree-root">
+                                            {{ appMessage[currentLang].resultatsFacetteNiveaux }}
+                                        </span>
+                                    </div>
+                                    <div class="align-right"><i class="fas fa-sort-up"></i></div>
+                                    <div class="clearFloat"></div>
+                                </div>
+                            </a>
+                            <div id="niveau-tree" class="collapse show">
+                                <ul>
+                                    {% for i in 0..facettes.facet_fields.niveaux_facet|length-1 %}
+                                        {% if i is even %}
+                                            {% set selectedClass = "" %}
+                                            {% for j in 0..currentFacettes|length-1 %}
+                                                {% if currentFacettes[j].name == "niveaux_facet" and facettes.facet_fields.niveaux_facet[i] in currentFacettes[j].value %}
+                                                    {% set selectedClass = "isSelected" %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.niveaux_facet[i] }}">
+                                                {{ facettes.facet_fields.niveaux_facet[i] }} ({{ facettes.facet_fields.niveaux_facet[i+1] }})
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <hr/>
+                        {% endif %}
+
+                        {% if themeOptions.facetTypeVisibility == 1 and facettes.facet_fields.types_pedagogiques_facet is not empty %}
+                            <a class="tree-title btn" data-toggle="collapse" href="#type-ressource-tree" role="button" aria-expanded="false" aria-controls="type-ressource-tree">
+                                <div>
+                                    <div class="align-left">
+                                        <span class="tree-root">
+                                            {{ appMessage[currentLang].resultatsFacetteTypeRessource }}
+                                        </span>
+                                    </div>
+                                    <div class="align-right"><i class="fas fa-sort-down"></i></div>
+                                    <div class="clearFloat"></div>
+                                </div>
+                            </a>
+                            <div id="type-ressource-tree" class="collapse">
+                                <ul>
+                                    {% for i in 0..facettes.facet_fields.types_pedagogiques_facet|length-1 %}
+                                        {% if i is even %}
+                                            {% set selectedClass = "" %}
+                                            {% for j in 0..currentFacettes|length-1 %}
+                                                {% if currentFacettes[j].name == "types_pedagogiques_facet" and facettes.facet_fields.types_pedagogiques_facet[i] in currentFacettes[j].value %}
+                                                    {% set selectedClass = "isSelected" %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.types_pedagogiques_facet[i] }}">
+                                                {{ facettes.facet_fields.types_pedagogiques_facet[i] }} ({{ facettes.facet_fields.types_pedagogiques_facet[i+1] }})
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <div class="top-resultats">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="nb-resultats-query">
+                                        <span class="nb-resultats">{{ resultats.count }} {{ appMessage[currentLang].resultatsResultats }}</span>
+                                        {% if currentQuery is defined and currentQuery is not null and currentQuery is not empty %}
+                                            {{ appMessage[currentLang].resultatsPourVotreRecherche }} '{{ currentQuery }}'
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="filtres-resultats">
+                                        <div class="container">
+                                            <div class="row justify-content-right">
+                                                <div class="col-auto trier-par">
+                                                    {{ appMessage[currentLang].resultatsTrierPar }}
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            {% if currentSort == "score" %}
+                                                                {{ appMessage[currentLang].resultatsTriPertinence }}
+                                                            {% elseif currentSort == "date_publication" %}
+                                                                {{ appMessage[currentLang].resultatsTriDate }}
+                                                            {% endif %}
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="link-tri" data-newtri="score" >
+                                                                    {{ appMessage[currentLang].resultatsTriPertinence }}
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a  class="link-tri" data-newtri="date_publication">
+                                                                    {{ appMessage[currentLang].resultatsTriDate }}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resultats-filtres-courants">
+                        {% for i in 0..currentFacettes|length-1 %}
+                            {% if currentFacettes[i].value is not empty %}
+                                {% for j in 0..currentFacettes[i].value|length-1 %}
+                                    {% if currentFacettes[i].name == 'discipline_facet' %}
+                                        {% set value = currentFacettes[i].value[j]|split('#/')[currentFacettes[i].value[j]|split('#/')|length-1] %}
+                                        {% set value = value|replace({'#': '', '/': ''}) %}
+                                        {% set dataValue = currentFacettes[i].value[j] %}
+                                    {% elseif currentFacettes[i].name == 'estampillage' %}
+                                        {% set value = appMessage[currentLang].resultatsFacetteEstampillage %}
+                                        {% set dataValue = currentFacettes[i].value[j] %}
+                                    {% elseif currentFacettes[i].name == 'etablissement_porteur' %}
+                                        {{ currentFacettes[i].value[j][0] }}
+                                        {% set value = currentFacettes[i].value[0].libelle %}
+                                        {% set dataValue = currentFacettes[i].value[j]|json_encode %}
+                                    {% else %}
+                                        {% set value = currentFacettes[i].value[j] %}
+                                        {% set dataValue = currentFacettes[i].value[j] %}
+                                    {% endif %}
+                                    <div class="resultats-facettes-buttons">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">{{ value }}</span>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-danger remove-facette-btn" data-facettevalue="{{ dataValue }}" data-facettename="{{ currentFacettes[i].name }}" type="button" id="button-addon2">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% if resultats is defined and resultats is not null %}
+                    <div class="resultats-recherche">
+                        <div class="container">
+                            <div class="row">
+                                {% for notice in resultats.notices %}
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="carte-notice">
+                                            {% if notice.displayInIframe == 1 or notice.ressourceType == 'html' %}
+                                                {% set urlRessource = router.ressourceRoute(notice.uuid, currentLang)  %}
+                                            {% elseif notice.ressourceType == 'url' or notice.ressourceType == 'file' %}
+                                                {% set urlRessource = notice.ressource %}
+                                            {% else %}
+                                                {% set urlRessource = "#" %}
+                                            {% endif %}
+                                            <a class="carte-notice-lien" href="{{ urlRessource }}" target="_blank">
+                                                {% if notice.image %}
+                                                <a class="carte-notice-lien" href="{{ urlRessource }}" target="_blank">
+                                                    <img class="carte-notice-image" src="{{ notice.image }}" />
+                                                </a>
+                                                {% else %}
+                                                <a class="carte-notice-lien" href="{{ urlRessource }}" target="_blank">
+                                                    <img class="carte-notice-image" src="{{ assets.imageUrl('default_image.png') }}" />
+                                                </a>
+                                                {% endif %}
+                                                <div class="carte-notice-texte">
+                                                    <a class="carte-notice-lien" href="{{ urlRessource }}" target="_blank">
+                                                        {% if notice.titre|length > 50 %}
+                                                            <h1 title="{{ notice.titre }}">{{ notice.titre|slice(0, 50) }}...</h1>
+                                                        {% else %}
+                                                            <h1>{{ notice.titre }}</h1>
+                                                        {% endif %}
+                                                        <div class="carte-notice-universite">
+                                                            {{ notice.universiteProductrice }}
+                                                        </div>
+                                                    </a>
+                                                    <div class="carte-notice-description">
+                                                        {{ notice.description }}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="carte-notice-footer">
+                                                <div class="carte-notice-universite-footer">
+                                                    <span class="text-{{ notice.entrepotNom }}">{{ notice.entrepotNom }}</span>
+                                                </div>
+                                                <div class="carte-notice-liens-footer">
+                                                    <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ urlRessource }}"><i class="fas fa-link"></i></a>
+                                                    {% if not notice.externalResource %}
+                                                        <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(notice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
+                                                    {% endif %}
+                                                </div>
+                                                <br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% else %}
+                            {{ appMessage[currentLang].resultatsErreurRequete }}
+                        {% endif %}
+                        {% if resultats.count > 6 %}
+                            {% if resultats.page == 1 %}
+                                {% set prec = 1 %}
+                            {% else %}
+                                {% set prec = resultats.page - 1 %}
+                            {% endif %}
+                            <div class="resultats-pagination">
+                                <div class="row justify-content-center">
+                                    {% if resultats.count > 27 %}
+                                        <div class="col-auto">
+                                            <a class="btn btn-primary resultats-pagination-box-colored link-pagination" data-newpage="1"><<</a>
+                                            <a class="btn btn-primary resultats-pagination-box-colored link-pagination" data-newpage="{{ prec }}"><</a>
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-auto">
+                                        {% if (resultats.page*9) >= resultats.count and resultats.page - 2 > 0 %}
+                                            <a class="btn btn-primary resultats-pagination-box link-pagination" data-newpage="{{ resultats.page - 2 }}">{{ resultats.page - 2 }}</a>
+                                        {% endif %}
+                                        {% if resultats.page > 1 %}
+                                            <a class="btn btn-primary resultats-pagination-box link-pagination" data-newpage="{{ prec }}">{{ prec }}</a>
+                                        {% endif %}
+                                        <a class="btn btn-primary resultats-pagination-box-colored link-pagination" data-newpage="1">{{ resultats.page }}</a>
+                                        {% if (resultats.page*9) < resultats.count %}
+                                            <a class="btn btn-primary resultats-pagination-box link-pagination" data-newpage="{{ resultats.page + 1 }}">{{ resultats.page + 1 }}</a>
+                                        {% endif %}
+                                        {% if (resultats.page*9*2) < resultats.count and resultats.page == 1 %}
+                                            <a class="btn btn-primary resultats-pagination-box link-pagination" data-newpage="{{ resultats.page + 2 }}">{{ resultats.page + 2 }}</a>
+                                        {% endif %}
+                                    </div>
+                                    {% if resultats.count > 27 %}
+                                        <div class="col-auto">
+                                            <a class="btn btn-primary resultats-pagination-box-colored link-pagination" data-newpage="{{ resultats.page + 1 }}">></a>
+                                            <a class="btn btn-primary resultats-pagination-box-colored link-pagination" data-newpage="{{ (resultats.count/9)|round(0, 'ceil') }}">>></a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="resultats-elargir-recherche">
+                            <a class="btn btn-primary" data-toggle="collapse" href="#elargir-recherche" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                {{ appMessage[currentLang].resultatsElargirRecherche }} <i class="fas fa-angle-down"></i>
+                            </a>
+                            <div class="collapse" id="elargir-recherche">
+                                <div class="card card-body resultats-catalogue-recherche">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://www.sudoc.abes.fr/DB=2.1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=RLV&amp;TRM={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/sudoc.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Système Universitaire de Documentation</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://gallica.bnf.fr/Search?ArianeWireIndex=index&amp;p=1&amp;lang=FR&amp;q={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/bnf.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Bibliothèque nationale de France</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://www.europeana.eu/portal/search.html?query={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/bne.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Bibliothèque Numérique Européenne</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="https://isidore.science/s?q={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/isidore.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Données et Services Numériques des SHS</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://halshs.archives-ouvertes.fr/search/index/?q={{ currentQuery|url_encode }}&submit=&submitType_s=file" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/hal.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Hyper Article en ligne Sciences de l'Homme et de la Société</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://www.archivesaudiovisuelles.fr/FR/_Search.asp?cx=010870716345540993285%3A7iomcgirqg4&amp;cof=FORID%3A9&amp;ie=ISO-8859-1&amp;q={{ currentQuery|url_encode }}&amp;sa=OK&amp;siteurl=www.archivesaudiovisuelles.fr%2FFR%2F#220" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/aar.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Archives Audiovisuelles de la Recherche</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://www.savoirsenpartage.auf.org/recherche/?q={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/auf.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Savoirs en partage</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="resultats-catalogue-site">
+                                                <a href="http://www.cairn.info/resultats_recherche.php?searchTerm={{ currentQuery|url_encode }}" target="_blank" rel="external">
+                                                    <img class="logo-catalogue-recherche" src="{{ assets.imageUrl('/logo_param/cairn.jpg') }}" alt="" />
+                                                    <span class="nom-catalogue-recherche">Publication et diffusion de revues en SHS</span>
+                                                </a>
+                                                <div class="clearFloat"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<div class="content-text container">
+			<article id="post-{{ news.id }}">
+                <div class="news-date">{{ news.date }}</div>
+				<h1>{{ news.title }}</h1><br/>
+                {{ news.fullContent }}
+			</article>
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

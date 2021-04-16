@@ -1,0 +1,36 @@
+.resultats-pagination {
+
+  .resultats-pagination-box-colored {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 2px;
+    color: $pagination;
+    padding: 5px 12px;
+
+    &:hover {
+      color: $pagination;
+    }
+
+    &:active {
+      background-color: var(--main-color);
+      border: none;
+    }
+  }
+
+  .resultats-pagination-box {
+    background-color: $pagination;
+    border: none;
+    border-radius: 2px;
+    color: $colorH1;
+    padding: 5px 12px;
+
+    &:active{
+      background-color: var(--main-color);
+      border: none;
+    }
+  }
+
+  .link-pagination:hover {
+    cursor: pointer;
+  }
+}

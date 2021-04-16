@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+   <div class="content-text post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<h1>{{ post.post_title }}</h1>
+		<br/>
+        <p>{{ post.post_content }}</p>
+
+        {% if subscribed %}
+            <p>Merci de vous être abonné à la newsletter !</p>
+        {% else %}
+            <div class="mt-5">
+                <form action="{{site.url}}/newsletter" method="post">
+                    <div class="form-row">
+                        <div class="col-12 col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="email" placeholder="Votre adresse email" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+@mixin cadre($backgroundColor, $borderRadius: 3px, $padding: 1px 6px) {
+    background-color: $backgroundColor;
+    border-radius: $borderRadius;
+    padding: $padding;
+}
+
+@mixin resultatpagination() {
+    border: $border;
+    border-radius: $borderRadius;
+    color: $color;
+    padding: $padding;
+}
+
+@mixin cartes() {
+    font-size: $fontSize;
+    position: $position;
+    padding: $padding;
+    width: $width;
+}
+
+@mixin cardSpread($left, $top, $deg) {
+    left: $left;
+    top: $top;
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    transform: rotate($deg);
+}

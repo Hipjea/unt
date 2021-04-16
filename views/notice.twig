@@ -1,0 +1,352 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% if noticeModel.displayInIframe == 1 or noticeModel.ressourceType == 'html' %}
+        {% set ressourceUrl = router.ressourceRoute(noticeModel.uuid, currentLang) %}
+    {% elseif noticeModel.ressourceType == 'url' or noticeModel.ressourceType == 'file' %}
+        {% set ressourceUrl = noticeModel.ressource %}
+    {% endif %}
+    <div class="content-text notice-content">
+        {% if noticeModel is defined and noticeModel is not null and not noticeModel.externalResource %}
+        <div class="container major-container">
+            {% if lienRetourRecherche is defined and lienRetourRecherche is not null %}
+                <div class="notice-lien-retour">
+                    <a href="{{ lienRetourRecherche }}">
+                        <i class="fas fa-angle-left"></i> {{ appMessage[currentLang].noticeRetourRecherche }}
+                    </a>
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="notice-universite-productrice">
+                                <span class="cadre-{{ universitePartage }}">{{ universitePartage }}</span>
+                            </div>
+                            <div class="notice-titre">
+                                <a target="_blank" href="{{ ressourceUrl }}">
+                                    <div id="notice-titre">{{ noticeModel.titre }}</div>
+                                </a>
+                            </div>
+                            <div class="notice-auteurs">
+                                <span id="notice-auteurs-list">{{ noticeModel.auteur }}</span>
+                                {% if noticeModel.date is defined and noticeModel.date is not null %}
+                                    - <span id="notice-dateCreation">{{ noticeModel.date }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% if noticeModel.coursComplet is defined and noticeModel.coursComplet is not null and noticeModel.coursComplet == 1 %}
+                        <div class="notice-cours-complet">
+                            {{ appMessage[currentLang].noticeCoursComplet }}
+                            <br/>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-md">
+                            <div id="notice-img">
+                                {% if noticeModel.video is defined and noticeModel.video is not null %}
+                                    {{ noticeModel.video }}
+                                    <img id="notice-img-value" class="notice-img" src="{{ noticeModel.image }}" style="display: none" />
+                                {% elseif noticeModel.image is defined and noticeModel.image is not null %}
+                                    <a target="_blank" href="{{ ressourceUrl }}">
+                                        <img id="notice-img-value" class="notice-img" src="{{ noticeModel.image }}" />
+                                    </a>
+                                {% else %}
+                                    <a target="_blank" href="{{ ressourceUrl }}">
+                                        <img id="notice-img-value" class="notice-img" src="{{ assets.imageUrl('default_image.png') }}" />
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="notice-under-image">
+                                <div class="notice-droits-logo">
+                                    {% if noticeModel.codeDroits == 'CC_BY_NC_ND_2.0' %}
+                                        <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/fr/" target="_blank">
+                                            <img alt="{{ noticeModel.droits }}" src="{{ assets.imageUrl('/logo_param/cc-sans-modification.png') }}" class="notice-licence"/>
+                                        </a>
+                                    {% elseif noticeModel.codeDroits == 'CC_BY_NC_SA_2.0' %}
+                                        <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/" target="_blank">
+                                            <img alt="{{ noticeModel.droits }}" src="{{ assets.imageUrl('/logo_param/cc-identique.png') }}" class="notice-licence"/>
+                                        </a>
+                                    {% elseif noticeModel.codeDroits == 'CC_BY_NC_2.0' %}
+                                        <a href="https://creativecommons.org/licenses/by-nc/2.0/fr/" target="_blank">
+                                            <img alt="{{ noticeModel.droits }}" src="{{ assets.imageUrl('/logo_param/cc-non-commercial.png') }}" class="notice-licence"/>
+                                        </a>
+                                    {% elseif noticeModel.codeDroits == 'CC_BY_NC_4.0' %}
+                                        <a href="https://creativecommons.org/licenses/by-nc/3.0/fr/" target="_blank">
+                                            <img alt="{{ noticeModel.droits }}" src="{{ assets.imageUrl('/logo_param/cc-non-commercial.png') }}" class="notice-licence"/>
+                                        </a>
+                                    {% elseif noticeModel.codeDroits == 'gestion-editeurs' %}
+                                        <img alt="{{ noticeModel.droits }}" src="{{ assets.imageUrl('/logo_param/droits-reserves-editeurs.png') }}" class="notice-licence"/>
+                                    {% endif %}
+                                </div>
+                                <div class="notice-boutons-acces">
+                                    {% if noticeModel.evaluationForm is defined and noticeModel.evaluationForm is not null %}
+                                        <a role="button" class="btn btn-outline-primary btn-ressource" target="_blank" href="{{ noticeModel.evaluationForm }}">
+                                            {{ appMessage[currentLang].noticeVotreAvis }}
+                                        </a>
+                                    {% endif %}
+
+                                    {% if ressourceUrl %}
+                                        <a id="notice-link_ressource" role="button" class="btn btn-primary btn-ressource" target="_blank" href="{{ ressourceUrl }}">
+                                            {{ appMessage[currentLang].noticeAccederRessource }}
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md">
+                            <div id="notice-description" class="notice-description">
+                                <div class="notice-description-titre">{{ appMessage[currentLang].noticeDescription }}</div>
+                                <div id="notice-description">
+                                    {{ noticeModel.description }}
+                                </div>
+                                <div id="notice-lire-la-suite" class="notice-lire-la-suite">
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="pedagogie-nav">
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                                {{ appMessage[currentLang].noticePedagogie }}
+                            </a>
+                            {% if noticeModel.complements is defined and noticeModel.complements is not null and noticeModel.complements is not empty %}
+                                <a class="nav-item nav-link {{ isDisabled }}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                    {{ appMessage[currentLang].noticeComplements }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            {% if noticeModel.typesPedagogiques is defined and noticeModel.typesPedagogiques is not null %}
+                                <h2>{{ appMessage[currentLang].noticeTypesPedagogiques }}</h2>
+                                <span id="notice-typesPedagogiques">{{ noticeModel.typesPedagogiques }}</span>
+                                <br/><br/>
+                            {% endif %}
+                            {% if noticeModel.niveau is defined and noticeModel.niveau is not null %}
+                                <h2>{{ appMessage[currentLang].noticeNiveaux }}</h2>
+                                <span id="notice-niveaux">{{ noticeModel.niveau }}</span>
+                                <br/><br/>
+                            {% endif %}
+                            {% if noticeModel.objectifsPedagogiques is defined and noticeModel.objectifsPedagogiques is not null %}
+                                <h2>{{ appMessage[currentLang].noticeObjectifsPedagogiques }}</h2>
+                                <ul>
+                                    {% for objectifPedagogique in noticeModel.objectifsPedagogiques %}
+                                        <li>{{ objectifPedagogique }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% if noticeModel.activiteInduite is defined and noticeModel.activiteInduite is not null %}
+                                <h2>{{ appMessage[currentLang].noticeActivitesInduites }}</h2>
+                                <span id="notice-activitesInduites">{{ noticeModel.activiteInduite }}</span>
+                                <br/><br/>
+                            {% endif %}
+                            {% if noticeModel.propositionUtilisation is defined and noticeModel.propositionUtilisation is not null %}
+                                <h2>{{ appMessage[currentLang].noticePropositionUtilisation }}</h2>
+                                <ul id="notice-objectifsPedagogiques">
+                                    {% for propositionUtilisation in noticeModel.propositionUtilisation %}
+                                        <li>{{ propositionUtilisation }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% if noticeModel.dureeDApprentissage is defined and noticeModel.dureeDApprentissage is not null %}
+                                <h2>{{ appMessage[currentLang].noticeDureeApprentissage }}</h2>
+                                <span id="notice-dureeApprentissage">{{ noticeModel.dureeDApprentissage|slice(2)|lower }}</span>
+                                <br/><br/>
+                            {% endif %}
+                            {% if noticeModel.langueDeLApprenant is defined and noticeModel.langueDeLApprenant is not null %}
+                                <h2>{{ appMessage[currentLang].noticeLangueApprenant }}</h2>
+                                <span id="notice-languesUtilisateur">{{ noticeModel.langueDeLApprenant }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            {% if noticeModel.complements is defined and noticeModel.complements is not null and noticeModel.complements is not empty %}
+                                <ul>
+                                    {% for complement in noticeModel.complements %}
+                                        <li>{{ complement }}</li>
+                                    {% endfor %}
+                                </ul>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <div class="notice-partage">
+                        <div class="notice-partage-text">{{ appMessage[currentLang].noticePartagerSur }}</div>
+                        <div>
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ currentUrl|url_encode }}&src=sdkpreparse">
+                                <img src="{{ assets.imageUrl('logo-facebook.png') }}"/>
+                            </a>
+                            <a target="_blank" href="http://twitter.com/share" data-via="InfoWebMaster"><img src="{{ assets.imageUrl('logo-twitter.png') }}"/></a>
+                            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ currentUrl|url_encode }}"><img src="{{ assets.imageUrl('logo-linkedin.png') }}"/></a>
+                        </div>
+                    </div>
+                    {% if  noticeModel.universiteProductrice is defined and noticeModel.universiteProductrice is not null and noticeModel.universiteProductrice is not empty %}
+                    <div class="notice-info">
+                        <h2>{{ appMessage[currentLang].noticeUniversiteProductrice }}</h2>
+                        <div class="notice-universite-logo">
+                            {% if noticeModel.universiteProductriceId is defined and noticeModel.universiteProductriceId is not null and noticeModel.universiteProductriceId is not empty %}
+                            <a href="{{ router.resultatsRoute(currentLang, "score", "1", noticeModel.universiteProductrice|url_encode)  }}">
+                                <img src="{{ assets.imageUrl('/logo_param/'~noticeModel.universiteProductriceId~'.png') }}" />
+                            </a>
+                            {% endif %}
+                        </div>
+                        {% set jsonUniversite = ("[{\"name\":\"etablissement_porteur\",\"value\":[{\"id\":\""~noticeModel.universiteProductriceId~"\",\"libelle\":\""~noticeModel.universiteProductrice~"\"}]}]") %}
+                        <a class="notice-lien-search" href="{{ router.resultatsFiltreRoute(currentLang, "score", "1", "", jsonUniversite) }}">
+                            <div id="notice-etablissementPorteurLibelle">{{ noticeModel.universiteProductrice }}</div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if  noticeModel.etablissementsCoEditeurs is defined and noticeModel.etablissementsCoEditeurs is not null and noticeModel.etablissementsCoEditeurs is not empty %}
+                        <div class="notice-info">
+                            <h2>{{ appMessage[currentLang].noticeEtablissementCoEditeur }}</h2>
+                                <div id="notice-etablissementsCoEditeurs">{{ noticeModel.etablissementsCoEditeurs }}</div>
+                        </div>
+                    {% endif %}
+                    {% if  noticeModel.disciplines is defined and noticeModel.disciplines is not null and noticeModel.disciplines is not empty %}
+                    <div class="notice-info">
+                        <h2>{{ appMessage[currentLang].noticeDisciplines }}</h2>
+                        <div id="notice-discipline">
+                            {% if noticeModel.domaines|length > 1 %}
+                                {% for i in 0..noticeModel.domaines|length-1 %}
+                                    {% set libellesDiscipline = noticeModel.domaines[i]|split('/') %}
+                                    {% set urlDiscipline = "/"~libellesDiscipline[0]~"#" %}
+                                    {% set libelleDiscipline = "" %}
+                                    {% for j in 1..libellesDiscipline|length-1 %}
+                                        {% set urlDiscipline = urlDiscipline~"/"~libellesDiscipline[j]~"#" %}
+                                        {% set libelleDiscipline = libelleDiscipline~" - "~libellesDiscipline[j] %}
+                                    {% endfor %}
+                                    {% set libelleDiscipline = libelleDiscipline|slice(3) %}
+                                    {% set jsonDiscipline = ("[{\"name\":\"discipline_facet\",\"value\":[\""~urlDiscipline~"\"]}]") %}
+                                    <a class="notice-lien-search" href="{{ router.resultatsFiltreRoute(currentLang, "score", "1", "", jsonDiscipline) }}">
+                                        {{ libelleDiscipline }}
+                                    </a>
+                                    {% if i != noticeModel.domaines|length-1 %}
+                                        ,
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    {% if  noticeModel.motsClefs is defined and noticeModel.motsClefs is not null and noticeModel.motsClefs is not empty %}
+                    <div class="notice-info">
+                        <h2>{{ appMessage[currentLang].noticeMotsClefs }}</h2>
+                        <div id="notice-motCle">
+                            {% if noticeModel.motsClefs|length > 1 %}
+                                {% for i in 0..noticeModel.motsClefs|length-2 %}
+                                    <a href="{{ router.resultatsRoute(currentLang, "score", "1", noticeModel.motsClefs[i]|url_encode)  }}">{{ noticeModel.motsClefs[i] }}</a>,
+                                {% endfor %}
+                            {% endif %}
+                            <a href="{{ router.resultatsRoute(currentLang, "score", "1", noticeModel.motsClefs[noticeModel.motsClefs|length - 1]|url_encode)  }}">{{ noticeModel.motsClefs[noticeModel.motsClefs|length - 1] }}</a>
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    <div class="notice-fiche-suplomfr">
+                        {% if noticeModel.expositionOai == 1 %}
+                            {% set suplomUrl = serverSuplom~"suplom/suplomfr-"~noticeModel.uuid %}
+                        {% else %}
+                            {% set suplomUrl = serverSuplom~"suplom_not_exposed/suplomfr-"~noticeModel.uuid %}
+                        {% endif %}
+                        <a id="notice-suplom" target="_blank" class="btn btn-outline-primary btn-fiche-suplomfr" href="{{ suplomUrl }}.xml" role="button">{{ appMessage[currentLang].noticeFicheSuplomfr }}</a>
+                    </div>
+                </div>
+            </div>
+        {% if noticeRelations|length > 0 %}
+            <div class="notice-ressources-liees">
+                <div class="notice-titre-slider">{{ appMessage[currentLang].noticeRessourcesLiees }}</div>
+                <div class="container carousel-container">
+                    <div class="row">
+                        <div id="notice-lien-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
+                            <div class="owl-carousel-notice-lien owl-carousel owl-theme col-8 col-xl-9">
+                                {% for i in 0..noticeRelations|length-1 %}
+                                    {%  set carteNotice = noticeRelations[i] %}
+                                    {% if carteNotice.displayInIframe == 1 or carteNotice.ressourceType == 'html' %}
+                                        {% set carteNoticeRessourceUrl = router.ressourceRoute(carteNotice.uuid, currentLang) %}
+                                    {% elseif carteNotice.ressourceType == 'url' or noticeModel.ressourceType == 'file' %}
+                                        {% set carteNoticeRessourceUrl = carteNotice.ressource %}
+                                    {% endif %}
+                                    <div class="carte-notice">
+                                        {% if carteNotice.image %}
+                                            <a target="_blank" href="{{ carteNoticeRessourceUrl }}">
+                                                <img class="carte-notice-image" src="{{ carteNotice.image }}" />
+                                            </a>
+                                            <div class="carte-notice-association-type">
+                                                {{ appMessage[currentLang][carteNotice.associationType] }}
+                                            </div>
+                                            <div class="carte-notice-texte-relation">
+                                                <a target="_blank" href="{{ carteNoticeRessourceUrl }}">
+                                                    {% if carteNotice.titre|length > 50 %}
+                                                        <h1 title="{{ carteNotice.titre }}">{{ carteNotice.titre|slice(0, 50) }}...</h1>
+                                                    {% else %}
+                                                        <h1>{{ carteNotice.titre }}</h1>
+                                                    {% endif %}
+                                                </a>
+                                                <div class="carte-notice-universite">
+                                                    {{ carteNotice.universiteProductrice }}
+                                                </div>
+                                                <div class="carte-notice-description">
+                                                    {{ carteNotice.description }}
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="carte-notice-association-type">
+                                                {{ appMessage[currentLang][carteNotice.associationType] }}
+                                            </div>
+                                            <div class="carte-notice-texte-relation-full">
+                                                <a target="_blank" href="{{ carteNoticeRessourceUrl }}">
+                                                    <h1>{{ carteNotice.titre }}</h1>
+                                                </a>
+                                                <div class="carte-notice-universite">
+                                                    {{ carteNotice.universiteProductrice }}
+                                                </div>
+                                                <div class="carte-notice-description">
+                                                    {{ carteNotice.description }}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <div class="carte-notice-footer">
+                                            <div class="carte-notice-universite-footer">
+                                                <span class="text-UNT">UNT</span>
+                                            </div>
+                                            <div class="carte-notice-liens-footer">
+                                                <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ carteNoticeRessourceUrl }}">
+                                                    <i class="fas fa-link"></i>
+                                                </a>
+                                                {% if not carteNotice.externalResource %}
+                                                <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(carteNotice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
+                                                {% endif %}
+                                            </div>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                        </div>
+                        <div id="notice-lien-right-arrow" class="col-2 col-xl-1 arrow-div"><div class="right-arrow"></div></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+            {% if themeOptions.recommandationVisibility == 1 %}
+                <hr/>
+                <div id="notice-detail-recommandations" class="notice-recommandations">
+                    <div class="notice-titre-slider">{{ appMessage[currentLang].noticeRecommandations }}</div>
+                    <br/>
+                    {# Cette boîte est vide car remplie par ailleurs par le code du partenaire Sailendra, dans le cadre du projet Pericles #}
+                    <div id="pericles-ressourcefooter"></div>
+                </div>
+            {% endif %}
+        </div>
+        {% else %}
+            {{ appMessage[currentLang].noticeNExistePas }}
+        {% endif %}
+    </div>
+{% endblock %}

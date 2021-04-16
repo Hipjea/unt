@@ -1,0 +1,75 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="content-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h1>{{ appMessage[currentLang].actualites}}</h1>
+                </div>
+            </div>
+            <div class="row">
+                {% for news in newsList %}
+                    {% if news is not null %}
+                        <div class="col-md-4">
+                            <a class="carte-actualite-lien" href="{{ news.newsUrl }}">
+                                <div class="carte-actualite">
+                                    <img class="carte-actualite-image" src="{{ news.imageUrl }}" loading="lazy" />
+                                    <div class="carte-actualite-texte">
+                                        <h1>{{ news.title }}</h1>
+                                    </div>
+                                    <div class="carte-actualite-footer">
+                                        <div class="carte-actualite-date-footer">
+                                            {{ news.date }}
+                                        </div>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% if newsCount > 9 %}
+            {% set changePageUrl = site.link~"/liste-actualites/?pagination=" %}
+            {% if newsPage <= 1 %}
+                {% set prec = 1 %}
+            {% else %}
+                {% set prec = newsPage - 1 %}
+            {% endif %}
+            <div class="resultats-pagination">
+                <div class="row justify-content-center">
+                    {% if newsCount > 27 %}
+                        <div class="col-auto">
+                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1"><<</a>
+                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ prec }}"><</a>
+                        </div>
+                    {% endif %}
+                    <div class="col-auto">
+                        {% if (newsPage*9) >= newsCount and newsPage - 2 > 0 %}
+                            <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage - 2 }}">{{ newsPage - 2 }}</a>
+                        {% endif %}
+                        {% if newsPage > 1 %}
+                            <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ prec }}">{{ prec }}</a>
+                        {% endif %}
+                        <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1">{{ newsPage }}</a>
+                        {% if (newsPage*9) < newsCount %}
+                            <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage + 1 }}">{{ newsPage + 1 }}</a>
+                        {% endif %}
+                        {% if (newsPage*9*2) < newsCount and newsPage == 1 %}
+                            <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage + 2 }}">{{ newsPage + 2 }}</a>
+                        {% endif %}
+                    </div>
+                    {% if newsCount > 27 %}
+                        <div class="col-auto">
+                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ newsPage + 1 }}">></a>
+                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ (newsCount/9)|round(0, 'ceil') }}">>></a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

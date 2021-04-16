@@ -1,0 +1,14 @@
+{% for subMenuItem in menuItem %}
+    {% if subMenuItem.subMenus is not empty %}
+        <li class="dropdown-submenu submenu-item">
+            <a class="dropdown-toggle" href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
+            <ul class="dropdown-menu">
+                {% include "partial/recursive-menu.twig" with {'menuItem': subMenuItem.subMenus} %}
+            </ul>
+        </li>
+    {% else %}
+        <li class="nav-item submenu-item">
+            <a class="dropdown-item" href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
