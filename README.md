@@ -1,15 +1,9 @@
-## Utilisateur
-
-* login : `admin`
-* pass : `00000000`
-
-## Extensions
+## Extensions Wordpress
 
 * Advances Custom Fields
 * Timber
 
 ## Configuration
-
 
 ### Réglages > Permaliens
 
@@ -45,3 +39,20 @@ Emplacement :
 
 Emplacement :
 * Type de publication est égal `Article` __et__ Catégorie est égal à `Actualités`
+
+
+## Compilation des assets
+
+Depuis le répertoire `assets` :
+
+### Préparation 
+
+```yarn install```
+
+### Mode watch
+
+```yarn watch --cwd src```
+
+### Compilation des sources pour l'environnement dev
+
+```yarn build:dev --cwd src```
