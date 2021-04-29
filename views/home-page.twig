@@ -106,9 +106,9 @@
         </div>
     </div>
 
-    <div class="container-fluid fat-container container-white home-container pt-150 pb-150">
-        <div class="container">
-            {% if projects_children %}
+    {% if projects_children %}
+        <div class="container-fluid fat-container container-white home-container pt-150 pb-150">
+            <div class="container">
                 <div class="row">
                     <div class="projects-spread col-12 col-md-6">
                         {% for child in projects_children %}
@@ -132,11 +132,11 @@
                         à projets auprès de ses membres. Ce sont ainsi plus de 250 actions qui ont été co-financées depuis la création d’UNIT.</p>
                     </div>
                 </div>
-            {% endif %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
-    <div class="container home-container">
+    <div class="container home-container pt-150">
         {% if partnersList is not empty %}
             <h1 class="home-part-title text-center mb-5">Établissements membres</h1>
             <div class="row">

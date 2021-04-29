@@ -26,14 +26,16 @@ $timberContext['partnersList'] = $partnerService->getPartnersList();
 $projects = Timber::get_post(47);
 $children = $projects->{'children'};
 
-foreach ($children as $child) {
-    if ($child->post_content != "") {
-        $top_image_id = $child->top_image;
-        $child->topImage = new \Timber\Image($top_image_id);
-        $timberContext['projects_children'][] = $child;
+if (count($children) > 0) {
+    foreach ($children as $child) {
+        if ($child->post_content != "") {
+            $top_image_id = $child->top_image;
+            $child->topImage = new \Timber\Image($top_image_id);
+            $timberContext['projects_children'][] = $child;
+        }
     }
+    $timberContext['projects_children'] = array_reverse($timberContext['projects_children']);
 }
-$timberContext['projects_children'] = array_reverse($timberContext['projects_children']);
 
 if ($themeOptions->isSolrEnabled()) {
 	$listeZoomSur = $solrService->getZoomSurResults($themeOptions->getZoomSolrRequest());
