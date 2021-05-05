@@ -46,8 +46,13 @@
 					</div>
 
 					<div class="header-title">
-						<h1 id="header-title">{{ themeOptions.headerTitle }}</h1>
-						<h2 id="header-sub-title">{{ themeOptions.headerSubtitle }}</h2>
+						{% if isHomePage == true %}
+							<h1 id="header-title">{{ themeOptions.headerTitle }}</h1>
+							<h2 id="header-sub-title">{{ themeOptions.headerSubtitle }}</h2>
+						{% else %}
+							<p id="header-title">{{ themeOptions.headerTitle }}</p>
+							<p id="header-sub-title">{{ themeOptions.headerSubtitle }}</p>
+						{% endif %}
 					</div>
 
 					{% if themeOptions.solrEnabled or themeOptions.externalSearchUrl %}
