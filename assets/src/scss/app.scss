@@ -272,6 +272,16 @@ a:hover {
 .content-wrapper {
   background-color: $wrapperBg;
   font-family: Open Sans !important;
+  p, li {
+    line-height: 2;
+    text-align: justify;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 2;
+    color: var(--main-color);
+    font-weight: bold;
+  }
 
   @media (min-width: 1024px) {
     .content-text {
