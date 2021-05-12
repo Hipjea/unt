@@ -270,14 +270,15 @@ a:hover {
 }
 
 .content-wrapper {
-  background-color: $wrapperBg;
+  //background-color: $wrapperBg;
+  background-color: $whiteBg;
   font-family: Open Sans !important;
   p {
     line-height: 2;
-    text-align: justify;
+    text-align: left;
   }
 
-  li {
+  ul {
     line-height: 2;
   }
 
