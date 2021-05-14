@@ -30,6 +30,8 @@ class CustomizeManager
         ]);
 
         $this->controlMainColor($wp_customize);
+        $this->controlSecondaryColor($wp_customize);
+        $this->controlTertiaryColor($wp_customize);
         $this->controlHeaderTitle($wp_customize);
         $this->controlHeaderSubTitle($wp_customize);
         $this->controlFaviconImage($wp_customize);
@@ -60,9 +62,47 @@ class CustomizeManager
                 $wp_customize,
                 'unt_theme[main-color]',
                 array(
-                    'label'      => __( 'Couleur principale', 'mytheme' ),
+                    'label'      => __( 'Couleur principale', 'unt' ),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[main-color]',
+                ) )
+        );
+    }
+
+    public function controlSecondaryColor(\WP_Customize_Manager $wp_customize) {
+        $wp_customize->add_setting('unt_theme[secondary-color]', [
+            'default'        => '',
+            'capability'     => 'edit_theme_options',
+        ]);
+        $wp_customize->get_setting( 'unt_theme[secondary-color]' )->transport = 'postMessage';
+
+        $wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $wp_customize,
+                'unt_theme[secondary-color]',
+                array(
+                    'label'      => __( 'Couleur secondaire', 'unt' ),
+                    'section'    => 'unt_themes',
+                    'settings'   => 'unt_theme[secondary-color]',
+                ) )
+        );
+    }
+
+    public function controlTertiaryColor(\WP_Customize_Manager $wp_customize) {
+        $wp_customize->add_setting('unt_theme[tertiary-color]', [
+            'default'        => '',
+            'capability'     => 'edit_theme_options',
+        ]);
+        $wp_customize->get_setting( 'unt_theme[tertiary-color]' )->transport = 'postMessage';
+
+        $wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $wp_customize,
+                'unt_theme[tertiary-color]',
+                array(
+                    'label'      => __( 'Couleur tertiaire', 'unt' ),
+                    'section'    => 'unt_themes',
+                    'settings'   => 'unt_theme[tertiary-color]',
                 ) )
         );
     }
@@ -335,6 +375,12 @@ class CustomizeManager
         $model = new ThemeOptionsModel();
         if (isset($options['main-color'])) {
             $model->setMainColor($options['main-color']);
+        }
+        if (isset($options['secondary-color'])) {
+            $model->setSecondaryColor($options['secondary-color']);
+        }
+        if (isset($options['tertiary-color'])) {
+            $model->setTertiaryColor($options['tertiary-color']);
         }
         if (isset($options['header-title'])) {
             $model->setHeaderTitle($options['header-title']);

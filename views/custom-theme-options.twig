@@ -1,8 +1,13 @@
-{#  data-main-color : est utilisé dans la preview pour remplacer mainColor par la nouvelle couleur selectionnée#}
-<style id="custom-theme-options" data-main-color="{{ themeOptions.mainColor }}">
+{#  data-main-color : est utilisé dans la preview pour remplacer mainColor, secondaryColor et tertiaryColor par la nouvelle couleur selectionnée#}
+<style id="custom-theme-options" 
+    data-main-color="{{ themeOptions.mainColor }}" 
+    data-secondary-color="{{ themeOptions.secondaryColor }}"
+    data-tertiary-color="{{ themeOptions.tertiaryColor }}">
     :root {
         /* :root is a clever way of saying "the outer-most element" */
         --main-color: {{ themeOptions.mainColor }}; /* the default */
+        --secondary-color: {{ themeOptions.secondaryColor }};
+        --tertiary-color: {{ themeOptions.tertiaryColor }};
     }
     .home-header {
         background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05) ), url({{ themeOptions.headerBackgroundImage }}) no-repeat top;
@@ -17,7 +22,9 @@
         cssVars({
             watch: true,
             variables: {
-                '--main-color': '{{ themeOptions.mainColor }}'
+                '--main-color': '{{ themeOptions.mainColor }}',
+                '--secondary-color': '{{ themeOptions.secondaryColor }}',
+                '--tertiary-color': '{{ themeOptions.tertiaryColor }}'
             }
         });
     })
