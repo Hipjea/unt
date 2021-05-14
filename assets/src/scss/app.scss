@@ -247,7 +247,7 @@ a:hover {
 
   .wpml-ls-item a {
     background-color: transparent;
-    color: var(--main-color);
+    color: $aunegeColorLight;
   }
 
   .wpml-ls-item a:hover {
@@ -260,7 +260,7 @@ a:hover {
   box-shadow: 0px 3px 6px $colorBtnBoxshadow;
 
   .navbar-light .navbar-nav .menu-item a {
-    color: var(--main-color);
+    color: $aunegeColorLight;
     font-weight: bold;
   }
 }
@@ -273,12 +273,7 @@ a:hover {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
   font-family: Open Sans !important;
-  p {
-    line-height: 2;
-    text-align: left;
-  }
-
-  ul {
+  p, ul {
     line-height: 2;
   }
 
@@ -286,6 +281,11 @@ a:hover {
     line-height: 2;
     color: var(--main-color);
     font-weight: bold;
+  }
+
+  h4, h5, h6 {
+    line-height: 2;
+    color: $aunegeColorLight;
   }
 
   @media (min-width: 1024px) {
@@ -530,7 +530,7 @@ a:hover {
       right: 5px;
 
       a {
-        background-color: var(--main-color);
+        background-color: $aunegeColorLight;
         border: none;
         font-size: 10px;
         padding: 5px 8px;
@@ -548,7 +548,7 @@ a:hover {
       text-align: right;
 
       a {
-        color: var(--main-color);
+        color: $aunegeColorLight;
         font-size: 14px;
         font-weight: bold;
         padding: 5px 8px;
@@ -777,7 +777,7 @@ a:hover {
       }
 
       a {
-        color: var(--main-color);
+        color: $aunegeColorLight;
         cursor: pointer;
         text-decoration: none;
         font-weight: bold;
@@ -967,5 +967,5 @@ a:hover {
 }
 
 a {
-  color: var(--main-color);
+  color: $aunegeColorLight;
 }
