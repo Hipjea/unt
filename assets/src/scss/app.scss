@@ -41,9 +41,23 @@ a:hover {
     width: 100%;
   }
 
-  h1 {
-    font-weight: bold;
+  #header-title {
+    font-weight:bold;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
+
+  #header-sub-title {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  /*h1 {
+    font-weight: bold;
+  }*/
 
   .bg-light {
     background-color: transparent !important;
@@ -258,6 +272,20 @@ a:hover {
 .content-wrapper {
   background-color: $wrapperBg;
   font-family: Open Sans !important;
+  p {
+    line-height: 2;
+    text-align: justify;
+  }
+
+  li {
+    line-height: 2;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 2;
+    color: var(--main-color);
+    font-weight: bold;
+  }
 
   @media (min-width: 1024px) {
     .content-text {
@@ -935,4 +963,8 @@ a:hover {
 
 #cookie-law-info-again {
   box-shadow: #F2F2F2 2px 2px 5px 2px;
+}
+
+a {
+  color: var(--main-color);
 }

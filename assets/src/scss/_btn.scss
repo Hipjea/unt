@@ -3,6 +3,7 @@
   border-color: var(--main-color);
   box-shadow: none;
   color: $colorBtnPrimary !important;
+  font-family: Open Sans !important;
 }
 
 .btn-primary:hover {
@@ -40,6 +41,6 @@
 }
 
 .btn {
-  background-color: #F2F2F2;
+  background-color: var(--main-color);
   color: #3A3A3A;
 }

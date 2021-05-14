@@ -22,6 +22,7 @@ global $themeOptions;
 $timberContext['homePageModel'] = $homePageService->getHomePageData();
 $timberContext['aLaUneModel'] = $aLaUneService->getALaUneList();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
+$timberContext['isHomePage'] = true;
 
 $projects = Timber::get_post(47);
 $children = $projects->{'children'};
