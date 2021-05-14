@@ -8,6 +8,12 @@ class ThemeOptionsModel
     private $mainColor = "";
 
     /** @var string */
+    private $secondaryColor = "";
+
+    /** @var string */
+    private $tertiaryColor = "";
+
+    /** @var string */
     private $headerTitle = "";
 
     /** @var string */
@@ -73,6 +79,42 @@ class ThemeOptionsModel
     public function setMainColor(string $mainColor): ThemeOptionsModel
     {
         $this->mainColor = $mainColor;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSecondaryColor(): string
+    {
+        return $this->secondaryColor;
+    }
+
+    /**
+     * @param string $secondaryColor
+     * @return ThemeOptionsModel
+     */
+    public function setSecondaryColor(string $secondaryColor): ThemeOptionsModel
+    {
+        $this->secondaryColor = $secondaryColor;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTertiaryColor(): string
+    {
+        return $this->tertiaryColor;
+    }
+
+    /**
+     * @param string $tertiaryColor
+     * @return ThemeOptionsModel
+     */
+    public function setTertiaryColor(string $tertiaryColor): ThemeOptionsModel
+    {
+        $this->tertiaryColor = $tertiaryColor;
         return $this;
     }
 

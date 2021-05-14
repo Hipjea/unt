@@ -6,18 +6,42 @@
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 
-(function( $ ) {
+(function($) {
 
 	// Main color
-	wp.customize( 'unt_theme[main-color]', function( value ) {
-		value.bind( function( to ) {
+	wp.customize('unt_theme[main-color]', function(value) {
+		value.bind(function(to) {
 			// Update custom color CSS.
 			var style = $('#custom-theme-options'),
-				mainColor = style.data( 'main-color' ),
+				mainColor = style.data('main-color'),
 				css = style.html();
 
 			css = css.replace(mainColor, to);
-			style.html( css ).data( 'main-color', to );
+			style.html(css).data('main-color', to);
+		});
+	});
+
+	// Secondary color
+	wp.customize('unt_theme[secondary-color]', function(value) {
+		value.bind(function(to) {
+			var style = $('#custom-theme-options'),
+				secondaryColor = style.data('secondary-color'),
+				css = style.html();
+
+			css = css.replace(secondaryColor, to);
+			style.html(css).data('secondary-color', to);
+		});
+	});
+
+	// Tertiary color
+	wp.customize('unt_theme[tertiary-color]', function(value) {
+		value.bind(function(to) {
+			var style = $('#custom-theme-options'),
+			tertiaryColor = style.data('tertiary-color'),
+				css = style.html();
+
+			css = css.replace(tertiaryColor, to);
+			style.html(css).data('tertiary-color', to);
 		});
 	});
 
@@ -119,4 +143,4 @@
 		$('.research').toggle(solrEnabled || (externalSearchUrl && externalSearchUrl.trim() != ''));
     }
 
-})( jQuery );
+})(jQuery);
