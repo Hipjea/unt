@@ -4,6 +4,7 @@
 @import "text";
 @import "btn";
 @import "frames";
+@import "iframes";
 @import "cards";
 @import "pagination";
 @import "home";
@@ -247,7 +248,7 @@ a:hover {
 
   .wpml-ls-item a {
     background-color: transparent;
-    color: $aunegeColorLight;
+    color: var(--secondary-color);
   }
 
   .wpml-ls-item a:hover {
@@ -260,7 +261,7 @@ a:hover {
   box-shadow: 0px 3px 6px $colorBtnBoxshadow;
 
   .navbar-light .navbar-nav .menu-item a {
-    color: $aunegeColorLight;
+    color: var(--secondary-color);
     font-weight: bold;
   }
 }
@@ -273,13 +274,20 @@ a:hover {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
   font-family: Open Sans !important;
+
   p, ul {
     line-height: 2;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
     line-height: 2;
     color: var(--main-color);
+    font-weight: bold;
+  }
+
+  h4, h5, h6 {
+    line-height: 2;
+    color: var(--secondary-color);
     font-weight: bold;
   }
 
@@ -530,7 +538,7 @@ a:hover {
       right: 5px;
 
       a {
-        background-color: $aunegeColorLight;
+        background-color: var(--secondary-color);
         border: none;
         font-size: 10px;
         padding: 5px 8px;
@@ -548,7 +556,7 @@ a:hover {
       text-align: right;
 
       a {
-        color: $aunegeColorLight;
+        color: var(--secondary-color);
         font-size: 14px;
         font-weight: bold;
         padding: 5px 8px;
@@ -777,7 +785,7 @@ a:hover {
       }
 
       a {
-        color: $aunegeColorLight;
+        color: var(--secondary-color);
         cursor: pointer;
         text-decoration: none;
         font-weight: bold;
@@ -958,14 +966,10 @@ a:hover {
 }
 
 
-
-
-  
-
 #cookie-law-info-again {
-  box-shadow: #F2F2F2 2px 2px 5px 2px;
+  box-shadow: $colorBtnPrimary 2px 2px 5px 2px;
 }
 
 a {
-  color: $aunegeColorLight;
+  color: var(--secondary-color);
 }

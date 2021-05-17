@@ -59,13 +59,14 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            {from:'src/images',to:'images'},
-            {from:'src/scripts/toCopy', to:'scripts'},
-            {from:'node_modules/jquery/dist', to:'vendors/jquery'},
-            {from:'node_modules/jquery-ui-dist', to:'vendors/jquery-ui'},
-            {from:'node_modules/jstree/dist', to:'vendors/jstree'},
-            {from:'node_modules/owl.carousel/dist', to:'vendors/owlcarousel'},
-            {from:'node_modules/css-vars-ponyfill/dist', to:'vendors/ponyfill'},
+            {from: 'src/images', to: 'images'},
+            {from: 'src/fonts', to: 'fonts'},
+            {from: 'src/scripts/toCopy', to: 'scripts'},
+            {from: 'node_modules/jquery/dist', to: 'vendors/jquery'},
+            {from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui'},
+            {from: 'node_modules/jstree/dist', to: 'vendors/jstree'},
+            {from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel'},
+            {from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill'},
         ]),
     ]
 };
