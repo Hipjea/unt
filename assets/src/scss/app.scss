@@ -969,3 +969,8 @@ a:hover {
 a {
   color: var(--secondary-color);
 }
+
+.col-12 {
+  flex: 0 0 80%;
+  max-width: 80%;
+}
