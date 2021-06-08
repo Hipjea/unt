@@ -2,9 +2,10 @@
 
 {% block content %}
 
-   <div class="content-text post-type-{{post.post_type}}" id="post-{{post.ID}}">
+    <div class="wrapper">
+    <div class="container content-text post-type-{{post.post_type}}" id="post-{{post.ID}}">
 		<h1>{{ post.post_title }}</h1>
-		<br/>
+		{#<br/>#}
         <p>{{ post.post_content }}</p>
 
         {% if subscribed %}
@@ -25,5 +26,6 @@
                 </form>
             </div>
         {% endif %}
+    </div>
     </div>
 {% endblock %}

@@ -17,7 +17,8 @@
 }
 
 .pt-150 {
-  padding-top: 150px;
+  padding-top: 50px;
+  margin-bottom: 100px;
 }
 .pb-150 {
   padding-bottom: 150px;
@@ -31,7 +32,7 @@ a:hover {
   background-size: cover;
   background-color: white;
   color: $whiteBg;
-  height: 400px;
+  height: 300px;
   position: relative;
   
   .header-title {
@@ -271,8 +272,10 @@ a:hover {
 }
 
 .content-wrapper {
-  background-color: $wrapperBg;
+  //background-color: $wrapperBg;
+  background-color: $whiteBg;
   font-family: Open Sans !important;
+  color: #454545;
 
   p, ul {
     line-height: 2;
@@ -280,20 +283,20 @@ a:hover {
 
   h1, h2, h3 {
     line-height: 2;
-    color: var(--main-color);
+    color: var(--title-color);
     font-weight: bold;
   }
 
   h4, h5, h6 {
     line-height: 2;
-    color: var(--secondary-color);
+    color: var(--title-color);
     font-weight: bold;
   }
 
   @media (min-width: 1024px) {
     .content-text {
       margin: auto;
-      padding: 80px 0px;
+      padding: 50px 0px;
     }
     .wp-home-text {
       margin: auto;
@@ -304,7 +307,7 @@ a:hover {
   @media (max-width: 1024px) {
     .content-text {
       margin: auto;
-      padding: 340px 0px;
+      padding: 50px 0px;
       width: 90%;
     }
     .wp-home-text {
@@ -959,11 +962,21 @@ a:hover {
   }
 }
 
-
 #cookie-law-info-again {
   box-shadow: $colorBtnPrimary 2px 2px 5px 2px;
 }
 
 a {
   color: var(--secondary-color);
+}
+
+.col-12 {
+  flex: 0 0 80%;
+  max-width: 80%;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.home-header .navbar-light .navbar-nav .menu-item a{
+  font-size: 20px;
 }
