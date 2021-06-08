@@ -32,6 +32,7 @@ class CustomizeManager
         $this->controlMainColor($wp_customize);
         $this->controlSecondaryColor($wp_customize);
         $this->controlTertiaryColor($wp_customize);
+        $this->controlTitleColor($wp_customize);
         $this->controlHeaderTitle($wp_customize);
         $this->controlHeaderSubTitle($wp_customize);
         $this->controlFaviconImage($wp_customize);
@@ -103,6 +104,25 @@ class CustomizeManager
                     'label'      => __( 'Couleur tertiaire', 'unt' ),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[tertiary-color]',
+                ) )
+        );
+    }
+
+    public function controlTitleColor(\WP_Customize_Manager $wp_customize) {
+        $wp_customize->add_setting('unt_theme[title-color]', [
+            'default'        => '',
+            'capability'     => 'edit_theme_options',
+        ]);
+        $wp_customize->get_setting( 'unt_theme[title-color]' )->transport = 'postMessage';
+
+        $wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $wp_customize,
+                'unt_theme[title-color]',
+                array(
+                    'label'      => __( 'Couleur des titres', 'unt' ),
+                    'section'    => 'unt_themes',
+                    'settings'   => 'unt_theme[title-color]',
                 ) )
         );
     }

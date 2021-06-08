@@ -2,12 +2,14 @@
 <style id="custom-theme-options" 
     data-main-color="{{ themeOptions.mainColor }}" 
     data-secondary-color="{{ themeOptions.secondaryColor }}"
-    data-tertiary-color="{{ themeOptions.tertiaryColor }}">
+    data-tertiary-color="{{ themeOptions.tertiaryColor }}"
+    data-tertiary-color="{{ themeOptions.titleColor }}">
     :root {
         /* :root is a clever way of saying "the outer-most element" */
         --main-color: {{ themeOptions.mainColor }}; /* the default */
         --secondary-color: {{ themeOptions.secondaryColor }};
         --tertiary-color: {{ themeOptions.tertiaryColor }};
+        --title-color: {{ themeOptions.titleColor }};
     }
     .home-header {
         background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05) ), url({{ themeOptions.headerBackgroundImage }}) no-repeat top;
@@ -24,7 +26,8 @@
             variables: {
                 '--main-color': '{{ themeOptions.mainColor }}',
                 '--secondary-color': '{{ themeOptions.secondaryColor }}',
-                '--tertiary-color': '{{ themeOptions.tertiaryColor }}'
+                '--tertiary-color': '{{ themeOptions.tertiaryColor }}',
+                '--title-color': '{{ themeOptions.titleColor }}'
             }
         });
     })

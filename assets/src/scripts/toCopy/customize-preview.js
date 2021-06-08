@@ -45,6 +45,18 @@
 		});
 	});
 
+	// Title color
+	wp.customize('unt_theme[title-color]', function(value) {
+		value.bind(function(to) {
+			var style = $('#custom-theme-options'),
+			titleColor = style.data('title-color'),
+				css = style.html();
+
+			css = css.replace(titleColor, to);
+			style.html(css).data('title-color', to);
+		});
+	});
+
 	// Header Title
 	wp.customize( 'unt_theme[header-title]', function( value ) {
 		value.bind( function( to ) {
