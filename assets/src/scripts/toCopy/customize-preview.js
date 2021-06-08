@@ -45,15 +45,27 @@
 		});
 	});
 
-	// Title color
-	wp.customize('unt_theme[title-color]', function(value) {
+	// Title main color
+	wp.customize('unt_theme[title-main-color]', function(value) {
 		value.bind(function(to) {
 			var style = $('#custom-theme-options'),
-			titleColor = style.data('title-color'),
+			titleMainColor = style.data('title-main-color'),
 				css = style.html();
 
-			css = css.replace(titleColor, to);
-			style.html(css).data('title-color', to);
+			css = css.replace(titleMainColor, to);
+			style.html(css).data('title-main-color', to);
+		});
+	});
+
+	// Title secondary color
+	wp.customize('unt_theme[title-sec-color]', function(value) {
+		value.bind(function(to) {
+			var style = $('#custom-theme-options'),
+			titleSecColor = style.data('title-sec-color'),
+				css = style.html();
+
+			css = css.replace(titleSecColor, to);
+			style.html(css).data('title-sec-color', to);
 		});
 	});
 
