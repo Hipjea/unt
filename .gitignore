@@ -10,4 +10,4 @@ assets_dist
 package-lock.json
 v8-compile-cache-0
 node_modules
-/node_modules
+node_modules/.yarn-integrity
