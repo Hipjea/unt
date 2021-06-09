@@ -4,9 +4,10 @@
 composer.lock
 package-lock.json
 npm-debug.log
-assets/npm-debug.log
+npm-debug.log
 
 assets_dist
-assets/package-lock.json
-assets/v8-compile-cache-0
-assets/node_modules
+package-lock.json
+v8-compile-cache-0
+node_modules
+/node_modules
