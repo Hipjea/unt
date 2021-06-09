@@ -46,26 +46,26 @@
 	});
 
 	// Title main color
-	wp.customize('unt_theme[title-main-color]', function(value) {
+	wp.customize('unt_theme[title-maincolor]', function(value) {
 		value.bind(function(to) {
 			var style = $('#custom-theme-options'),
-			titleMainColor = style.data('title-main-color'),
+			titleMainColor = style.data('title-maincolor'),
 				css = style.html();
 
 			css = css.replace(titleMainColor, to);
-			style.html(css).data('title-main-color', to);
+			style.html(css).data('title-maincolor', to);
 		});
 	});
 
 	// Title secondary color
-	wp.customize('unt_theme[title-sec-color]', function(value) {
+	wp.customize('unt_theme[title-seccolor]', function(value) {
 		value.bind(function(to) {
 			var style = $('#custom-theme-options'),
-			titleSecColor = style.data('title-sec-color'),
+			titleSecColor = style.data('title-seccolor'),
 				css = style.html();
 
 			css = css.replace(titleSecColor, to);
-			style.html(css).data('title-sec-color', to);
+			style.html(css).data('title-seccolor', to);
 		});
 	});
 

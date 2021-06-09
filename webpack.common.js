@@ -3,13 +3,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        'app': './src/app-main.js',
-        'notice': './src/app-notice.js',
-        'resultats': './src/app-resultats.js',
+        'app': './assets/js/app-main.js',
+        'notice': './assets/js/app-notice.js',
+        'resultats': './assets/js/app-resultats.js',
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../assets_dist'),
+        path: path.resolve(__dirname, './assets_dist'),
         publicPath: '/wp-content/themes/unt/assets/dist/'
     },
     module: {
@@ -59,9 +59,9 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            {from: 'src/images', to: 'images'},
-            {from: 'src/fonts', to: 'fonts'},
-            {from: 'src/scripts/toCopy', to: 'scripts'},
+            {from: 'assets/images', to: 'images'},
+            {from: 'assets/fonts', to: 'fonts'},
+            {from: 'assets/js/toCopy', to: 'js'},
             {from: 'node_modules/jquery/dist', to: 'vendors/jquery'},
             {from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui'},
             {from: 'node_modules/jstree/dist', to: 'vendors/jstree'},

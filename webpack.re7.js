@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = merge(common, {
     mode: 'production',
     output: {
-        path: path.resolve(__dirname, '../assets_dist/prod'),
-        publicPath: '/wp-content/themes/unt/assets_dist/prod/'
+        path: path.resolve(__dirname, './assets_dist/re7'),
+        publicPath: '/front-wordpress/wp-content/themes/unt/assets_dist/re7/'
     },
 });
