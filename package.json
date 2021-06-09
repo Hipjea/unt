@@ -13,12 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "css-vars-ponyfill": "^2.0.2",
     "jquery": "^3.3.1",
     "jquery-ui-dist": "^1.12.1",
     "jstree": "^3.3.7",
     "owl.carousel": "^2.3.4",
-    "popper.js": "^1.14.7",
-    "css-vars-ponyfill": "^2.0.2"
+    "popper.js": "^1.14.7"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.10",
@@ -32,7 +32,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^4.7.2",
     "webpack-merge": "^4.2.1"
   }
 }
