@@ -22,7 +22,7 @@ a:hover {
 }
 
 .home-header {
-  background-size: cover;
+  background-size: cover !important; /* !important because custom-theme-options.twig styles are passed after the CSS inclusion */
   background-color: white;
   color: $whiteBg;
   height: 300px;
