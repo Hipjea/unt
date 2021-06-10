@@ -57,16 +57,9 @@ module.exports = {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 type: 'asset/resource'
             },
-            { 
-                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-                type: 'asset/inline',
-            },
             {
-                test: /\.(ttf|eot|svg)$/,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'fonts/[name][ext][query]'
-                }
+                test: /\.(ttf|eot|svg|woff|woff2)$/,
+                type: 'asset/inline'
             }
         ]
     },

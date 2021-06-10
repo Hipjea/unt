@@ -10,11 +10,12 @@
 @import "pagination";
 @import "home";
 @import "footer";
+@import "fonts";
 @import "utils";
 
 
 .form-control:focus {
-  border-color: rgb(206, 212, 218);;
+  border-color: rgb(206, 212, 218);
   box-shadow: none;
 }
 
@@ -268,7 +269,7 @@ a:hover {
 .content-wrapper {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
-  font-family: Open Sans !important;
+  font-family: "OpenSans" !important;
   color: #454545;
 
   p, ul {
