@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -22,8 +23,14 @@ module.exports = {
                         loader: 'style-loader'
                     },
                     {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false
+                        }
+                    },
+                    {
                         // Interprets `@import` and `url()` like `import/require()` and will resolve them
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
                         // Loader for webpack to process CSS with PostCSS
@@ -76,6 +83,7 @@ module.exports = {
                     { from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill' },
                 ]
             }
-        )
+        ),
+        new MiniCssExtractPlugin()
     ]
 };
