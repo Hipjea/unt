@@ -51,8 +51,8 @@ Depuis le répertoire `assets` :
 
 ### Mode watch
 
-```yarn watch --cwd src```
+```yarn watch```
 
 ### Compilation des sources pour l'environnement dev
 
-```yarn build:dev --cwd src```
+```yarn build:dev```

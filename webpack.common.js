@@ -9,8 +9,8 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, './assets_dist'),
-        publicPath: '/wp-content/themes/unt/assets/dist/'
+        path: path.resolve(__dirname, 'assets_dist'),
+        publicPath: '/wp-content/themes/unt/assets_dist/'
     },
     module: {
         rules: [
@@ -29,12 +29,17 @@ module.exports = {
                         // Loader for webpack to process CSS with PostCSS
                         loader: 'postcss-loader',
                         options: {
-                            plugins: function () {
-                                return [
-                                    require('autoprefixer')
-                                ];
-                            }
-                        }
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "autoprefixer",
+                                        {
+                                            // Options
+                                        },
+                                    ],
+                                ],
+                            },
+                        },
                     },
                     {
                         // Loads a SASS/SCSS file and compiles it to CSS
@@ -58,15 +63,19 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from: 'assets/images', to: 'images'},
-            {from: 'assets/fonts', to: 'fonts'},
-            {from: 'assets/js/toCopy', to: 'js'},
-            {from: 'node_modules/jquery/dist', to: 'vendors/jquery'},
-            {from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui'},
-            {from: 'node_modules/jstree/dist', to: 'vendors/jstree'},
-            {from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel'},
-            {from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill'},
-        ]),
+        new CopyWebpackPlugin(
+            { 
+                patterns: [
+                    { from: 'assets/images', to: 'images' },
+                    { from: 'assets/fonts', to: 'fonts' },
+                    { from: 'assets/js/toCopy', to: 'js' },
+                    { from: 'node_modules/jquery/dist', to: 'vendors/jquery' },
+                    { from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui' },
+                    { from: 'node_modules/jstree/dist', to: 'vendors/jstree' },
+                    { from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel' },
+                    { from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill' },
+                ]
+            }
+        )
     ]
 };
