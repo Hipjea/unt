@@ -14,7 +14,13 @@ class CustomizeManager
     {
         $this->assetService = $assetService;
         add_action('customize_register', [$this, 'customizeRegister']);
+        add_action('customize_preview_init', [$this, 'enqueueUrgentStyles'] );
         add_action('customize_preview_init', [$this, 'enqueueCustomizePreviewJs'] );
+    }
+
+    public function enqueueUrgentStyles() {
+        $src = $this->assetService->getUri() . '/js/urgent-styles.js';
+        wp_enqueue_script('unt-urgent-styles', $src, ['urgent-styles'], '', true);
     }
 
     public function enqueueCustomizePreviewJs() {

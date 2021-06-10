@@ -21,7 +21,7 @@
     }
 </style>
 
-<script type="text/javascript">
+<script type="text/javascript" id="custom-js-global-options">
     cssVars({
         watch: true,
         silent: true,
@@ -34,9 +34,6 @@
             '--title-seccolor': '{{ themeOptions.titleSecColor }}'
         }
     });
-</script>
-
-<script id="custom-js-global-options">
     var untConfig = {
         queryUrl: '{{ configURLList.solrUrl }}',
         autocompIndex: '{{ configURLList.autocompIndex }}',
