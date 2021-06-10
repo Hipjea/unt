@@ -49,23 +49,24 @@ module.exports = {
                         },
                     },
                     {
-                        // Loads a SASS/SCSS file and compiles it to CSS
                         loader: 'sass-loader'
                     }
                 ]
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            bypassOnDebug: true, // webpack@1.x
-                            disable: true // webpack@2.x and newer
-                        }
-                    }
-                ]
+                type: 'asset/resource'
+            },
+            { 
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+                type: 'asset/inline',
+            },
+            {
+                test: /\.(ttf|eot|svg)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext][query]'
+                }
             }
         ]
     },
