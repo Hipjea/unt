@@ -21,19 +21,19 @@
     }
 </style>
 
-<script>
-    $(document).ready(function() {
-        cssVars({
-            watch: true,
-            variables: {
-                '--main-color': '{{ themeOptions.mainColor }}',
-                '--secondary-color': '{{ themeOptions.secondaryColor }}',
-                '--tertiary-color': '{{ themeOptions.tertiaryColor }}',
-                '--title-maincolor': '{{ themeOptions.titleMainColor }}',
-                '--title-seccolor': '{{ themeOptions.titleSecColor }}'
-            }
-        });
-    })
+<script type="text/javascript">
+    cssVars({
+        watch: true,
+        silent: true,
+        updateURLs: false,
+        variables: {
+            '--main-color': '{{ themeOptions.mainColor }}',
+            '--secondary-color': '{{ themeOptions.secondaryColor }}',
+            '--tertiary-color': '{{ themeOptions.tertiaryColor }}',
+            '--title-maincolor': '{{ themeOptions.titleMainColor }}',
+            '--title-seccolor': '{{ themeOptions.titleSecColor }}'
+        }
+    });
 </script>
 
 <script id="custom-js-global-options">
