@@ -22,13 +22,8 @@
     <link rel="author" href="{{ site.theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    <script>
-        var metadataNoticeObject = {};
-        var metadataNotice;	// variable utilisée dans le cadre du projet Pericles (hors portail)
-    </script>
+    <script>var metadataNoticeObject = {};</script>
     <script src="{{ assets.getVendorUrl('jquery/jquery.min.js') }}"></script>
     <script src="{{ assets.getVendorUrl('jquery-ui/jquery-ui.min.js') }}"></script>
 
@@ -39,9 +34,6 @@
     <link rel="stylesheet" href="{{ assets.getVendorUrl('owlcarousel/assets/owl.theme.default.min.css') }}" />
     <script type="text/javascript" src="{{ assets.getVendorUrl('owlcarousel/owl.carousel.min.js') }}"></script>
     <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
-    {% if themeOptions.recommandationVisibility == 1 %}
-    <script type="text/javascript" async="" src="https://unt-cdn.sailendra.net/sailsense.js"></script>
-    {% endif %}
     <script type="text/javascript" src="{{ assets.getVendorUrl('ponyfill/css-vars-ponyfill.js') }}"></script>
     {{ themeOptions.matomoScript }}
     {{function('wp_head')}}

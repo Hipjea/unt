@@ -18,7 +18,7 @@ class CustomizeManager
     }
 
     public function enqueueCustomizePreviewJs() {
-        $src = $this->assetService->getUri() . '/scripts/customize-preview.js';
+        $src = $this->assetService->getUri() . '/js/customize-preview.js';
         wp_enqueue_script('unt-customize-preview', $src, ['customize-preview'], '', true);
     }
 
@@ -110,39 +110,39 @@ class CustomizeManager
     }
 
     public function controlTitleMainColor(\WP_Customize_Manager $wp_customize) {
-        $wp_customize->add_setting('unt_theme[title-main-color]', [
+        $wp_customize->add_setting('unt_theme[title-maincolor]', [
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[title-main-color]' )->transport = 'postMessage';
+        $wp_customize->get_setting( 'unt_theme[title-maincolor]' )->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $wp_customize,
-                'unt_theme[title-main-color]',
+                'unt_theme[title-maincolor]',
                 array(
                     'label'      => __( 'Couleur des titres principaux', 'unt' ),
                     'section'    => 'unt_themes',
-                    'settings'   => 'unt_theme[title-main-color]',
+                    'settings'   => 'unt_theme[title-maincolor]',
                 ) )
         );
     }
 
     public function controlTitleSecColor(\WP_Customize_Manager $wp_customize) {
-        $wp_customize->add_setting('unt_theme[title-sec-color]', [
+        $wp_customize->add_setting('unt_theme[title-seccolor]', [
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[title-sec-color]' )->transport = 'postMessage';
+        $wp_customize->get_setting( 'unt_theme[title-seccolor]' )->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $wp_customize,
-                'unt_theme[title-sec-color]',
+                'unt_theme[title-seccolor]',
                 array(
                     'label'      => __( 'Couleur des titres secondaires', 'unt' ),
                     'section'    => 'unt_themes',
-                    'settings'   => 'unt_theme[title-sec-color]',
+                    'settings'   => 'unt_theme[title-seccolor]',
                 ) )
         );
     }
@@ -418,6 +418,15 @@ class CustomizeManager
         }
         if (isset($options['secondary-color'])) {
             $model->setSecondaryColor($options['secondary-color']);
+        }
+        if (isset($options['tertiary-color'])) {
+            $model->setTertiaryColor($options['tertiary-color']);
+        }
+        if (isset($options['title-maincolor'])) {
+            $model->setTitleMainColor($options['title-maincolor']);
+        }
+        if (isset($options['title-seccolor'])) {
+            $model->setTitleSecColor($options['title-seccolor']);
         }
         if (isset($options['tertiary-color'])) {
             $model->setTertiaryColor($options['tertiary-color']);
