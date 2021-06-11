@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -9,8 +10,8 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, './assets_dist'),
-        publicPath: '/wp-content/themes/unt/assets/dist/'
+        path: path.resolve(__dirname, 'assets_dist'),
+        publicPath: '/wp-content/themes/unt/assets_dist/'
     },
     module: {
         rules: [
@@ -22,51 +23,61 @@ module.exports = {
                         loader: 'style-loader'
                     },
                     {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false
+                        }
+                    },
+                    {
                         // Interprets `@import` and `url()` like `import/require()` and will resolve them
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
                         // Loader for webpack to process CSS with PostCSS
                         loader: 'postcss-loader',
                         options: {
-                            plugins: function () {
-                                return [
-                                    require('autoprefixer')
-                                ];
-                            }
-                        }
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "autoprefixer",
+                                        {
+                                            // Options
+                                        },
+                                    ],
+                                ],
+                            },
+                        },
                     },
                     {
-                        // Loads a SASS/SCSS file and compiles it to CSS
                         loader: 'sass-loader'
                     }
                 ]
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            bypassOnDebug: true, // webpack@1.x
-                            disable: true // webpack@2.x and newer
-                        }
-                    }
-                ]
+                type: 'asset/resource'
+            },
+            {
+                test: /\.(ttf|eot|svg|woff|woff2)$/,
+                type: 'asset/inline'
             }
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from: 'assets/images', to: 'images'},
-            {from: 'assets/fonts', to: 'fonts'},
-            {from: 'assets/js/toCopy', to: 'js'},
-            {from: 'node_modules/jquery/dist', to: 'vendors/jquery'},
-            {from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui'},
-            {from: 'node_modules/jstree/dist', to: 'vendors/jstree'},
-            {from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel'},
-            {from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill'},
-        ]),
+        new CopyWebpackPlugin(
+            { 
+                patterns: [
+                    { from: 'assets/images', to: 'images' },
+                    { from: 'assets/fonts', to: 'fonts' },
+                    { from: 'assets/js/toCopy', to: 'js' },
+                    { from: 'node_modules/jquery/dist', to: 'vendors/jquery' },
+                    { from: 'node_modules/jquery-ui-dist', to: 'vendors/jquery-ui' },
+                    { from: 'node_modules/jstree/dist', to: 'vendors/jstree' },
+                    { from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel' },
+                    { from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill' },
+                ]
+            }
+        ),
+        new MiniCssExtractPlugin()
     ]
 };
