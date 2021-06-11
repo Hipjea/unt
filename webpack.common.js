@@ -4,14 +4,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        'app': './assets/js/app-main.js',
-        'notice': './assets/js/app-notice.js',
-        'resultats': './assets/js/app-resultats.js',
+        app: './assets/js/app-main.js',
+        notice: './assets/js/app-notice.js',
+        resultats: './assets/js/app-resultats.js'
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'assets_dist'),
-        publicPath: '/wp-content/themes/unt/assets_dist/'
+        publicPath: '/wp-content/themes/unt/assets_dist/',
+        pathinfo: false
     },
     module: {
         rules: [

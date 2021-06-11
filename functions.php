@@ -13,6 +13,8 @@ foreach (scandir($confDir) as $file) {
     }
 }
 
+remove_action('wp_head', 'wp_generator');
+
 /// =================================
 // Init Services (related to UOH domain)
 /// =================================
