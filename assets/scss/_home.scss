@@ -128,7 +128,7 @@
 }
 
 .inscription-newsletter-wrapper {
-  background-size: cover;
+  background-size: cover !important; /* !important because custom-theme-options.twig styles are passed after the CSS inclusion */
 
   .inscription-newsletter-wrapper-color {
     padding: 40px 30px;
