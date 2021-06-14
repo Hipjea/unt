@@ -16,12 +16,6 @@ class ThemeOptionsModel
     private $tertiaryColor = "";
 
     /** @var string */
-    private $titleMainColor = "";
-
-    /** @var string */
-    private $titleSecColor = "";
-
-    /** @var string */
     private $headerTitle = "";
 
     /** @var string */
@@ -147,42 +141,6 @@ class ThemeOptionsModel
     public function setTertiaryColor(string $tertiaryColor): ThemeOptionsModel
     {
         $this->tertiaryColor = $tertiaryColor;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitleMainColor(): string
-    {
-        return $this->titleMainColor;
-    }
-
-    /**
-     * @param string $titleMainColor
-     * @return ThemeOptionsModel
-     */
-    public function setTitleMainColor(string $titleMainColor): ThemeOptionsModel
-    {
-        $this->titleMainColor = $titleMainColor;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitleSecColor(): string
-    {
-        return $this->titleSecColor;
-    }
-
-    /**
-     * @param string $titleSecColor
-     * @return ThemeOptionsModel
-     */
-    public function setTitleSecColor(string $titleSecColor): ThemeOptionsModel
-    {
-        $this->titleSecColor = $titleSecColor;
         return $this;
     }
 

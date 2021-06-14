@@ -1,8 +1,8 @@
 {#  data-main-color : est utilisé dans la preview pour remplacer mainColor par la nouvelle couleur selectionnée#}
-{% if themeOptions.gfontsImports|first|length > 0 %}
+{% if themeOptions.gfontsImports is not null and themeOptions.gfontsImports|length %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    {% for gfontImport in themeOptions.gfontsImports %}
-        {% if gFontImport is not empty %}
+    {% for key, gfontImport in themeOptions.gfontsImports %}
+        {% if key >= 0 %}
             <link href="https://fonts.googleapis.com/css2?family={{ gfontImport | replace({' ':'+'}) }}&display=swap" rel="stylesheet">
         {% endif %}
     {% endfor %}
@@ -13,8 +13,7 @@
     data-secondary-color="{{ themeOptions.secondaryColor }}"
     data-tertiary-color="{{ themeOptions.tertiaryColor }}">
     :root {
-        /* :root is a clever way of saying "the outer-most element" */
-        --main-color: {{ themeOptions.mainColor }}; /* the default */
+        --main-color: {{ themeOptions.mainColor }};
         --secondary-color: {{ themeOptions.secondaryColor }};
         --tertiary-color: {{ themeOptions.tertiaryColor }};
     }
@@ -27,25 +26,17 @@
     }
 
     {% macro add_font_settings(selector, settings) %}
-        {% if settings.color is not null %}
-            {{ selector }} {
-                color: {{ settings.color }}
-            }
+        {% if settings.color is not empty %}
+            {{ selector }} { color: {{ settings.color }} }
         {% endif %}
-        {% if settings.lineHeight is not null %}
-            {{ selector }} {
-                line-height: {{ settings.lineHeight }}
-            }
+        {% if settings.lineHeight is not empty %}
+            {{ selector }} { line-height: {{ settings.lineHeight }} }
         {% endif %}
-        {% if settings.fontSize is not null %}
-            {{ selector }} {
-                font-size: {{ settings.fontSize }}
-            }
+        {% if settings.fontSize is not empty %}
+            {{ selector }} { font-size: {{ settings.fontSize }} }
         {% endif %}
-        {% if settings.fontFamily is not null %}
-            {{ selector }} {
-                font-family: {{ settings.fontFamily }}
-            }
+        {% if settings.fontFamily is not empty %}
+            {{ selector }} { font-family: {{ settings.fontFamily }} }
         {% endif %}
 	{% endmacro %}
 
