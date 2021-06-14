@@ -19,7 +19,8 @@
     "jquery-ui-dist": "^1.12.1",
     "jstree": "^3.3.7",
     "owl.carousel": "^2.3.4",
-    "popper.js": "^1.14.7"
+    "popper.js": "^1.14.7",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@webpack-cli/generators": "^2.2.0",

@@ -51,10 +51,6 @@ a:hover {
     line-height: 1.2;
   }
 
-  /*h1 {
-    font-weight: bold;
-  }*/
-
   .bg-light {
     background-color: transparent !important;
   }
@@ -269,7 +265,7 @@ a:hover {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
   font-family: "OpenSans" !important;
-  color: #454545;
+  color: $blackText;
 
   p, ul {
     line-height: 2;
@@ -277,13 +273,11 @@ a:hover {
 
   h1, h2, h3 {
     line-height: 2;
-    color: var(--title-maincolor);
     font-weight: bold;
   }
 
   h4, h5, h6 {
     line-height: 2;
-    color: var(--title-seccolor);
     font-weight: bold;
   }
 

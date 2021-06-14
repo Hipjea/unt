@@ -2,6 +2,8 @@
 
 namespace Unt\Models;
 
+use Unt\Models\FontSettingsModel;
+
 class ThemeOptionsModel
 {
     /** @var string */
@@ -69,6 +71,30 @@ class ThemeOptionsModel
 
     /** @var string */
     private $matomoScript = "";
+
+    /** @var array */
+    private $gfontsImports;
+    
+    /** @var FontSettingsModel */
+    private $baseFontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h1FontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h2FontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h3FontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h4FontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h5FontSettings;
+    
+    /** @var FontSettingsModel */
+    private $h6FontSettings;
 
     /**
      * @return string
@@ -447,6 +473,149 @@ class ThemeOptionsModel
     public function setMatomoScript(string $matomoScript): void
     {
         $this->matomoScript = $matomoScript;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGfontsImports()
+    {
+        return $this->gfontsImports;
+    }
+
+    /**
+     * @param string $gfontsImports
+     */
+    public function setGfontsImports(array $gfontsImports): ThemeOptionsModel
+    {
+        $this->gfontsImports = $gfontsImports;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getBaseFontSettings(): FontSettingsModel
+    {
+        return $this->baseFontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $baseFontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setBaseFontSettings(FontSettingsModel $baseFontSettings): ThemeOptionsModel
+    {
+        $this->baseFontSettings = $baseFontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH1FontSettings(): FontSettingsModel
+    {
+        return $this->h1FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h1FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH1FontSettings(FontSettingsModel $h1FontSettings): ThemeOptionsModel
+    {
+        $this->h1FontSettings = $h1FontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH2FontSettings(): FontSettingsModel
+    {
+        return $this->h2FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h2FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH2FontSettings(FontSettingsModel $h2FontSettings): ThemeOptionsModel
+    {
+        $this->h2FontSettings = $h2FontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH3FontSettings(): FontSettingsModel
+    {
+        return $this->h3FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h3FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH3FontSettings(FontSettingsModel $h3FontSettings): ThemeOptionsModel
+    {
+        $this->h3FontSettings = $h3FontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH4FontSettings(): FontSettingsModel
+    {
+        return $this->h4FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h4FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH4FontSettings(FontSettingsModel $h4FontSettings): ThemeOptionsModel
+    {
+        $this->h4FontSettings = $h4FontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH5FontSettings(): FontSettingsModel
+    {
+        return $this->h5FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h5FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH5FontSettings(FontSettingsModel $h5FontSettings): ThemeOptionsModel
+    {
+        $this->h5FontSettings = $h5FontSettings;
+        return $this;
+    }
+
+    /**
+     * @return FontSettingsModel
+     */
+    public function getH6FontSettings(): FontSettingsModel
+    {
+        return $this->h6FontSettings;
+    }
+
+    /**
+     * @param FontSettingsModel $h6FontSettings
+     * @return ThemeOptionsModel
+     */
+    public function setH6FontSettings(FontSettingsModel $h6FontSettings): ThemeOptionsModel
+    {
+        $this->h6FontSettings = $h6FontSettings;
+        return $this;
     }
 
 }

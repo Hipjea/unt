@@ -1,14 +1,15 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <div class="content-text">
-        <div class="wp-home-text">
-            {{ homePageModel.paragrapheIntroduction }}
-        </div>
-    </div>
 
-    {% if aLaUneModel is not empty %}
-        <div class="a-la-une-wrapper home-container" id="content-home">
+    <div class="a-la-une-wrapper home-container" id="content-home">
+        <div class="content-text pb-1">
+            <div class="wp-home-text">
+                {{ homePageModel.paragrapheIntroduction }}
+            </div>
+        </div>
+
+        {% if aLaUneModel is not empty %}
             <div class="a-la-une">
                 <h1 class="text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h1>
                 <div class="container carousel-container">

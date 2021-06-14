@@ -2,7 +2,9 @@
 
 namespace Unt\Services;
 
-//require_once  __DIR__ . '/../../../../plugins/un-sendgrid/services.php';
+if (is_plugin_active('un-sendgrid/un-sendgrid.php')) {
+    require_once  __DIR__ . '/../../../../plugins/un-sendgrid/services.php';
+}
 
 use Timber\Timber;
 use Timber\Post;
