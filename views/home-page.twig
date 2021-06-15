@@ -22,7 +22,7 @@
                                     <a href="{{ carteALaUne.url }}">
 	                                    <div class="carte-notice">
 	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}
-	                                            <img class="carte-notice-image-full" src="{{ carteALaUne.imageUrl }}" />
+	                                            <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
 	                                            <div class="carte-notice-texte">
 	                                            </div>
 	                                            <div class="carte-a-la-une-footer">
@@ -79,7 +79,7 @@
                                         <div class="carte-zoom-sur">
                                             {% if zoomSurItem.image %}
                                                 <a href="{{ urlRessource }}" target="_blank" >
-                                                    <img class="carte-zoom-sur-image" src="{{ zoomSurItem.image }}" />
+                                                    <img class="carte-zoom-sur-image lozad" data-src="{{ zoomSurItem.image }}" />
                                                 </a>
                                             {% endif %}
                                             <div class="carte-zoom-sur-titre">
@@ -115,7 +115,7 @@
                         {% for child in projects_children %}
                             <div class="card">
                                 <a class="projects-spread-link" href="{{ child.link }}">
-                                    <img src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top pl-2 pr-2" alt="{{ child.title }}">
+                                    <img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top pl-2 pr-2 lozad" alt="{{ child.title }}">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ child.title }}</h5>
                                         {% if child.resume %} <p class="small">{{ child.resume }}</p> {% endif %}
@@ -151,7 +151,7 @@
                                 data-toggle="tooltip" data-placement="top" title="{{ partners.title }}">
                                 <div class="carte-actualite scale-card">
                                     {% if partners.imageUrl %} 
-                                        <img class="carte-actualite-image" src="{{ partners.imageUrl }}" />
+                                        <img class="carte-actualite-image lozad" data-src="{{ partners.imageUrl }}" />
                                     {% endif %}
                                 </div>
                             </a>

@@ -20,7 +20,7 @@
 				{% for child in project_children %}
 					<div class="col mb-4">
 						<div class="card">
-							<img src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top" alt="{{ child.title }}">
+							<img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top lozad" alt="{{ child.title }}">
 							<div class="card-body">
 								<h5 class="card-title">{{ child.title }}</h5>
 								<p class="card-text">

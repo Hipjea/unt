@@ -6,3 +6,4 @@ import './search';
 import './scroll-menu';
 import './carousel';
 import './scroll-scale';
+import './lazy-loading';
