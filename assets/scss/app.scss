@@ -268,17 +268,25 @@ a:hover {
   color: $blackText;
 
   p, ul {
-    line-height: 2;
+    line-height: $lineHeight;
+
+    li {
+      margin-bottom: .7em;
+    }
   }
 
   h1, h2, h3 {
-    line-height: 2;
+    line-height: $lineHeight;
     font-weight: bold;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
   }
 
   h4, h5, h6 {
-    line-height: 2;
+    line-height: $lineHeight;
     font-weight: bold;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
   }
 
   @media (min-width: 1024px) {

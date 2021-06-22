@@ -19,7 +19,7 @@ class HomePageService {
     /**
      * @return Timber\Post
      */
-    public function getProjectsPageId() : int {
+    public function getProjectsPageId() {
         $args = [
             'post_type' => 'page',
             'post_parent' => 0,

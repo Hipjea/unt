@@ -19,15 +19,17 @@
             <div class="row row-cols-1 row-cols-md-4 mt-5">
 				{% for child in project_children %}
 					<div class="col mb-4">
-						<div class="card">
-							<img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top lozad" alt="{{ child.title }}">
-							<div class="card-body">
-								<h5 class="card-title">{{ child.title }}</h5>
-								<p class="card-text">
-									<a href="{{ child.link }}">{{ child.title }}</a>
-								</p>
+						<a href="{{ child.link }}">
+							<div class="card card-project">
+								<img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top lozad" alt="{{ child.title }}">
+								<div class="card-body">
+									<h5 class="card-title">{{ child.title }}</h5>
+									<p class="card-text">
+										<a href="{{ child.link }}">{{ child.title }}</a>
+									</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				{% endfor %}
 			</div>

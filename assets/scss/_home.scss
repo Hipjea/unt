@@ -1,5 +1,8 @@
 .home-container {
-  //margin-bottom: 100px;
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0;
+  }
 
   .home-container-text {
     font-size: 1.2em;
@@ -173,6 +176,7 @@
 
 #content-home {
   background-color: $wrapperBg;
+  padding-bottom: 80px;
 }
 
 .col-8 {

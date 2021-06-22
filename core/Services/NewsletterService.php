@@ -2,6 +2,9 @@
 
 namespace Unt\Services;
 
+if (!function_exists('is_plugin_active')) {
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+}
 if (is_plugin_active('un-sendgrid/un-sendgrid.php')) {
     require_once  __DIR__ . '/../../../../plugins/un-sendgrid/services.php';
 }
