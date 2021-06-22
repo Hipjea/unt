@@ -4,6 +4,7 @@ namespace Unt\Managers;
 
 use Unt\Models\ThemeOptionsModel;
 use Unt\Services\AssetService;
+use Unt\Models\FontSettingsModel;
 
 class CustomizeManager
 {
@@ -24,6 +25,8 @@ class CustomizeManager
     }
 
     public function enqueueCustomizePreviewJs() {
+        $src = $this->assetService->getUri() . '/scripts/webfont.js';
+        wp_enqueue_script('webfont', $src, array(), '1.6.26', true);
         $src = $this->assetService->getUri() . '/js/customize-preview.js';
         wp_enqueue_script('unt-customize-preview', $src, ['customize-preview'], '', true);
     }
@@ -38,8 +41,6 @@ class CustomizeManager
         $this->controlMainColor($wp_customize);
         $this->controlSecondaryColor($wp_customize);
         $this->controlTertiaryColor($wp_customize);
-        $this->controlTitleMainColor($wp_customize);
-        $this->controlTitleSecColor($wp_customize);
         $this->controlHeaderTitle($wp_customize);
         $this->controlHeaderSubTitle($wp_customize);
         $this->controlFaviconImage($wp_customize);
@@ -56,7 +57,14 @@ class CustomizeManager
         $this->controlExternalSearchUrl($wp_customize);
         $this->controlRecommandationVisibility($wp_customize);
         $this->controlMatomoScript($wp_customize);
+
+        $wp_customize->add_section('unt_style', [
+            'title'      => __('Réglages des styles', 'unt'),
+            'priority'   => 20,
+        ]);
+        $this->controlFonts($wp_customize);
     }
+
 
     public function controlMainColor(\WP_Customize_Manager $wp_customize) {
         $wp_customize->add_setting('unt_theme[main-color]', [
@@ -111,44 +119,6 @@ class CustomizeManager
                     'label'      => __( 'Couleur tertiaire', 'unt' ),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[tertiary-color]',
-                ) )
-        );
-    }
-
-    public function controlTitleMainColor(\WP_Customize_Manager $wp_customize) {
-        $wp_customize->add_setting('unt_theme[title-maincolor]', [
-            'default'        => '',
-            'capability'     => 'edit_theme_options',
-        ]);
-        $wp_customize->get_setting( 'unt_theme[title-maincolor]' )->transport = 'postMessage';
-
-        $wp_customize->add_control(
-            new \WP_Customize_Color_Control(
-                $wp_customize,
-                'unt_theme[title-maincolor]',
-                array(
-                    'label'      => __( 'Couleur des titres principaux', 'unt' ),
-                    'section'    => 'unt_themes',
-                    'settings'   => 'unt_theme[title-maincolor]',
-                ) )
-        );
-    }
-
-    public function controlTitleSecColor(\WP_Customize_Manager $wp_customize) {
-        $wp_customize->add_setting('unt_theme[title-seccolor]', [
-            'default'        => '',
-            'capability'     => 'edit_theme_options',
-        ]);
-        $wp_customize->get_setting( 'unt_theme[title-seccolor]' )->transport = 'postMessage';
-
-        $wp_customize->add_control(
-            new \WP_Customize_Color_Control(
-                $wp_customize,
-                'unt_theme[title-seccolor]',
-                array(
-                    'label'      => __( 'Couleur des titres secondaires', 'unt' ),
-                    'section'    => 'unt_themes',
-                    'settings'   => 'unt_theme[title-seccolor]',
                 ) )
         );
     }
@@ -411,6 +381,74 @@ class CustomizeManager
         ]);
     }
 
+
+    public function controlFonts(\WP_Customize_Manager $wp_customize) {
+        $this->addTextAreaControl($wp_customize, 'unt_style', 'Google Fonts : imports', 'unt_theme[gfonts-imports]', 'unt_gfonts_imports', '');
+        
+        $this->addFontControl($wp_customize, 'Base', 'base');
+        $this->addFontControl($wp_customize, 'Titre 1', 'h1');
+        $this->addFontControl($wp_customize, 'Titre 2', 'h2');
+        $this->addFontControl($wp_customize, 'Titre 3', 'h3');
+        $this->addFontControl($wp_customize, 'Titre 4', 'h4');
+        $this->addFontControl($wp_customize, 'Titre 5', 'h5');
+        $this->addFontControl($wp_customize, 'Titre 6', 'h6');
+    }
+    
+    public function addFontControl(\WP_Customize_Manager $wp_customize, $label, $prefix) {
+        $this->addTextControl($wp_customize, 'unt_style', $label . ' : police', 'unt_theme[' . $prefix . '-fontfamily]', 'unt_' . $prefix . '_fontfamily', '');
+        $this->addColorControl($wp_customize, 'unt_style', $label . ' : couleur', 'unt_theme[' . $prefix . '-color]', 'unt_' . $prefix . '_color', '');
+        $this->addTextControl($wp_customize, 'unt_style', $label . ' : taille de police', 'unt_theme[' . $prefix . '-fontsize]', 'unt_' . $prefix . '_fontsize', '');
+        $this->addTextControl($wp_customize, 'unt_style', $label . ' : hauteur de ligne', 'unt_theme[' . $prefix . '-lineheight]', 'unt_' . $prefix . '_lineheight', '');
+    }
+    
+    public function addTextControl(\WP_Customize_Manager $wp_customize, $section, $label, $name, $ctrlName, $default) {
+        $wp_customize->add_setting($name, [
+            'default'        => $default,
+            'capability'     => 'edit_theme_options'
+        ]);
+        $wp_customize->get_setting($name)->transport = 'postMessage';
+
+        $wp_customize->add_control($ctrlName, [
+            'label'      => __($label, 'unt'),
+            'section'    => $section,
+            'settings'   => $name
+        ]);
+    }
+    
+    public function addTextAreaControl(\WP_Customize_Manager $wp_customize, $section, $label, $name, $ctrlName, $default) {
+        $wp_customize->add_setting($name, [
+            'default'        => $default,
+            'capability'     => 'edit_theme_options'
+        ]);
+        $wp_customize->get_setting($name)->transport = 'postMessage';
+
+        $wp_customize->add_control($ctrlName, [
+            'label'      => __($label, 'unt'),
+            'section'    => $section,
+  			'type'       => 'textarea',
+            'settings'   => $name
+        ]);
+    }
+    
+    public function addColorControl(\WP_Customize_Manager $wp_customize, $section, $label, $name, $ctrlName, $default) {
+        $wp_customize->add_setting($name, [
+            'default'        => $default,
+            'capability'     => 'edit_theme_options'
+        ]);
+        $wp_customize->get_setting($name)->transport = 'postMessage';
+
+        $wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $wp_customize,
+                $ctrlName,
+                array(
+                    'label'      => __( $label, 'unt' ),
+                    'section'    => $section,
+                    'settings'   => $name,
+                ) )
+        );
+    }
+
     /**
      * @return ThemeOptionsModel
      */
@@ -427,12 +465,6 @@ class CustomizeManager
         }
         if (isset($options['tertiary-color'])) {
             $model->setTertiaryColor($options['tertiary-color']);
-        }
-        if (isset($options['title-maincolor'])) {
-            $model->setTitleMainColor($options['title-maincolor']);
-        }
-        if (isset($options['title-seccolor'])) {
-            $model->setTitleSecColor($options['title-seccolor']);
         }
         if (isset($options['tertiary-color'])) {
             $model->setTertiaryColor($options['tertiary-color']);
@@ -485,8 +517,38 @@ class CustomizeManager
         if (isset($options['matomo-script'])) {
             $model->setMatomoScript($options['matomo-script']);
         }
+        if (isset($options['gfonts-imports'])) {
+            $fonts = explode(PHP_EOL, $options['gfonts-imports']);
+            $fonts = $fonts[0] != "" ? $fonts : array(); 
+            $model->setGfontsImports($fonts);
+        }
+        $model->setBaseFontSettings($this->getFontSettings($options, 'base'));
+        $model->setH1FontSettings($this->getFontSettings($options, 'h1'));
+        $model->setH2FontSettings($this->getFontSettings($options, 'h2'));
+        $model->setH3FontSettings($this->getFontSettings($options, 'h3'));
+        $model->setH4FontSettings($this->getFontSettings($options, 'h4'));
+        $model->setH5FontSettings($this->getFontSettings($options, 'h5'));
+        $model->setH6FontSettings($this->getFontSettings($options, 'h6'));
 
         return $model;
+    }
+
+    public function getFontSettings($options, $name) : FontSettingsModel {
+        $fontSettings = new FontSettingsModel();
+        if (isset($options[$name . '-fontfamily'])) {
+            $fontSettings->setFontFamily($options[$name . '-fontfamily']);
+        }
+        if (isset($options[$name . '-color'])) {
+            $fontSettings->setColor($options[$name . '-color']);
+        }
+        if (isset($options[$name . '-fontsize'])) {
+            $fontSettings->setFontSize($options[$name . '-fontsize']);
+        }
+        if (isset($options[$name . '-lineheight'])) {
+            $fontSettings->setLineHeight($options[$name . '-lineheight']);
+		}
+		
+        return $fontSettings;
     }
 
 }

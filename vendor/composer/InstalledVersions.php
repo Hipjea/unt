@@ -189,13 +189,13 @@ $ranges = array();
 if (isset(self::$installed['versions'][$packageName]['pretty_version'])) {
 $ranges[] = self::$installed['versions'][$packageName]['pretty_version'];
 }
-if (array_key_exists('aliases', self::$installed['versions'][$packageName])) {
+if (property_exists('aliases', self::$installed['versions'][$packageName])) {
 $ranges = array_merge($ranges, self::$installed['versions'][$packageName]['aliases']);
 }
-if (array_key_exists('replaced', self::$installed['versions'][$packageName])) {
+if (property_exists('replaced', self::$installed['versions'][$packageName])) {
 $ranges = array_merge($ranges, self::$installed['versions'][$packageName]['replaced']);
 }
-if (array_key_exists('provided', self::$installed['versions'][$packageName])) {
+if (property_exists('provided', self::$installed['versions'][$packageName])) {
 $ranges = array_merge($ranges, self::$installed['versions'][$packageName]['provided']);
 }
 

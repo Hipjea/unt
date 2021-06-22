@@ -13,7 +13,6 @@ foreach (scandir($confDir) as $file) {
     }
 }
 
-remove_action('wp_head', 'wp_generator');
 
 /// =================================
 // Init Services (related to UOH domain)
@@ -92,3 +91,36 @@ $timberContext['assets'] = $assetService;
 $timberContext['router'] = $routerService;
 $timberContext['site'] = new \Timber\Site();
 $timberContext['siteTitle'] = get_bloginfo();
+
+
+/// =================================
+// Custom WP fonctions
+/// =================================
+function add_images_lazyloading($content) {
+    $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+    $dom = new DOMDocument();
+    @$dom->loadHTML($content);
+
+    foreach ($dom->getElementsByTagName('img') as $node) {  
+        $oldsrc = $node->getAttribute('src');
+        $node->setAttribute('data-src', $oldsrc);
+        $tempsrc = get_theme_root_uri().'/assets/images/placeholder.png';
+        $node->setAttribute('src', $tempsrc);
+        $classes = $node->getAttribute('class');
+        $node->setAttribute('class', $classes . ' lozad');
+    }
+    $newHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace(
+        array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $dom->saveHTML())
+    );
+    return $newHtml;
+}
+
+add_filter('the_content', 'add_images_lazyloading');
+
+// Remove Wordpress generator meta
+remove_action('wp_head', 'wp_generator');
+// Remove Wordpress Emoji garbage
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('admin_print_styles', 'print_emoji_styles');

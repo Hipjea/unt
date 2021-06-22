@@ -1,24 +1,52 @@
-{#  data-main-color : est utilisé dans la preview pour remplacer mainColor, secondaryColor et tertiaryColor par la nouvelle couleur selectionnée#}
+{#  data-main-color : est utilisé dans la preview pour remplacer mainColor par la nouvelle couleur selectionnée#}
+{% if themeOptions.gfontsImports is not null and themeOptions.gfontsImports|length %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    {% for key, gfontImport in themeOptions.gfontsImports %}
+        {% if key >= 0 %}
+            <link href="https://fonts.googleapis.com/css2?family={{ gfontImport | replace({' ':'+'}) }}&display=swap" rel="stylesheet">
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 <style id="custom-theme-options" 
     data-main-color="{{ themeOptions.mainColor }}" 
     data-secondary-color="{{ themeOptions.secondaryColor }}"
-    data-tertiary-color="{{ themeOptions.tertiaryColor }}"
-    data-title-maincolor="{{ themeOptions.titleMainColor }}"
-    data-title-seccolor="{{ themeOptions.titleSecColor }}">
+    data-tertiary-color="{{ themeOptions.tertiaryColor }}">
     :root {
-        /* :root is a clever way of saying "the outer-most element" */
-        --main-color: {{ themeOptions.mainColor }}; /* the default */
+        --main-color: {{ themeOptions.mainColor }};
         --secondary-color: {{ themeOptions.secondaryColor }};
         --tertiary-color: {{ themeOptions.tertiaryColor }};
-        --title-maincolor: {{ themeOptions.titleMainColor }};
-        --title-seccolor: {{ themeOptions.titleSecColor }};
     }
     .home-header {
         background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05) ), url({{ themeOptions.headerBackgroundImage }}) no-repeat top;
     }
     .inscription-newsletter-wrapper {
         background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({{ assets.imageUrl('background-newsletter.jpg') }}) no-repeat top;
+        background-size: cover;
     }
+
+    {% macro add_font_settings(selector, settings) %}
+        {% if settings.color is not empty %}
+            {{ selector }} { color: {{ settings.color }} }
+        {% endif %}
+        {% if settings.lineHeight is not empty %}
+            {{ selector }} { line-height: {{ settings.lineHeight }} }
+        {% endif %}
+        {% if settings.fontSize is not empty %}
+            {{ selector }} { font-size: {{ settings.fontSize }} }
+        {% endif %}
+        {% if settings.fontFamily is not empty %}
+            {{ selector }} { font-family: {{ settings.fontFamily }} }
+        {% endif %}
+	{% endmacro %}
+
+    {{ _self.add_font_settings('.content-wrapper', themeOptions.baseFontSettings) }}
+	{{ _self.add_font_settings('h1', themeOptions.h1FontSettings) }}
+	{{ _self.add_font_settings('h2', themeOptions.h2FontSettings) }}
+	{{ _self.add_font_settings('h3', themeOptions.h3FontSettings) }}
+	{{ _self.add_font_settings('h4', themeOptions.h4FontSettings) }}
+	{{ _self.add_font_settings('h5', themeOptions.h5FontSettings) }}
+	{{ _self.add_font_settings('h6', themeOptions.h6FontSettings) }}
 </style>
 
 <script type="text/javascript" id="custom-js-global-options">
@@ -30,8 +58,6 @@
             '--main-color': '{{ themeOptions.mainColor }}',
             '--secondary-color': '{{ themeOptions.secondaryColor }}',
             '--tertiary-color': '{{ themeOptions.tertiaryColor }}',
-            '--title-maincolor': '{{ themeOptions.titleMainColor }}',
-            '--title-seccolor': '{{ themeOptions.titleSecColor }}'
         }
     });
     var untConfig = {

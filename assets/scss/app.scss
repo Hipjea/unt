@@ -51,10 +51,6 @@ a:hover {
     line-height: 1.2;
   }
 
-  /*h1 {
-    font-weight: bold;
-  }*/
-
   .bg-light {
     background-color: transparent !important;
   }
@@ -268,23 +264,29 @@ a:hover {
 .content-wrapper {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
-  font-family: "OpenSans" !important;
-  color: #454545;
+  font-family: "OpenSans";
+  color: $blackText;
 
   p, ul {
-    line-height: 2;
+    line-height: $lineHeight;
+
+    li {
+      margin-bottom: .7em;
+    }
   }
 
   h1, h2, h3 {
-    line-height: 2;
-    color: var(--title-maincolor);
+    line-height: $lineHeight;
     font-weight: bold;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
   }
 
   h4, h5, h6 {
-    line-height: 2;
-    color: var(--title-seccolor);
+    line-height: $lineHeight;
     font-weight: bold;
+    margin-top: 1.8em;
+    margin-bottom: 1em;
   }
 
   @media (min-width: 1024px) {

@@ -15,7 +15,6 @@
 
 use Timber\Timber;
 
-
 global $timberContext;
 
 $templates = array( 'index.twig' );
