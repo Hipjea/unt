@@ -15,7 +15,10 @@ class PartnerService {
         $results = [];
 
         /** @var Post $post */
-        $postList = Timber::get_posts(array('post_type' => 'partner', "suppress_filters" => 0));
+        $postList = Timber::get_posts(array(
+            'post_type' => 'partner',
+            'numberposts' => -1,
+            'suppress_filters' => 0));
 
         foreach ($postList as $post) {
             $model = $this->parsePostIntoPartnerModel($post);
