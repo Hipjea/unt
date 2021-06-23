@@ -50,18 +50,19 @@
 
 .scale-card-link {
   .scale-card {
-    height: 150px;
+    height: 105px;
     border-bottom: 0px;
     transform: scale(.5);
     -webkit-transition: all .7s ease;
     transition: all .7s ease;
+    display: grid;
 
     &.inview {
-      transform: scale(1);
+      transform: scale(.75);
     }
 
     .carte-scale-image {
-      object-fit: contain;
+      align-self: center;
       width: 100%;
     }
   }

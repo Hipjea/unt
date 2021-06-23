@@ -18,6 +18,7 @@ class PartnerService {
         $postList = Timber::get_posts(array(
             'post_type' => 'partner',
             'numberposts' => -1,
+            'orderby' => 'rand',
             'suppress_filters' => 0));
 
         foreach ($postList as $post) {

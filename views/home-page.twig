@@ -137,10 +137,10 @@
         </div>
     {% endif %}
 
-    <div class="container home-container pt-150">
+    <div class="container home-container pt-150 pb-150">
         {% if partnersList is not empty %}
             <h1 class="home-part-title text-center mb-5">Établissements membres</h1>
-            <div class="row">
+            <div id="partners-wrapper" class="row">
                 {% for partners in partnersList %}
                     {% if partners is not null %}
                         <div class="col-6 col-md-2">
@@ -149,7 +149,7 @@
                                 target="_blank" 
                                 alt="site web {{ partners.title }}"
                                 data-toggle="tooltip" data-placement="top" title="{{ partners.title }}">
-                                <div class="carte-actualite scale-card">
+                                <div class="scale-card">
                                     {% if partners.imageUrl %} 
                                         <img class="carte-scale-image lozad" data-src="{{ partners.imageUrl }}" />
                                     {% endif %}
