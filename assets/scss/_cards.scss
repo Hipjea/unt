@@ -48,6 +48,26 @@
   }
 }
 
+.carte-partenaire {
+  height: auto;
+  border-bottom: 0px;
+  transform: scale(.85);
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+  display: grid;
+  
+  .carte-partenaire-image {
+    align-self: center;
+    width: 100%;
+  }
+  .carte-partenaire-texte {
+    font-size: 14px;
+    padding: 10px 15px;
+    align-items: start;
+    vertical-align: top;
+  }
+}
+
 .scale-card-link {
   .scale-card {
     height: 105px;

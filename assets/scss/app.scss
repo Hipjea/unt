@@ -10,8 +10,12 @@
 @import "home";
 @import "footer";
 @import "fonts";
+@import "tooltip";
 @import "utils";
-
+/*
+@import "~tippy.js/dist/tippy.css";
+@import "~tippy.js/themes/translucent.css";
+*/
 
 .form-control:focus {
   border-color: rgb(206, 212, 218);
@@ -173,6 +177,18 @@ a:hover {
     text-align: center;
     transform: translateY(+50%);
     width: 100%;
+
+    .input-group {
+      #search-navbar {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+
+      .input-group-append {
+        button {
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+      }
+    }
 
     @media (min-width: 1024px) {
       .input-group {

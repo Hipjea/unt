@@ -33,3 +33,30 @@ $lineHeight: 1.4;
         color: $aunegeColor;
     }
 }
+
+blockquote {
+    padding: 20px 20px 20px 60px;
+    margin: 25px 0 25px 0px;
+    border: 0;
+    border-left: 4px solid #e5e3e3;
+    background: rgba(15,2,2,.03);
+
+    &:before {
+        content: "\201C" !important;
+        font-family: Monaco;
+        color: $colorH1;
+        position: absolute;
+        font-size: 33px;
+        margin-left: -45px;
+        margin-top: -4px;
+    }
+
+    &:after {
+        content: "\201D" !important;
+        font-family: Monaco;
+        float: right;
+        color: #e5e3e3;
+        margin-top: -120px;
+        font-size: 130px;
+    }
+}
