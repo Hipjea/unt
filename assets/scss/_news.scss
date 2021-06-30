@@ -1,0 +1,58 @@
+.content-text {
+    h1.article-heading {
+        margin-bottom: 0;
+    }
+    .news-date {
+        color: $grayText;
+        font-family: "Lato";
+        font-size: 0.85em;
+        margin-bottom: 3.5em;
+    }
+    .wp-block-image {
+        margin-bottom: 3em !important;
+    }
+    iframe {
+        margin: 3em 0 !important;
+    }
+}
+
+.news-post {
+    padding-right: 40px;
+}
+
+.news-siderbar {
+    border-left: 1px solid #eee;
+    padding-left: 30px;
+
+    h5 {
+        margin-top: 0 !important;
+    }
+
+    ul {
+        padding-left: 0;
+
+        li {
+            list-style-type: none;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+    }
+}
+
+.link {
+    color: black !important;
+    padding-bottom: 2px;
+    border-bottom: 1px solid $grayAltSecondary;
+
+    &:hover {
+        border-bottom: 0px;
+    }
+}
+
+.unt-breadcrumb {
+    a {
+        i.fa {
+            padding-right: 10px !important;
+        }
+    }
+}

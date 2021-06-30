@@ -11,6 +11,7 @@
 @import "footer";
 @import "fonts";
 @import "tooltip";
+@import "news";
 @import "utils";
 /*
 @import "~tippy.js/dist/tippy.css";
@@ -311,24 +312,6 @@ a:hover {
     margin-top: 1.8em;
     margin-bottom: 1em;
     font-family: "Montserrat";
-  }
-
-  .content-text {
-    h1.article-heading {
-      margin-bottom: 0;
-    }
-    .news-date {
-      color: $grayText;
-      font-family: "Lato";
-      font-size: 0.85em;
-      margin-bottom: 3.5em;
-    }
-    .wp-block-image {
-      margin-bottom: 3em !important;
-    }
-    iframe {
-      margin: 3em 0 !important;
-    }
   }
 
   @media (min-width: 1024px) {
@@ -1007,3 +990,5 @@ a {
 .home-header .navbar-light .navbar-nav .menu-item a{
   font-size: 20px;
 }
+
+

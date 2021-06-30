@@ -33,8 +33,6 @@
             </div>
         </div>
         
-        {{ dump(pageCount) }}
-
         {% if newsCount > 1 %}
             {% set changePageUrl = site.link~"/liste-actualites/?pagination=" %}
             {% if newsPage <= 1 %}
