@@ -117,7 +117,6 @@
                                 <a class="projects-spread-link" href="{{ child.link }}">
                                     <img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top pl-2 pr-2 lozad" alt="{{ child.title }}">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ child.title }}</h5>
                                         {% if child.resume %} <p class="small">{{ child.resume }}</p> {% endif %}
                                         <p class="card-text">
                                             <a href="{{ child.link }}">En savoir plus</a>
@@ -129,8 +128,7 @@
                     </div>
                     <div class="col col-md-6 home-container-text">
                         <h1 class="home-part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h1>
-                        <p>La Fondation apporte un soutien financier à l’innovation pédagogique en organisant annuellement un appel 
-                        à projets auprès de ses membres. Ce sont ainsi plus de 250 actions qui ont été co-financées depuis la création d’UNIT.</p>
+                        <p>{{ homePageModel.blockProjects }}</p>
                     </div>
                 </div>
             </div>

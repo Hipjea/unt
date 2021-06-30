@@ -280,7 +280,9 @@ a:hover {
 .content-wrapper {
   //background-color: $wrapperBg;
   background-color: $whiteBg;
-  font-family: "OpenSans";
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
   color: $blackText;
 
   p, ul {
@@ -291,11 +293,16 @@ a:hover {
     }
   }
 
+  h1 {
+    font-size: 2.8rem;
+  }
+
   h1, h2, h3 {
     line-height: $lineHeight;
     font-weight: bold;
     margin-top: 1.8em;
     margin-bottom: 1em;
+    font-family: "Montserrat-SemiBold";
   }
 
   h4, h5, h6 {
@@ -303,6 +310,25 @@ a:hover {
     font-weight: bold;
     margin-top: 1.8em;
     margin-bottom: 1em;
+    font-family: "Montserrat";
+  }
+
+  .content-text {
+    h1.article-heading {
+      margin-bottom: 0;
+    }
+    .news-date {
+      color: $grayText;
+      font-family: "Lato";
+      font-size: 0.85em;
+      margin-bottom: 3.5em;
+    }
+    .wp-block-image {
+      margin-bottom: 3em !important;
+    }
+    iframe {
+      margin: 3em 0 !important;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -945,10 +971,6 @@ a:hover {
   }
 }
 
-.news-date {
-  font-style: italic;
-  text-align: right;
-}
 
 .iframe-ressource {
   display: block;

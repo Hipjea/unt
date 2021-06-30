@@ -7,6 +7,8 @@ use Timber\Timber;
 use Unt\Models\NewsModel;
 
 class NewsService {
+    const NEWSPERPAGE = 2;
+
     private function parsePostIntoNewsModel(Post $post) : NewsModel {
         return new NewsModel($post);
     }
@@ -16,7 +18,7 @@ class NewsService {
 
         /** @var Post $post */
         $postList = Timber::get_posts(array('post_type' => 'post', 
-                                            'posts_per_page' => 8, 
+                                            'posts_per_page' => self::NEWSPERPAGE, 
                                             'paged' => $page, 
                                             'suppress_filters' => 0, 
                                             'category_name' => 'actualites'));
@@ -32,6 +34,10 @@ class NewsService {
         return $postList = count(Timber::get_posts(array('post_type' => 'post', 'suppress_filters' => 0)));
     }
 
+    public function getNewsPerPage() : int {
+        return self::NEWSPERPAGE;
+    }
+
     public function getCurrentNews() : ?NewsModel {
         $result = null;
         /** @var Post $post */
@@ -42,4 +48,5 @@ class NewsService {
 
         return $result;
     }
+    
 }
