@@ -7,7 +7,7 @@ use Timber\Timber;
 use Unt\Models\NewsModel;
 
 class NewsService {
-    const NEWSPERPAGE = 9;
+    const NEWSPERPAGE = 1;
 
     private function parsePostIntoNewsModel(Post $post) : NewsModel {
         return new NewsModel($post);

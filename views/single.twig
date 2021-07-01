@@ -5,18 +5,23 @@
 		<div class="content-text container">
 			<div class="row">
 				<article id="post-{{ news.id }}" class="news-post col-md-12 {% if latestPosts > 1 %} col-lg-8{% endif %}">
-					<h1 class="article-heading">{{ news.title }}</h1>
+					<h1 class="article-heading">
+						{{ news.title }}
+					</h1>
 					<div class="news-date">
+						<div class="dot"></div>
 						Publié le&nbsp;{{ news.date }}
 						{% if categorie.slug == "actualites" %}
 							dans les <a href="{{ site.link }}/liste-actualites/" class="link">actualités</a>
 						{% endif %}
 					</div>
-					{{ news.fullContent }}
+					<div class="content">
+						{{ news.fullContent }}
+					</div>
 				</article>
 				{% if latestPosts > 1 %}
 					<aside class="news-siderbar d-none d-lg-inline col-lg-4">
-						<h5>{{ appMessage[currentLang].latestPosts }}</h5>
+						<h4>{{ appMessage[currentLang].latestPosts }}</h4>
 						<ul>
 							{% for post in latestPosts %}
 								<a class="actualite-lien" href="{{ post.postUrl }}">
@@ -31,13 +36,20 @@
 								</a>
 							{% endfor %}
 						</ul>
+						<a class="twitter-timeline"
+							href="https://twitter.com/FondationUNIT"
+							data-tweet-limit="1"></a>
+						<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 					</aside>
 				{% endif %}
 			</div>
 			{% if categorie.slug == "actualites" %}
-				<div class="row">
+				<div class="row news-footer">
 					<div class="col unt-breadcrumb">
-						<a href="{{ site.link }}/liste-actualites/"><i class="fa fa-arrow-left"></i> Retour aux actualités</a>
+						<a href="{{ site.link }}/liste-actualites/">
+							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
+							<span>Retour aux actualités</span>
+						</a>
 					</div>
 				</div>
 			{% endif %}
