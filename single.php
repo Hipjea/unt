@@ -26,7 +26,7 @@ $timberContext['news'] = $newsService->getCurrentNews();
 $timberContext['categorie'] = $category;
 $timberContext['latestPosts'] = array();
 $timberContext['latestPosts'] = $newsService->getLatestNews($post, $category);
-$timberContext['twitter'] = $themeOptions->getSocialSettings('twitter');
+$timberContext['twitter'] = @$themeOptions->getSocialSettings('twitter');
 
 $templates = [ 'single.twig' ];
 Timber::render( $templates, $timberContext );

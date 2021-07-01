@@ -31,7 +31,7 @@ class NewsService {
     }
 
     public function getNewsCount() : int {
-        return $postList = count(Timber::get_posts(array('post_type' => 'post', 'suppress_filters' => 0)));
+        return count(Timber::get_posts(array('post_type' => 'post', 'posts_per_page' => -1, 'suppress_filters' => 0)));
     }
 
     public function getNewsPerPage() : int {

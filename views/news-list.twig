@@ -1,7 +1,6 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
     <div class="content-text">
         <div class="container">
             <div class="row">
@@ -33,6 +32,7 @@
             </div>
         </div>
         
+
         {% if newsCount > 1 %}
             {% set changePageUrl = site.link~"/liste-actualites/?pagination=" %}
             {% if newsPage <= 1 %}
