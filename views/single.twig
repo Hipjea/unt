@@ -30,7 +30,9 @@
 											{{ post.post_title }}
 										</h6>
 										{% if post.imageUrl != '/images/default.jpg' %}
-											<img src="{{ post.imageUrl }}" class="col col-md-4" />
+											<div class="col col-md-4 pr-0">
+												<img src="{{ post.imageUrl }}" class="img-fluid" />
+											</div>
 										{% endif %}
 									</li>
 								</a>

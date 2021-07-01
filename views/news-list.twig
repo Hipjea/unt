@@ -1,7 +1,6 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
     <div class="content-text">
         <div class="container">
             <div class="row">
@@ -33,6 +32,7 @@
             </div>
         </div>
         
+
         {% if newsCount > 1 %}
             {% set changePageUrl = site.link~"/liste-actualites/?pagination=" %}
             {% if newsPage <= 1 %}
@@ -42,35 +42,37 @@
             {% endif %}
             <div class="resultats-pagination container">
                 <div class="row justify-content-center">
-                    {% if newsCount > 27 %}
+                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 2) and newsPage > 1 %}
                         <div class="col-auto">
-                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1"><<</a>
+                            {% if newsPage > 2 %}
+                                <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1"><<</a>
+                            {% endif %}
                             <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ prec }}"><</a>
                         </div>
                     {% endif %}
                     <div class="col-auto">
-                        <!-- NON ! si 1*9 (9) >= 3 et 1 -2 > 0 alors retour arrière de 2 pages -->
                         {% if (newsPage*newsPerPage) >= newsCount and newsPage - 2 > 0 %}
                             <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage - 2 }}">{{ newsPage - 2 }}</a>
                         {% endif %}
-                        <!-- NON ! si 1 > 1 retour arrière de 1 page -->
+                        <!-- Page courante -->
                         {% if newsPage > 1 %}
                             <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ prec }}">{{ prec }}</a>
                         {% endif %}
                         <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1">{{ newsPage }}</a>
-                        <!-- NON ! si 1*9 (9) < 3 alors retour avance de 1 pages -->
+                        <!-- Page suivante -->
                         {% if (newsPage*newsPerPage) < newsCount %}
                             <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage + 1 }}">{{ newsPage + 1 }}</a>
                         {% endif %}
-                        <!-- NON ! si 1*9*2 (18) < 3 et 1 == 1 alors retour avance de 2 pages -->
+                        <!-- Pages suivantes -->
                         {% if (newsPage*newsPerPage*2) < newsCount and newsPage == 1 %}
                             <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage + 2 }}">{{ newsPage + 2 }}</a>
                         {% endif %}
                     </div>
-                    {% if newsCount > 27 %}
+                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 3) 
+                        and (newsPage < (newsCount/newsPerPage)|round(0, 'ceil')) %}
                         <div class="col-auto">
                             <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ newsPage + 1 }}">></a>
-                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ (newsCount/9)|round(0, 'ceil') }}">>></a>
+                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ (newsCount/newsPerPage)|round(0, 'ceil') }}">>></a>
                         </div>
                     {% endif %}
                 </div>
