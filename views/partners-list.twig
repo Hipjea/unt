@@ -3,27 +3,31 @@
 
 {% block content %}
     <div class="content-text">
-        <div class="container scale-container">
+        <div class="container">
             <div class="row">
                 <div class="col-12 mb-5">
                     <h1>{{ post.post_title }}</h1>
                 </div>
             </div>
             <div class="row">
-                {% for partners in partnersList %}
-                    {% if partners is not null %}
-                        <div class="col-md-3">
-                            <a class="carte-actualite-lien" href="{{ partners.url }}" target="_blank" alt="site web {{ partners.title }}">
-                                <div class="carte-actualite scale-card">
-                                    <img class="carte-actualite-image lozad" data-src="{{ partners.imageUrl }}" />
-                                    <div class="carte-actualite-texte">
-                                        <h1>{{ partners.title }}</h1>
-                                    </div>
+                {% for partner in partnersList %}
+                    {% if partner is not null %}
+                        <div class="col-6 col-md-2">
+                            <a class="carte-actualite-lien scale-card-link" 
+                                href="{{ partner.url }}" 
+                                target="_blank" 
+                                alt="site web {{ partner.title }}"
+                                data-toggle="tooltip" data-placement="top" title="{{ partner.title }}">
+                                <div class="scale-card">
+                                    {% if partner.imageUrl %} 
+                                        <img class="carte-scale-image lozad" data-src="{{ partner.imageUrl }}" />
+                                    {% endif %}
                                 </div>
                             </a>
                         </div>
                     {% endif %}
                 {% endfor %}
+                <div id="partners-anchor"></div>
             </div>
         </div>
     </div>

@@ -2,10 +2,13 @@ $(window).on('resize scroll', function() {
     if ($('.scale-card').length > 0) {
         $.fn.isInViewport = function() {
             var elementTop = $('#partners-anchor').offset().top;
+            var wrapperHeight = $('#partners-wrapper').height();
             var elementBottom = elementTop + $(this).outerHeight();
             var viewportTop = $(window).scrollTop();
             var viewportBottom = viewportTop + $(window).height();
-            return elementBottom > viewportTop && elementTop < viewportBottom;
+            var elBtmCalc = (elementBottom + (wrapperHeight / 3));
+            var elTpCalc = (elementTop - (wrapperHeight / 3));
+            return elBtmCalc > viewportTop && elTpCalc < viewportBottom;
         };
 
         var cards = $('.scale-card');

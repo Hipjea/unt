@@ -18,6 +18,8 @@ if(isset($_GET['pagination']) and $_GET['pagination'] > 0) {
 $timberContext['newsList'] = $newsService->getNewsList($pagination);
 $timberContext['newsCount'] = $newsService->getNewsCount();
 $timberContext['newsPage'] = $pagination;
+$timberContext['newsPerPage'] = $newsService->getNewsPerPage();
+$timberContext['pageCount'] = ceil($newsService->getNewsCount() / $newsService->getNewsPerPage());
 
 $timberContext['titrePage'] = "Actualités";
 $templates = ['news-list.twig'];

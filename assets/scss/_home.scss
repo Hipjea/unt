@@ -4,14 +4,33 @@
     margin-bottom: 0;
   }
 
+  h1 {
+    font-size: 2.2rem !important;
+  }
+
   .home-container-text {
-    font-size: 1.2em;
+    font-size: 1.1em;
+  }
+}
+
+.loading-placeholder,
+#loading-placeholer-zoom-sur {
+  img {
+    width: 175px;
+    height: 450px;
+    margin-right: 10px;
+    float: left;
+  }
+}
+.owl-carousel-a-la-une,
+#carouselZoomSur {
+  .item {
+    display: none;
   }
 }
 
 .home-part-title {
   color: var(--main-color);
-  font-size: 30px;
   font-weight: bold;
 }
 

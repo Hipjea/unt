@@ -31,4 +31,18 @@ class HomePageService {
         $pages = get_posts($args);
         return $pages[0];
     }
+
+    /**
+     * @return string
+     */
+    public function getParagrapheIntroduction(): ?string {
+        return $this->post->{'paragraphe_dintroduction'};
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockProjects(): ?string {
+        return $this->post->{'block_projects'};
+    }
 }

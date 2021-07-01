@@ -1,0 +1,121 @@
+.content-text {
+    .news-post {
+        .content {
+            border-bottom: 1px solid $borderColor;
+            margin-bottom: 1.5em;
+            padding-bottom: 2.5em;
+        }
+
+        h1.article-heading {
+            margin-bottom: 0;
+        }
+
+        .news-date {
+            color: $grayText;
+            font-family: "Lato";
+            font-size: 0.85em;
+            margin-bottom: 3.5em;
+            margin-left: 2px;
+
+            .dot {
+                display: inline-block;
+                background: $grayText;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                animation: 2.5s ease infinite pulse;
+                box-shadow: 0 0 0;
+                margin-right: 4px;
+            }
+              
+            @keyframes pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba($grayText, 0.38);
+                }
+                100% {
+                    box-shadow: 0 0 0 8px rgba($grayText, 0);
+                }
+            }
+        }
+
+        .wp-block-image {
+            margin-bottom: 3em !important;
+        }
+
+        iframe {
+            margin: 3em 0 !important;
+        }
+    }
+
+    .news-footer {
+        margin-bottom: 2em;
+    }
+}
+
+.news-siderbar {
+    margin-top: 5em;
+    padding-left: 50px;
+
+    h4 {
+        margin-top: 0 !important;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $borderColor;
+    }
+
+    ul {
+        padding-left: 15px;
+        margin-right: 15px;
+
+        li {
+            list-style-type: none;
+            padding: 10px;
+            border-bottom: 1px solid $borderColor;
+
+            h6 {
+                margin-top: 0 !important;
+                color: $blackText !important;
+                font-weight: 100;
+                font-size: 0.9em;
+                padding: 0;
+            }
+
+            img {
+                padding-right: 0;
+            }
+        }
+    }
+
+    iframe {
+        margin-top: 1.5em !important;
+    }
+}
+
+.link {
+    color: $blackText !important;
+    padding-bottom: 2px;
+    border-bottom: 1px solid $grayAltSecondary;
+
+    &:hover {
+        border-bottom: 0px;
+    }
+}
+
+.unt-breadcrumb {
+    a {
+        color: $blackText !important;
+
+        img {
+            margin-right: 5px;
+            padding-bottom: 3px;
+        }
+
+        span {
+            margin-left: 0px;
+            font-weight: bold;
+            padding-bottom: 2px;
+            &:hover {
+                border-bottom: 1px solid $grayText;
+            }
+        }
+    }
+}

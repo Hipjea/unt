@@ -4,11 +4,11 @@
     background-color: var(--main-color);
     border: none;
     border-radius: 2px;
-    color: $pagination;
+    color: $pagination!important;
     padding: 5px 12px;
 
     &:hover {
-      color: $pagination;
+      color: $pagination!important;
     }
 
     &:active {
@@ -21,7 +21,7 @@
     background-color: $pagination;
     border: none;
     border-radius: 2px;
-    color: $colorH1;
+    color: $colorH1 !important;
     padding: 5px 12px;
 
     &:active{

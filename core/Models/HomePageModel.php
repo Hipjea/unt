@@ -48,4 +48,11 @@ class HomePageModel {
         $link = get_field('lien_newsletter',  $this->post->id);
         return $link;
     }
+
+    /**
+     * @return string
+     */
+    public function getBlockProjects(): ?string {
+        return $this->post->{'block_projects'};
+    }
 }

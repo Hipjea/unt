@@ -25,6 +25,7 @@ $timberContext['aLaUneModel'] = $aLaUneService->getALaUneList();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
 $timberContext['isHomePage'] = true;
 
+
 $projects = Timber::get_post($timberContext['projectsPageId']);
 if (isset($projects)) {
     $children = $projects->{'children'};

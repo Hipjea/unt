@@ -3,11 +3,56 @@
 {% block content %}
 	<div class="content-wrapper">
 		<div class="content-text container">
-			<article id="post-{{ news.id }}">
-                <div class="news-date">{{ news.date }}</div>
-				<h1>{{ news.title }}</h1><br/>
-                {{ news.fullContent }}
-			</article>
+			<div class="row">
+				<article id="post-{{ news.id }}" class="news-post col-md-12 {% if latestPosts > 1 %} col-lg-8{% endif %}">
+					<h1 class="article-heading">
+						{{ news.title }}
+					</h1>
+					<div class="news-date">
+						<div class="dot"></div>
+						Publié le&nbsp;{{ news.date }}
+						{% if categorie.slug == "actualites" %}
+							dans les <a href="{{ site.link }}/liste-actualites/" class="link">actualités</a>
+						{% endif %}
+					</div>
+					<div class="content">
+						{{ news.fullContent }}
+					</div>
+				</article>
+				{% if latestPosts > 1 %}
+					<aside class="news-siderbar d-none d-lg-inline col-lg-4">
+						<h4>{{ appMessage[currentLang].latestPosts }}</h4>
+						<ul>
+							{% for post in latestPosts %}
+								<a class="actualite-lien" href="{{ post.postUrl }}">
+									<li class="row">
+										<h6 class="col {% if post.imageUrl != '/images/default.jpg' %} col-md-8{% endif %}">
+											{{ post.post_title }}
+										</h6>
+										{% if post.imageUrl != '/images/default.jpg' %}
+											<img src="{{ post.imageUrl }}" class="col col-md-4" />
+										{% endif %}
+									</li>
+								</a>
+							{% endfor %}
+						</ul>
+						<a class="twitter-timeline"
+							href="https://twitter.com/{{ twitter }}"
+							data-tweet-limit="1"></a>
+						<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</aside>
+				{% endif %}
+			</div>
+			{% if categorie.slug == "actualites" %}
+				<div class="row news-footer">
+					<div class="col unt-breadcrumb">
+						<a href="{{ site.link }}/liste-actualites/">
+							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
+							<span>Retour aux actualités</span>
+						</a>
+					</div>
+				</div>
+			{% endif %}
 		</div>
 	</div><!-- /content-wrapper -->
 {% endblock %}
