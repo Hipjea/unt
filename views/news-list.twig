@@ -42,7 +42,7 @@
             {% endif %}
             <div class="resultats-pagination container">
                 <div class="row justify-content-center">
-                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > (newsPerPage * 3)) and newsPage > 1 %}
+                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 2) and newsPage > 1 %}
                         <div class="col-auto">
                             {% if newsPage > 2 %}
                                 <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1"><<</a>
@@ -68,7 +68,7 @@
                             <a class="btn btn-primary resultats-pagination-box" href="{{ changePageUrl }}{{ newsPage + 2 }}">{{ newsPage + 2 }}</a>
                         {% endif %}
                     </div>
-                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > (newsPerPage * 3)) 
+                    {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 3) 
                         and (newsPage < (newsCount/newsPerPage)|round(0, 'ceil')) %}
                         <div class="col-auto">
                             <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ newsPage + 1 }}">></a>
