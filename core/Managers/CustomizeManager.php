@@ -63,6 +63,12 @@ class CustomizeManager
             'priority'   => 20,
         ]);
         $this->controlFonts($wp_customize);
+
+        $wp_customize->add_section('unt_social', [
+            'title'      => __('Réseaux sociaux', 'unt'),
+            'priority'   => 30,
+        ]);
+        $this->controlSocial($wp_customize);
     }
 
 
@@ -71,14 +77,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[main-color]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[main-color]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $wp_customize,
                 'unt_theme[main-color]',
                 array(
-                    'label'      => __( 'Couleur principale', 'unt' ),
+                    'label'      => __('Couleur principale', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[main-color]',
                 ) )
@@ -90,14 +96,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[secondary-color]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[secondary-color]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $wp_customize,
                 'unt_theme[secondary-color]',
                 array(
-                    'label'      => __( 'Couleur secondaire', 'unt' ),
+                    'label'      => __('Couleur secondaire', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[secondary-color]',
                 ) )
@@ -109,14 +115,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[tertiary-color]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[tertiary-color]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $wp_customize,
                 'unt_theme[tertiary-color]',
                 array(
-                    'label'      => __( 'Couleur tertiaire', 'unt' ),
+                    'label'      => __('Couleur tertiaire', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[tertiary-color]',
                 ) )
@@ -128,7 +134,7 @@ class CustomizeManager
             'default'        => 'L\'UNIVERSITÉ NUMERIQUE',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[header-title]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[header-title]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_header_title', [
             'label'      => __('Entête : Titre principal', 'unt'),
@@ -142,7 +148,7 @@ class CustomizeManager
             'default'        => 'Des ressources pour l\'enseignement supérieur',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[header-sub-title]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[header-sub-title]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_header_subtitle', [
             'label'      => __('Entête : Sous titre', 'unt'),
@@ -156,14 +162,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[favicon-image]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[favicon-image]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Image_Control(
                 $wp_customize,
                 'unt_theme[favicon-image]',
                 [
-                    'label'      => __( 'Onglet de navigateur : Icon', 'unt' ),
+                    'label'      => __('Onglet de navigateur : Icon', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[favicon-image]',
                 ]
@@ -176,14 +182,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[header-bg-image]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[header-bg-image]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Image_Control(
                 $wp_customize,
                 'unt_theme[header-bg-image]',
                 [
-                    'label'      => __( 'Entête : Image de fond', 'unt' ),
+                    'label'      => __('Entête : Image de fond', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[header-bg-image]',
                 ]
@@ -196,14 +202,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[header-logo]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[header-logo]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Image_Control(
                 $wp_customize,
                 'unt_theme[header-logo]',
                 [
-                    'label'      => __( 'Entête : Logo', 'unt' ),
+                    'label'      => __('Entête : Logo', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[header-logo]',
                 ]
@@ -216,14 +222,14 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[header-logo-scroll]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[header-logo-scroll]')->transport = 'postMessage';
 
         $wp_customize->add_control(
             new \WP_Customize_Image_Control(
                 $wp_customize,
                 'unt_theme[header-logo-scroll]',
                 [
-                    'label'      => __( 'Entête : Logo (on scroll)', 'unt' ),
+                    'label'      => __('Entête : Logo (on scroll)', 'unt'),
                     'section'    => 'unt_themes',
                     'settings'   => 'unt_theme[header-logo-scroll]',
                 ]
@@ -236,7 +242,7 @@ class CustomizeManager
             'default'        => 'Copyright UNT - tous droits réservés',
             'capability'     => 'edit_theme_options',
         ]);
-        $wp_customize->get_setting( 'unt_theme[footer-copyright]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[footer-copyright]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_footer_copyright', [
             'label'      => __('Pied de page : Copyright', 'unt'),
@@ -250,7 +256,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[solr-enabled]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[solr-enabled]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_solr_enabled', [
             'label'      => __('Utiliser le moteur de recherche SOLR', 'unt'),
@@ -265,7 +271,7 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[zoom-solr-request]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[zoom-solr-request]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_zoom_solr_request', [
             'label'      => __('Zoom sur : requête Solr', 'unt'),
@@ -279,7 +285,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[facet-discipline-visibility]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[facet-discipline-visibility]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_facet_discipline_visibility', [
             'label'      => __('Affichage de la facette discipline', 'unt'),
@@ -294,7 +300,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[facet-niveau-visibility]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[facet-niveau-visibility]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_facet_niveau_visibility', [
             'label'      => __('Affichage de la facette niveaux', 'unt'),
@@ -309,7 +315,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[facet-type-visibility]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[facet-type-visibility]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_facet_type_visibility', [
             'label'      => __('Affichage de la facette type de ressource', 'unt'),
@@ -324,7 +330,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[facet-estampillage-visibility]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[facet-estampillage-visibility]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_facet_estampillage_visibility', [
             'label'      => __('Affichage de la facette estampillage', 'unt'),
@@ -339,7 +345,7 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[external-search-url]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[external-search-url]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_external_search_url', [
             'label'      => __('Adresse du service de recherche externe', 'unt'),
@@ -357,7 +363,7 @@ class CustomizeManager
             'default'        => true,
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[recommandation-visibility]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[recommandation-visibility]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_recommandation_visibility', [
             'label'      => __('Affichage des recommandations', 'unt'),
@@ -372,7 +378,7 @@ class CustomizeManager
             'default'        => '',
             'capability'     => 'edit_theme_options'
         ]);
-        $wp_customize->get_setting( 'unt_theme[matomo-script]' )->transport = 'postMessage';
+        $wp_customize->get_setting('unt_theme[matomo-script]')->transport = 'postMessage';
 
         $wp_customize->add_control('unt_matomo_script', [
             'label'      => __('Script Matomo', 'unt'),
@@ -442,11 +448,17 @@ class CustomizeManager
                 $wp_customize,
                 $ctrlName,
                 array(
-                    'label'      => __( $label, 'unt' ),
+                    'label'      => __( $label, 'unt'),
                     'section'    => $section,
                     'settings'   => $name,
                 ) )
         );
+    }
+
+    public function controlSocial(\WP_Customize_Manager $wp_customize) {
+        $this->addTextControl($wp_customize, 'unt_social', 'Twitter', 'unt_theme[social-twitter]', 'unt_social_twitter', '');
+        $this->addTextControl($wp_customize, 'unt_social', 'Facebook', 'unt_theme[social-facebook]', 'unt_social_facebook', '');
+        $this->addTextControl($wp_customize, 'unt_social', 'Instagram', 'unt_theme[social-instagram]', 'unt_social_instagram', '');
     }
 
     /**
@@ -550,5 +562,4 @@ class CustomizeManager
 		
         return $fontSettings;
     }
-
 }

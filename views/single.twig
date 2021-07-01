@@ -26,7 +26,7 @@
 							{% for post in latestPosts %}
 								<a class="actualite-lien" href="{{ post.postUrl }}">
 									<li class="row">
-										<h6 class="col {% if post.imageUrl != '/images/default.jpg' %}col-md-8{% endif %}">
+										<h6 class="col {% if post.imageUrl != '/images/default.jpg' %} col-md-8{% endif %}">
 											{{ post.post_title }}
 										</h6>
 										{% if post.imageUrl != '/images/default.jpg' %}
@@ -37,7 +37,7 @@
 							{% endfor %}
 						</ul>
 						<a class="twitter-timeline"
-							href="https://twitter.com/FondationUNIT"
+							href="https://twitter.com/{{ twitter }}"
 							data-tweet-limit="1"></a>
 						<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 					</aside>
