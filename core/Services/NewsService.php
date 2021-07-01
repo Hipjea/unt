@@ -48,5 +48,32 @@ class NewsService {
 
         return $result;
     }
+
+    public function getLatestNews($currentpost, $category) : array {
+        $results = array();
+        $args = array(
+            'posts_per_page' => 4,
+            'offset' => 0,
+            'cat' => $category->id,
+            'orderby' => 'ID',
+            'order' => 'DESC',
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'suppress_filters' => true 
+        );
+        $latest = Timber::get_posts($args);
+        
+        foreach($latest as $post) {
+            if ($post->ID != $currentpost->ID) {
+                $newPost = new \Timber\Post($post);
+                $model = $this->parsePostIntoNewsModel($newPost);
+                $newPost->imageUrl = $model->getImageUrl($newPost);
+                $newPost->postUrl = $model->getNewsUrl();
+                $results[] = $newPost;
+            }
+        }
+
+        return $results;
+    }
     
 }

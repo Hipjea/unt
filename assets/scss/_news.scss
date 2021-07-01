@@ -16,13 +16,9 @@
     }
 }
 
-.news-post {
-    padding-right: 40px;
-}
-
 .news-siderbar {
-    border-left: 1px solid #eee;
-    padding-left: 30px;
+    margin-top: 5em;
+    padding-left: 50px;
 
     h5 {
         margin-top: 0 !important;
@@ -35,6 +31,13 @@
             list-style-type: none;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            border-left: 1px solid #eee;
+
+            h6 {
+                color: $blackText !important;
+                font-weight: 100;
+                font-size: 0.9em;
+            }
         }
     }
 }

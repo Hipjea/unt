@@ -4,35 +4,43 @@
 	<div class="content-wrapper">
 		<div class="content-text container">
 			<div class="row">
-				<h1 class="col-12 article-heading">{{ news.title }}</h1>
-				<div class="col-12 news-date">
-					Publié le&nbsp;{{ news.date }}
-					{% if categorie.slug == "actualites" %}
-						dans les <a href="{{ site.link }}/liste-actualites/" class="link">actualités</a>
-					{% endif %}
-				</div>
-				<article id="post-{{ news.id }}" class="news-post col-md-12 col-xs-12 {% if latestPosts > 1 %} col-lg-9{% endif %}">
+				<article id="post-{{ news.id }}" class="news-post col-md-12 {% if latestPosts > 1 %} col-lg-8{% endif %}">
+					<h1 class="article-heading">{{ news.title }}</h1>
+					<div class="news-date">
+						Publié le&nbsp;{{ news.date }}
+						{% if categorie.slug == "actualites" %}
+							dans les <a href="{{ site.link }}/liste-actualites/" class="link">actualités</a>
+						{% endif %}
+					</div>
 					{{ news.fullContent }}
 				</article>
 				{% if latestPosts > 1 %}
-					<aside class="news-siderbar col-md-12 col-xs-12 col-lg-3">
+					<aside class="news-siderbar d-none d-lg-inline col-lg-4">
 						<h5>{{ appMessage[currentLang].latestPosts }}</h5>
 						<ul>
 							{% for post in latestPosts %}
-								<li>
-									<h6 class="w-66">{{ post.post_title }}</h6>
-									<img src={{ post.imageUrl }} class="mw-100" />
-								</li>
+								<a class="actualite-lien" href="{{ post.postUrl }}">
+									<li class="row">
+										<h6 class="col {% if post.imageUrl != '/images/default.jpg' %}col-md-8{% endif %}">
+											{{ post.post_title }}
+										</h6>
+										{% if post.imageUrl != '/images/default.jpg' %}
+											<img src="{{ post.imageUrl }}" class="col col-md-4" />
+										{% endif %}
+									</li>
+								</a>
 							{% endfor %}
 						</ul>
 					</aside>
 				{% endif %}
-				{% if categorie.slug == "actualites" %}
-					<div class="col-12 unt-breadcrumb">
+			</div>
+			{% if categorie.slug == "actualites" %}
+				<div class="row">
+					<div class="col unt-breadcrumb">
 						<a href="{{ site.link }}/liste-actualites/"><i class="fa fa-arrow-left"></i> Retour aux actualités</a>
 					</div>
-				{% endif %}
-			</div>
+				</div>
+			{% endif %}
 		</div>
 	</div><!-- /content-wrapper -->
 {% endblock %}
