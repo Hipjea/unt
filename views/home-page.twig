@@ -16,10 +16,15 @@
                     <div class="row">
                         <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
                         <div class="col-8 col-xl-10">
+                            <div class="loading-placeholder">
+                                <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                                <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                                <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                            </div>
                             <div class="owl-carousel-a-la-une owl-carousel owl-theme">
                                 {% for i in 0..aLaUneModel|length-1 %}
                                     {%  set carteALaUne = aLaUneModel[i] %}
-                                    <a href="{{ carteALaUne.url }}">
+                                    <a class="item" href="{{ carteALaUne.url }}">
 	                                    <div class="carte-notice">
 	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}
 	                                            <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
@@ -67,6 +72,11 @@
                         </div>
                         <div class="col-md-10 zoom-sur-carousel-wrapper">
                             <div id="zoom-sur-carousel">
+                                <div class="loading-placeholder-zoom-sur">
+                                    <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                                    <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                                    <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
+                                </div>
                                 <div id="carouselZoomSur" class="owl-carousel owl-theme">
                                     {% for zoomSurItem in listeZoomSur.notices %}
                                         {% if zoomSurItem.displayInIframe == 1 or zoomSurItem.ressourceType == 'html' %}
@@ -76,7 +86,7 @@
                                         {% else %}
                                             {% set urlRessource = "#" %}
                                         {% endif %}
-                                        <div class="carte-zoom-sur">
+                                        <div class="item carte-zoom-sur">
                                             {% if zoomSurItem.image %}
                                                 <a href="{{ urlRessource }}" target="_blank" >
                                                     <img class="carte-zoom-sur-image lozad" data-src="{{ zoomSurItem.image }}" />

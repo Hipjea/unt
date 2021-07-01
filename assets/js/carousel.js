@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.owl-carousel-a-la-une').owlCarousel({
+    var options = {
         loop:false,
         margin:10,
         items: 4,
@@ -21,7 +21,54 @@ $(document).ready(function(){
                 items:4
             }
         }
-    });
+    };
+    var carousel = $('.owl-carousel-a-la-une');
+    carousel.on({
+        'initialized.owl.carousel': function () {
+            carousel.find('.item').show();
+            $('.loading-placeholder').hide();
+        }
+    }).owlCarousel(options);
+
+    var zoomSurOptions = {
+        loop:false,
+        items: 3,
+        responsive:{
+            0 : {
+                margin:0,
+                stagePadding: 10,
+                items:1
+            },
+            350:{
+                margin:0,
+                stagePadding: 40,
+                items:1
+            },
+            700:{
+                margin:10,
+                stagePadding: 50,
+                items:2
+            },
+            1000:{
+                margin:10,
+                stagePadding: 80,
+                items:3,
+            },
+            1300:{
+                margin:10,
+                stagePadding: 80,
+                items:4
+            }
+        }
+    }
+    var zoomSurCarousel = $('.owl-carousel-a-la-une');
+    zoomSurCarousel.on({
+        'initialized.owl.carousel': function () {
+            zoomSurCarousel.find('.item').show();
+            $('#loading-placeholder-zoom-sur').hide();
+        }
+    }).owlCarousel(zoomSurOptions);
+
     $('#a-la-une-right-arrow').click(function() {
         $('.owl-carousel-a-la-une').trigger('next.owl.carousel');
     });
@@ -54,37 +101,5 @@ $(document).ready(function(){
     });
     $('#notice-lien-left-arrow').click(function() {
         $('.owl-carousel-notice-lien').trigger('prev.owl.carousel');
-    });
-
-    $('#carouselZoomSur').owlCarousel({
-        loop:false,
-        items: 3,
-        responsive:{
-            0 : {
-                margin:0,
-                stagePadding: 10,
-                items:1
-            },
-            350:{
-                margin:0,
-                stagePadding: 40,
-                items:1
-            },
-            700:{
-                margin:10,
-                stagePadding: 50,
-                items:2
-            },
-            1000:{
-                margin:10,
-                stagePadding: 80,
-                items:3,
-            },
-            1300:{
-                margin:10,
-                stagePadding: 80,
-                items:4
-            }
-        }
     });
 });

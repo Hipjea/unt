@@ -13,6 +13,22 @@
   }
 }
 
+.loading-placeholder,
+#loading-placeholer-zoom-sur {
+  img {
+    width: 175px;
+    height: 450px;
+    margin-right: 10px;
+    float: left;
+  }
+}
+.owl-carousel-a-la-une,
+#carouselZoomSur {
+  .item {
+    display: none;
+  }
+}
+
 .home-part-title {
   color: var(--main-color);
   font-weight: bold;
