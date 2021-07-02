@@ -2,8 +2,14 @@
 
 {% block content %}
     <div class="content-text">
-        <h1>{{ post.post_title }}</h1>
-        <br/>
-        {{  post.post_content|shortcodes }}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h1>{{ post.post_title }}</h1>
+                    <br/>
+                    {{  post.post_content|shortcodes }}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

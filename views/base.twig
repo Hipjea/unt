@@ -12,9 +12,18 @@
 					<div class="menu-header-bar">
 						<nav class="navbar navbar-expand-lg navbar-light bg-light">
 							<a class="navbar-brand" href="{{ site.link }}/">
-								<img id="logo-header-menu" class="header-logo" src="{{themeOptions.headerLogo }}" data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
+								<img id="logo-header-menu" 
+									class="header-logo" 
+									src="{{themeOptions.headerLogo }}" 
+									data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
 							</a>
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<button class="navbar-toggler" 
+								type="button" 
+								data-toggle="collapse" 
+								data-target="#navbarSupportedContent" 
+								aria-controls="navbarSupportedContent" 
+								aria-expanded="false" 
+								aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
 
@@ -56,11 +65,21 @@
 					</div>
 
 					{% if themeOptions.solrEnabled or themeOptions.externalSearchUrl %}
-					<div id="search-wrapper" class="research" data-solr-enabled="{{ themeOptions.solrEnabled }}" data-external-search-url="{{ themeOptions.externalSearchUrl }}">
+					<div id="search-wrapper" 
+						class="research" 
+						data-solr-enabled="{{ themeOptions.solrEnabled }}" 
+						data-external-search-url="{{ themeOptions.externalSearchUrl }}">
 						<div class="input-group">
-							<input id="search-navbar" value="{{ currentQuery }}" type="text" class="form-control" placeholder="{{ appMessage[currentLang].baseRechercheParmi }}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+							<input id="search-navbar" 
+								value="{{ currentQuery }}" 
+								type="text" class="form-control" 
+								placeholder="{{ appMessage[currentLang].baseRechercheParmi }}" 
+								aria-label="Recipient's username" 
+								aria-describedby="basic-addon2">
 							<div class="input-group-append">
-								<button id="launch-search-btn" class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+								<button id="launch-search-btn" class="btn btn-primary" type="button">
+									<i class="fas fa-search"></i>
+								</button>
 							</div>
 						</div>
 					</div>

@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "variables";
 @import "colors";
 @import "mixins";
 @import "text";
@@ -181,12 +182,12 @@ a:hover {
 
     .input-group {
       #search-navbar {
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
       }
 
       .input-group-append {
         button {
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
         }
       }
     }
@@ -213,21 +214,26 @@ a:hover {
     }
 
     .form-control {
-      border-bottom-left-radius: 135px;
-      border-top-left-radius: 135px;
+      border-bottom-left-radius: $searchBorderRadiusPx;
+      border-top-left-radius: $searchBorderRadiusPx;
       flex: 1;
-      height: 50px;
+      height: 55px;
+      padding-left: 20px;
+      line-height: 24px;
+      font-size: 1.02em;
     }
 
     #search-navbar {
       background-color: $searchBg;
+      border: 0;
+      font-family: "Lato";
     }
 
     .btn.btn-primary {
       background-color: var(--main-color);
       border-color: var(--main-color);
-      border-bottom-right-radius: 135px;
-      border-top-right-radius: 135px;
+      border-bottom-right-radius: $searchBorderRadiusPx;
+      border-top-right-radius: $searchBorderRadiusPx;
     }
   }
 }
