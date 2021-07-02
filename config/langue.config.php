@@ -67,7 +67,8 @@ $message = [
         "projects" => "Projets",
         "ourProjects" => "Nos projets",
         "projectsList" => "Liste de nos projets",
-        "latestPosts" => "Les derniers articles"
+        "latestPosts" => "Les derniers articles",
+        "backToNews" => "Retour aux actualités"
     ],
     "en" => [
         "baseRechercheParmi" => "Search among courses, resources, ...",
@@ -129,7 +130,8 @@ $message = [
         "projects" => "Projects",
         "ourProjects" => "Our projects",
         "projectsList" => "Projects list",
-        "latestPosts" => "Latest posts"
+        "latestPosts" => "Latest posts",
+        "backToNews" => "Back to the news page"
     ]
 ];
 

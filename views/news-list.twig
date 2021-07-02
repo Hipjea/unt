@@ -45,9 +45,13 @@
                     {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 2) and newsPage > 1 %}
                         <div class="col-auto">
                             {% if newsPage > 2 %}
-                                <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}1"><<</a>
+                                <a class="btn-svg" href="{{ changePageUrl }}1">
+                                    <img src="{{ assets.imageUrl('first-page.svg') }}" width="14"> 
+                                </a>
                             {% endif %}
-                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ prec }}"><</a>
+                            <a class="btn-svg" href="{{ changePageUrl }}{{ prec }}">
+                                <img src="{{ assets.imageUrl('previous.svg') }}" width="14"> 
+                            </a>
                         </div>
                     {% endif %}
                     <div class="col-auto">
@@ -71,8 +75,12 @@
                     {% if ((newsCount/newsPerPage)|round(0, 'ceil') > 3) 
                         and (newsPage < (newsCount/newsPerPage)|round(0, 'ceil')) %}
                         <div class="col-auto">
-                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ newsPage + 1 }}">></a>
-                            <a class="btn btn-primary resultats-pagination-box-colored" href="{{ changePageUrl }}{{ (newsCount/newsPerPage)|round(0, 'ceil') }}">>></a>
+                            <a class="btn-svg" href="{{ changePageUrl }}{{ newsPage + 1 }}">
+                                <img src="{{ assets.imageUrl('next.svg') }}" width="14"> 
+                            </a>
+                            <a class="btn-svg" href="{{ changePageUrl }}{{ (newsCount/newsPerPage)|round(0, 'ceil') }}">
+                                <img src="{{ assets.imageUrl('last-page.svg') }}" width="14"> 
+                            </a>
                         </div>
                     {% endif %}
                 </div>
