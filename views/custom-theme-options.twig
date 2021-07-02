@@ -18,7 +18,11 @@
         --tertiary-color: {{ themeOptions.tertiaryColor }};
     }
     .home-header {
-        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05) ), url({{ themeOptions.headerBackgroundImage }}) no-repeat top;
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) ), url({{ themeOptions.headerBackgroundImage }});
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .inscription-newsletter-wrapper {
         background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({{ assets.imageUrl('background-newsletter.jpg') }}) no-repeat top;
