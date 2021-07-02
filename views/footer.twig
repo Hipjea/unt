@@ -1,16 +1,15 @@
 <div class="footer-content">
-    <div class="row">
+    <div class="row footer-menu">
         {% for menuItem in footer %}
             <div class="col-sm">
                 <h1>{{ menuItem.title }}</h1>
-                <div>
+                <ul>
                     {% for subMenuItem in menuItem.subMenus %}
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
                             <a href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
                         </li>
                     {% endfor %}
-                </div>
-
+                </ul>
             </div>
         {% endfor %}
     </div>
