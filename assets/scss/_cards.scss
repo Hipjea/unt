@@ -71,7 +71,7 @@
 
 .scale-card-link {
   .scale-card {
-    height: 105px;
+    height: 115px;
     border-bottom: 0px;
     transform: scale(.5);
     -webkit-transition: all .7s ease;
@@ -83,8 +83,7 @@
     }
 
     .carte-scale-image {
-      align-self: center;
-      width: 100%;
+      max-height: 115px;
     }
   }
 }
