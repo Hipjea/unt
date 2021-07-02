@@ -13,14 +13,13 @@
                 {% for partner in partnersList %}
                     {% if partner is not null %}
                         <div class="col-6 col-md-2">
-                            <a class="carte-actualite-lien scale-card-link" 
-                                href="{{ partner.url }}" 
+                            <a href="{{ partner.url }}" 
                                 target="_blank" 
                                 alt="site web {{ partner.title }}"
                                 data-toggle="tooltip" data-placement="top" title="{{ partner.title }}">
-                                <div class="scale-card">
+                                <div class="partner-card text-center d-flex">
                                     {% if partner.imageUrl %} 
-                                        <img class="carte-scale-image lozad" data-src="{{ partner.imageUrl }}" />
+                                        <img class="mx-auto my-auto lozad" data-src="{{ partner.imageUrl }}" />
                                     {% endif %}
                                 </div>
                             </a>

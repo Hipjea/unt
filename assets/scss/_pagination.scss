@@ -8,7 +8,7 @@
     padding: 5px 12px;
 
     &:hover {
-      color: $pagination!important;
+      color: $pagination !important;
     }
 
     &:active {
@@ -33,4 +33,9 @@
   .link-pagination:hover {
     cursor: pointer;
   }
+}
+
+.btn-svg {
+  border: none;
+  padding: 5px 12px;
 }

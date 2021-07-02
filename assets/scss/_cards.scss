@@ -89,6 +89,22 @@
   }
 }
 
+.partner-card {
+  height: 150px;
+  border-bottom: 0px;
+  margin-bottom: 15px;
+
+  img {
+    max-height: 150px;
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+  
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}
+
 .projects-spread {
   width: 350px;
   height: 250px;

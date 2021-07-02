@@ -38,10 +38,12 @@
 								</a>
 							{% endfor %}
 						</ul>
-						<a class="twitter-timeline"
-							href="https://twitter.com/{{ twitter }}"
-							data-tweet-limit="1"></a>
-						<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+						{% if twitter %}
+							<a class="twitter-timeline"
+								href="https://twitter.com/{{ twitter }}"
+								data-tweet-limit="1"></a>
+							<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+						{% endif %}
 					</aside>
 				{% endif %}
 			</div>
@@ -50,7 +52,7 @@
 					<div class="col unt-breadcrumb">
 						<a href="{{ site.link }}/liste-actualites/">
 							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
-							<span>Retour aux actualités</span>
+							<span>{{ appMessage[currentLang].backToNews }}</span>
 						</a>
 					</div>
 				</div>
