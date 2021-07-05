@@ -576,7 +576,7 @@ class ThemeOptionsModel
         return $this;
     } 
     
-    public function getSocialSettings($name) : string {
+    public function getSocialSettings($name) : ?string {
         $options = get_theme_mod('unt_theme');
         if (isset($name)) {
             return $options['social-'.$name];
