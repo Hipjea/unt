@@ -44,7 +44,7 @@ class HomePageModel {
     /**
      * @return string
      */
-    public function getNewsletterLink(): string {
+    public function getNewsletterLink(): ?string {
         $link = get_field('lien_newsletter',  $this->post->id);
         return $link;
     }
