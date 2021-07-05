@@ -15,11 +15,12 @@ if(isset($_GET['pagination']) and $_GET['pagination'] > 0) {
     $pagination = $_GET['pagination'];
 }
 
-$timberContext['newsList'] = $newsService->getNewsList($pagination);
-$timberContext['newsCount'] = $newsService->getNewsCount();
+$category = get_category_by_slug('actualites');
+$timberContext['newsList'] = $newsService->getNewsList($pagination, $category);
+$timberContext['newsCount'] = $newsService->getNewsCount($category);
 $timberContext['newsPage'] = $pagination;
 $timberContext['newsPerPage'] = $newsService->getNewsPerPage();
-$timberContext['pageCount'] = ceil($newsService->getNewsCount() / $newsService->getNewsPerPage());
+$timberContext['pageCount'] = ceil($newsService->getNewsCount($category) / $newsService->getNewsPerPage());
 
 $timberContext['titrePage'] = "Actualités";
 $templates = ['news-list.twig'];

@@ -13,15 +13,22 @@ class NewsService {
         return new NewsModel($post);
     }
 
-    public function getNewsList(int $page) : array {
+    public function getNewsList(int $page, $category) : array {
         $results = [];
-
+        if (isset($category->name)) {
+            $query = array('post_type' => 'post', 
+                'posts_per_page' => self::NEWSPERPAGE, 
+                'paged' => $page, 
+                'suppress_filters' => 0, 
+                'category_name' => $category->name);
+        } else {
+            $query = array('post_type' => 'post', 
+                'posts_per_page' => self::NEWSPERPAGE, 
+                'paged' => $page, 
+                'suppress_filters' => 0);
+        }
         /** @var Post $post */
-        $postList = Timber::get_posts(array('post_type' => 'post', 
-                                            'posts_per_page' => self::NEWSPERPAGE, 
-                                            'paged' => $page, 
-                                            'suppress_filters' => 0, 
-                                            'category_name' => 'actualites'));
+        $postList = Timber::get_posts($query);
         foreach ($postList as $post) {
             $model = $this->parsePostIntoNewsModel($post);
             array_push($results, $model);
@@ -30,8 +37,22 @@ class NewsService {
         return $results;
     }
 
-    public function getNewsCount() : int {
-        return count(Timber::get_posts(array('post_type' => 'post', 'posts_per_page' => -1, 'suppress_filters' => 0)));
+    public function getNewsCount($category) : int {
+        if (isset($category->id)) {
+            $query = array(
+                'post_type' => 'post', 
+                'cat' => $category->id,
+                'posts_per_page' => -1, 
+                'suppress_filters' => 0
+            );
+        } else {
+            $query = array(
+                'post_type' => 'post', 
+                'posts_per_page' => -1, 
+                'suppress_filters' => 0
+            );
+        }
+        return count(Timber::get_posts($query));
     }
 
     public function getNewsPerPage() : int {
