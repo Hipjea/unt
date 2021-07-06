@@ -310,6 +310,8 @@ a:hover {
     margin-top: 1.8em;
     margin-bottom: 1em;
     font-family: "Montserrat-SemiBold";
+    word-break: break-all;
+    hyphens: auto;
   }
 
   h4, h5, h6 {
@@ -318,6 +320,8 @@ a:hover {
     margin-top: 1.8em;
     margin-bottom: 1em;
     font-family: "Montserrat";
+    word-break: break-all;
+    hyphens: auto;
   }
 
   @media (min-width: 1024px) {

@@ -16,7 +16,8 @@ class OrganigrammeService {
 
         /** @var Post $post */
         $postList = Timber::get_posts(array(
-            'post_type' => 'organigramme', 
+            'post_type' => 'organigramme',
+            'numberposts' => -1,
             'meta_key' => 'ordre',
             'orderby' => 'meta_value',
             'order' => 'ASC',

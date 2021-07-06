@@ -26,11 +26,13 @@
 }
 
 .organisme {
+    margin-top: .25em !important;
     text-align: center;
 }
 
 .team-deck {
     margin-top: 70px;
+    margin-bottom: 70px;
 
     .card {
         border: none;
@@ -95,6 +97,20 @@
                 li {
                     list-style-type: none;
                     display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .team-deck {
+        .card {
+            .card-img-wrapper {
+                .card-img {
+                    img {
+                        max-height: 350px;
+                    }
                 }
             }
         }

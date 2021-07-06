@@ -39,6 +39,13 @@ class OrganigrammeModel {
     public function getOrganisme(): ?string {
         return get_field('organisme', $this->post->id);
     }
+
+    /**
+     * @return string
+     */
+    public function getEtablissement(): ?string {
+        return get_field('etablissement', $this->post->id);
+    }
     
     /**
      * @return string
