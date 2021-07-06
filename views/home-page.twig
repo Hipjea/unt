@@ -23,7 +23,7 @@
                             </div>
                             <div class="owl-carousel-a-la-une owl-carousel owl-theme">
                                 {% for i in 0..aLaUneModel|length-1 %}
-                                    {%  set carteALaUne = aLaUneModel[i] %}
+                                    {% set carteALaUne = aLaUneModel[i] %}
                                     <a class="item" href="{{ carteALaUne.url }}">
 	                                    <div class="carte-notice">
 	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}

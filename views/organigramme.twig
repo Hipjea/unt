@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+    <div class="content-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h1>{{ post.post_title }}</h1>
+                </div>
+            </div>
+            {% for organisme in organigramme %}
+                <h3 class="organisme">{{organisme.name}}</h3>
+                <div class="row team-deck">
+                    {% for personne in organisme %}
+                        {% if personne is not null and personne.nomComplet %}
+                            <div class="card col-xs-12 col-md-4 col-lg-3">
+                                <div class="card-img-wrapper">
+                                    <div class="card-img">
+                                        {% if personne.imageUrl %} 
+                                            <img class="card-img-top team-img lozad" data-src="{{personne.imageUrl}}" />
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{personne.nomComplet}}</h5>
+                                    <p class="card-text">{{personne.fonction}}</p>
+                                    {% if personne.linkedin or personne.twitter or personne.github %} 
+                                        <ul class="social-links">
+                                            {% if personne.linkedin %}
+                                                <li><a href="https://twitter.com/{{personne.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                            {% endif %}
+                                            {% if personne.twitter %}
+                                                <li><a href="https://fr.linkedin.com/{{personne.twitter}}" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                                            {% endif %}
+                                            {% if personne.github %}
+                                                <li><a href="https://github.com/{{personne.github}}" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
