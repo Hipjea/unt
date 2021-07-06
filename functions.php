@@ -50,6 +50,10 @@ $GLOBALS['partnerService'] = $partnerService;
 $newsletterService = new \Unt\Services\NewsletterService();
 $GLOBALS['newsletterService'] = $newsletterService;
 
+$organigrammeService = new \Unt\Services\OrganigrammeService();
+$GLOBALS['organigrammeService'] = $organigrammeService;
+
+
 // init ajax routes
 $apiService = new \Unt\Services\ApiService($solrService);
 $apiService->initApiRoutes();

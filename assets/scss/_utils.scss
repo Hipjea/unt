@@ -24,3 +24,95 @@
     margin-top: 0px;
     margin-bottom: 40px;
 }
+
+.organisme {
+    margin-top: .25em !important;
+    text-align: center;
+}
+
+.team-deck {
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    .card {
+        border: none;
+        
+        &:hover {
+            .card-img-wrapper {
+                .card-img {
+                    img {
+                        transform: scale(1.08);
+                        transform-origin: 50% 50%;
+                    }
+                }
+            }
+
+            .card-body {
+                .card-title {
+                    color: var(--main-color);
+                }
+            }
+        }
+
+        .card-img-wrapper {
+            border-radius: 30% 70% 60% 40% / 35% 50% 60% 70%;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+            animation: all 1s infinite;
+
+            .card-img {
+                img {
+                    transition: transform .4s;
+                    border-radius: 30% 70% 60% 40% / 35% 50% 60% 70%;
+                    max-height: 190px;
+                    min-height: 190px;
+                    object-fit: cover;
+                    object-position: center top;
+                }
+            }
+        }
+
+        .card-body {
+            text-align: center;
+
+            .card-title {
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 0.25rem;
+                color: $blackText;
+                animation: all 1s infinite;
+            }
+
+            .card-text {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+                color: $grayText;
+            }
+
+            .social-links {
+                padding-left: 0;
+                li {
+                    list-style-type: none;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .team-deck {
+        .card {
+            .card-img-wrapper {
+                .card-img {
+                    img {
+                        max-height: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
