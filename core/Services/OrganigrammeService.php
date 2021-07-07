@@ -28,7 +28,7 @@ class OrganigrammeService {
 
         $i = 0;
         foreach ($organismes as $org) {
-            $posts = wp_list_filter($postList, ['organisme' => $org]);
+            $posts = wp_list_sort(wp_list_filter($postList, ['organisme' => $org]), 'ordre', 'ASC');
             array_push($results, array('name' => $org));
             foreach ($posts as $post) {
                 $model = $this->parsePostIntoModel($post);
