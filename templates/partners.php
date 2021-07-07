@@ -18,7 +18,7 @@ $context = Timber::get_context();
 $timberContext['post'] = Timber::get_post();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
 
-$timberContext['titrePage'] = "Nos partenaires";
+$timberContext['titrePage'] = "Nos membres";
 $templates = ['partners-list.twig'];
 
 Timber::render($templates, $timberContext);

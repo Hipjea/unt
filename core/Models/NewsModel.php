@@ -76,10 +76,6 @@ class NewsModel {
         ob_end_clean();
         preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
         $img = @$matches[1][0];
-      
-        if (empty($img)) {
-            $img = "/images/default.jpg";
-        }
         return $img;
     }
 

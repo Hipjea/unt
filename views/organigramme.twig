@@ -1,6 +1,5 @@
 {% extends "base.twig" %}
 
-
 {% block content %}
     <div class="content-text">
         <div class="container">
@@ -28,10 +27,10 @@
                                     {% if personne.linkedin or personne.twitter or personne.github %} 
                                         <ul class="social-links">
                                             {% if personne.linkedin %}
-                                                <li><a href="https://twitter.com/{{personne.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                                <li><a href="https://fr.linkedin.com/in/{{personne.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                                             {% endif %}
                                             {% if personne.twitter %}
-                                                <li><a href="https://fr.linkedin.com/in/{{personne.twitter}}" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                                                <li><a href="https://twitter.com/{{personne.twitter}}" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
                                             {% endif %}
                                             {% if personne.github %}
                                                 <li><a href="https://github.com/{{personne.github}}" target="_blank"><i class="fab fa-github-square"></i></a></li>

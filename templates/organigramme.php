@@ -13,7 +13,7 @@ global $organigrammeService;
 $context = Timber::get_context();
 $timberContext['post'] = Timber::get_post();
 $timberContext['organigramme'] = $organigrammeService->getOrganigrammeList();
+$timberContext['titrePage'] = $timberContext['post']->{'post_title'};
 
 $templates = ['organigramme.twig'];
-
 Timber::render($templates, $timberContext);
