@@ -7,19 +7,16 @@ const logoScroll = cloneHeaderLogo.data('logo-scroll');
 cloneHeaderLogo.attr("src", logoScroll);
 scrollIntervalID = setInterval(stickIt, 10);
 
-
 function stickIt() {
     var orgElementTop = $('.original')[0].offsetTop;
-
     if ($(window).scrollTop() > (orgElementTop)) {
         // scrolled past the original position; now only show the cloned, sticky element.
-
         // Cloned element should always have same left position and width as original element.
         orgElement = $('.original');
         coordsOrgElement = orgElement.offset();
         leftOrgElement = coordsOrgElement.left;
         widthOrgElement = orgElement.css('width');
-        $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+        $('.cloned').css('left', leftOrgElement+'px').css('top',0).css('width', widthOrgElement).show();
         $('.original').css('visibility','hidden');
     } else {
         // not scrolled past the menu; only show the original menu.
@@ -29,13 +26,14 @@ function stickIt() {
 }
 
 $('.menu-btn').on("click", function() {
-    $('#menu-overlay').animate({ "right": "0" });
+    $('#mobile-menu').animate({ "right": "0" });
 });
 $('#menu-close-btn').on("click", function() {
-    $('#menu-overlay').animate({ "right": "-101%" });
+    $('.dd-menu').hide();
+    $('#mobile-menu').animate({ "right": "-101%" });
 });
-$('#menu-overlay .menu-content .dd .dd-menu').hide();
-$('#menu-overlay .menu-content .dd-button').on("click", function() {
+$('#mobile-menu .menu-content .dd .dd-menu').hide();
+$('#mobile-menu .menu-content .dd-button').on("click", function() {
     $('.dd-menu').hide();
     $(this).parent().parent().find('.dd-menu').toggle();
 });

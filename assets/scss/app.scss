@@ -150,9 +150,15 @@ a:hover {
     border: none;
   }
 
-  .menu-header-bar.original .navbar-light {
+  .menu-header-bar {
     .navbar-toggler-icon {
       background-image: url("../images/menu.svg");
+    }
+
+    &.cloned {
+      .navbar-toggler-icon {
+        filter: brightness(0) invert(0) !important;
+      }
     }
   }
 
