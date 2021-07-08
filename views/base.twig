@@ -6,6 +6,8 @@
 	</head>
 {% endblock %}
 	<body class="{{body_class}}" data-template="base.twig">
+		{% include "partial/mobile-menu.twig" with {'header': header, 'themeOptions': themeOptions} %}
+
 		<header class="header" >
 			{% block header %}
 				<div class="home-header" id="home-header">
@@ -17,18 +19,12 @@
 									src="{{themeOptions.headerLogo }}" 
 									data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
 							</a>
-							<button class="navbar-toggler" 
-								type="button" 
-								data-toggle="collapse" 
-								data-target="#navbarSupportedContent" 
-								aria-controls="navbarSupportedContent" 
-								aria-expanded="false" 
-								aria-label="Toggle navigation">
+							<button class="menu-btn navbar-toggler" 
+								type="button">
 								<span class="navbar-toggler-icon"></span>
 							</button>
 
-
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<div class="collapse navbar-collapse" id="menu">
 								<ul class="navbar-nav ml-auto">
 									{% for menuItem in header %}
 										{% if menuItem.subMenus is not empty %}

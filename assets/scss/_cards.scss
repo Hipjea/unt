@@ -17,11 +17,12 @@
   &:hover {
     box-shadow: 3px 3px 8px $grayAlt;
   }
-
+  
   .carte-actualite-image {
     height: 200px;
     object-fit: cover;
     width: 100%;
+    position: relative;
   }
 
   .carte-actualite-texte {

@@ -14,7 +14,8 @@
                         <div class="col-md-4">
                             <a class="carte-actualite-lien" href="{{ news.newsUrl }}">
                                 <div class="carte-actualite">
-                                    <img class="carte-actualite-image lozad" data-src="{{ news.imageUrl }}" />
+                                    <img class="carte-actualite-image lozad" 
+                                        data-src="{{ news.imageUrl ? news.imageUrl : assets.imageUrl('news-default.svg') }}" />
                                     <div class="carte-actualite-texte">
                                         <h1>{{ news.title }}</h1>
                                     </div>
@@ -31,7 +32,6 @@
                 {% endfor %}
             </div>
         </div>
-        
 
         {% if newsCount > 1 %}
             {% set changePageUrl = site.link~"/liste-actualites/?pagination=" %}
