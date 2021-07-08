@@ -1,0 +1,100 @@
+$menuBorderWidth: 87px;
+
+.navbar-toggler {
+    border: 0 !important;
+}
+
+#menu-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999 !important;
+    top: 0;
+    right: -101%;
+    overflow-x: hidden;
+    background: var(--main-color);
+    padding: 0.5rem 1rem;
+
+    &::after {
+        width: $menuBorderWidth;
+        content: '';
+        background: black;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        position: absolute;
+        display: block;
+        z-index: -1;
+    }
+
+    .menu-overlay-header {
+        #logo-menu {
+            filter: brightness(0) invert(1);
+            width: 140px;
+        }
+
+        #menu-close-btn {
+            text-align: center;
+            z-index: 1000;
+
+            .navbar-toggler-icon {
+                background-image: url("../images/menu-close.svg");
+            }
+        }  
+    }
+
+    .menu-content {
+        position: relative;
+        width: 100%;
+        text-align: left;
+        margin-top: 30px;
+        padding-left: 0;
+
+        .menu-li {
+            list-style-type: none;
+            color: white !important;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: 100%;
+        
+            &:hover {
+                cursor: pointer;
+
+                &.dd {
+                    .dd-menu {
+                        display: block;
+                    }
+                }
+            }
+
+            .menu-link {
+                word-break: break-all;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                
+                .dd-button {
+                    margin-right: $menuBorderWidth;
+                }
+            }
+
+            .dd-menu {   
+                display: none !important;
+            }
+
+            .dd-submenu {
+                color: black;
+                background: black;
+                padding-left: 20px;
+                font-weight: 100;
+                font-size: .9em;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            a, .menu-link {
+                color: white;
+            }
+        }
+    }
+}

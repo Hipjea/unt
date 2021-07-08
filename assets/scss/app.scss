@@ -14,6 +14,8 @@
 @import "tooltip";
 @import "news";
 @import "utils";
+@import "nav";
+
 /*
 @import "~tippy.js/dist/tippy.css";
 @import "~tippy.js/themes/translucent.css";
@@ -149,20 +151,14 @@ a:hover {
   }
 
   .menu-header-bar.original .navbar-light {
-    .navbar-toggler {
-      margin-right: 2rem;
-      border-color: rgba(255, 255, 255, 0.7);
-      border-width: 2px;
-    }
-
     .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      background-image: url("../images/menu.svg");
     }
   }
 
   @media (max-width: 991px) {
     .original .nav-item {
-      background-color: $colorH1;
+      /*background-color: $colorH1;*/
       padding: 0px 4px;
       z-index: 1;
     }
@@ -291,6 +287,10 @@ a:hover {
   font-weight: 400;
   font-size: 1.1rem;
   color: $blackText;
+
+  a {
+    color: var(--secondary-color);
+  }
 
   p, ul {
     line-height: $lineHeight;
@@ -993,12 +993,6 @@ a:hover {
   box-shadow: $colorBtnPrimary 2px 2px 5px 2px;
 }
 
-a {
-  color: var(--secondary-color);
-}
-
 .home-header .navbar-light .navbar-nav .menu-item a{
   font-size: 20px;
 }
-
-

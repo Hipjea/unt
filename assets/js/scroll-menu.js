@@ -27,3 +27,15 @@ function stickIt() {
         $('.original').css('visibility','visible');
     }
 }
+
+$('.menu-btn').on("click", function() {
+    $('#menu-overlay').animate({ "right": "0" });
+});
+$('#menu-close-btn').on("click", function() {
+    $('#menu-overlay').animate({ "right": "-101%" });
+});
+$('#menu-overlay .menu-content .dd .dd-menu').hide();
+$('#menu-overlay .menu-content .dd-button').on("click", function() {
+    $('.dd-menu').hide();
+    $(this).parent().parent().find('.dd-menu').toggle();
+});

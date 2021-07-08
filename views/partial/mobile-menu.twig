@@ -1,0 +1,52 @@
+<div id="menu-overlay">
+    <div class="menu-overlay-header d-flex">
+        <img id="logo-menu" 
+            class="navbar-brand" 
+            src="{{themeOptions.headerLogo }}" 
+            data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
+        <button id="menu-close-btn"
+            class="navbar-toggler ml-auto" 
+            type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <ul class="menu-content">
+        {% for menuItem in header %}
+            {% if menuItem.subMenus is not empty %}
+                <div class="menu-li dd">
+                    <div class="menu-link d-flex">
+                        <a class="" href="{{ menuItem.value }}" aria-expanded="false">
+                            {{ menuItem.title }}
+                        </a>
+                        <div class="ml-auto dd-button">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="dd-menu">
+                        {% for subMenuItem in menuItem.subMenus %}
+                            {% if subMenuItem.subMenus is not empty %}
+                                <div class="dd-submenu">
+                                    <a class="" href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
+                                    <ul class="">
+                                        {% include "partial/recursive-menu.twig" with {'menuItem': subMenuItem.subMenus} %}
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="dd-submenu">
+                                    <a class="" href="{{ subMenuItem.value }}">{{ subMenuItem.title }}</a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <li class="menu-li">
+                    <a class="menu-link" href="{{ menuItem.value }}">{{ menuItem.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        <li class="menu-li item-langues">
+            {% do action('icl_language_selector') %}
+        </li>
+    </ul>
+</div>
