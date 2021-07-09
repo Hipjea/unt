@@ -1,17 +1,18 @@
-$menuBorderWidth: 87px;
+$menuBorderWidth: 62px;
 
 .navbar-toggler {
     border: 0 !important;
 }
 
 #mobile-menu {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: fixed;
     z-index: 9999 !important;
     top: 0;
     right: -101%;
     overflow-x: hidden;
+    
     background-color: var(--main-color);
 
     &::after {
@@ -28,8 +29,8 @@ $menuBorderWidth: 87px;
 
     #menu-overlay {
         padding: 0.5rem 1rem;
-        height: 100%;
-
+        height: 100vh;
+        
         .menu-overlay-header {
             #logo-menu {
                 filter: brightness(0) invert(1);
@@ -39,6 +40,7 @@ $menuBorderWidth: 87px;
             #menu-close-btn {
                 text-align: center;
                 z-index: 1000;
+                padding: 0.25rem 0 0.25rem 0.75rem;
 
                 .navbar-toggler-icon {
                     background-image: url("../images/menu-close.svg");
@@ -60,8 +62,6 @@ $menuBorderWidth: 87px;
                 font-weight: bold;
                 margin-bottom: 15px;
                 width: 100%;
-                padding-top: 10px !important;
-                padding-bottom: 10px !important;
             
                 &:hover {
                     cursor: pointer;
@@ -78,6 +78,12 @@ $menuBorderWidth: 87px;
 
                     .dd-button {
                         margin-right: $menuBorderWidth;
+                        padding: 0.25rem 1rem;
+                        transition: transform .2s;
+
+                        &:hover {
+                            transform: scale(1.3);
+                        }
                     }
                 }
 
