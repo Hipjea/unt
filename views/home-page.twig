@@ -175,13 +175,12 @@
         <div class="inscription-newsletter-wrapper-color">
             <div class="inscription-newsletter">
                 <h3 class="mt-0">{{ appMessage[currentLang].homeInscrireNewsletter }}</h3>
-                <div>{{ appMessage[currentLang].homeValidNewsLetter }}</div>
+                <div>{{ homePageModel.newsletterText }}</div>
                 <div class="mail-form mt-3">
                     <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" class="btn">S'abonner à la newsletter</a>
                 </div>
             </div>
         </div>
     </div>
-
 
 {% endblock %}
