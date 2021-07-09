@@ -121,7 +121,7 @@
         <div class="container-fluid fat-container container-white home-container pt-150">
             <div class="container">
                 <div class="row">
-                    <div class="projects-spread col col-md-6">
+                    <div class="projects-spread col-sm-12 col-lg-6 mt-sm-4 order-sm-2 order-lg-1">
                         {% for child in projects_children %}
                             <div class="card">
                                 <a class="projects-spread-link" href="{{ child.link }}">
@@ -136,7 +136,7 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="col col-md-6 home-container-text">
+                    <div class="col-sm-12 col-lg-6 order-sm-1 order-lg-2 mb-sm-5 home-container-text">
                         <h1 class="home-part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h1>
                         <p>{{ homePageModel.blockProjects }}</p>
                     </div>
