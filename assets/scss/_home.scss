@@ -2,7 +2,7 @@
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0 !important;
     margin-bottom: 0;
-    word-break: break-all;
+    word-break: normal;
     hyphens: auto;
   }
 
@@ -29,11 +29,6 @@
   .item {
     display: none;
   }
-}
-
-.home-part-title {
-  color: var(--main-color);
-  font-weight: bold;
 }
 
 .container-white {

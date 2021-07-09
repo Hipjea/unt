@@ -74,7 +74,7 @@ $menuBorderWidth: 62px;
                 }
 
                 .menu-link {
-                    word-break: break-all;
+                    word-break: normal;
 
                     .dd-button {
                         margin-right: $menuBorderWidth;

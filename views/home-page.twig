@@ -11,7 +11,7 @@
 
         {% if aLaUneModel is not empty %}
             <div class="a-la-une">
-                <h3 class="text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h3>
+                <h3 class="part-title text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h3>
                 <div class="container carousel-container">
                     <div class="row">
                         <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
@@ -137,7 +137,7 @@
                         {% endfor %}
                     </div>
                     <div class="home-container-text col-sm-12 col-lg-6 order-1 order-sm-1 order-lg-2 mb-5 mb-lg-0">
-                        <h3 class="home-part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h3>
+                        <h3 class="part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h3>
                         <p>{{ homePageModel.blockProjects }}</p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
 
     <div class="container home-container pt-150 pb-150">
         {% if partnersList is not empty %}
-            <h3 class="home-part-title text-center mb-5">Établissements membres</h3>
+            <h3 class="part-title text-center mb-5">Établissements membres</h3>
             <div id="partners-wrapper" class="row">
                 {% for partners in partnersList %}
                     {% if partners is not null %}
