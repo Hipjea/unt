@@ -11,7 +11,7 @@
 
         {% if aLaUneModel is not empty %}
             <div class="a-la-une">
-                <h1 class="text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h1>
+                <h3 class="text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h3>
                 <div class="container carousel-container">
                     <div class="row">
                         <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
@@ -38,7 +38,7 @@
 	                                        {% else %}
 	                                            <img class="carte-notice-image" src="{{ carteALaUne.imageUrl }}" />
 	                                            <div class="carte-notice-texte">
-	                                                <h1>{{ carteALaUne.title }}</h1>
+	                                                <h3>{{ carteALaUne.title }}</h3>
 	                                                <div class="carte-notice-description">
 	                                                    {{ carteALaUne.description }}
 	                                                </div>
@@ -67,7 +67,7 @@
                 <div class="container carousel-container">
                     <div class="row">
                         <div class="col-md-2">
-                            <h1>{{ appMessage[currentLang].homeZoomSur }}</h1>
+                            <h3>{{ appMessage[currentLang].homeZoomSur }}</h3>
                             <h2>{{ appMessage[currentLang].homeSelectionRessource }}</h2>
                         </div>
                         <div class="col-md-10 zoom-sur-carousel-wrapper">
@@ -137,7 +137,7 @@
                         {% endfor %}
                     </div>
                     <div class="home-container-text col-sm-12 col-lg-6 order-1 order-sm-1 order-lg-2 mb-5 mb-lg-0">
-                        <h1 class="home-part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h1>
+                        <h3 class="home-part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h3>
                         <p>{{ homePageModel.blockProjects }}</p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
 
     <div class="container home-container pt-150 pb-150">
         {% if partnersList is not empty %}
-            <h1 class="home-part-title text-center mb-5">Établissements membres</h1>
+            <h3 class="home-part-title text-center mb-5">Établissements membres</h3>
             <div id="partners-wrapper" class="row">
                 {% for partners in partnersList %}
                     {% if partners is not null %}
@@ -174,7 +174,7 @@
     <div class="inscription-newsletter-wrapper">
         <div class="inscription-newsletter-wrapper-color">
             <div class="inscription-newsletter">
-                <h1 class="mt-0">{{ appMessage[currentLang].homeInscrireNewsletter }}</h1>
+                <h3 class="mt-0">{{ appMessage[currentLang].homeInscrireNewsletter }}</h3>
                 <div>{{ appMessage[currentLang].homeValidNewsLetter }}</div>
                 <div class="mail-form mt-3">
                     <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" class="btn">S'abonner à la newsletter</a>
