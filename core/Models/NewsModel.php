@@ -44,7 +44,7 @@ class NewsModel {
      * @return string
      */
     public function getImageUrl(): ?string {
-        $custom_image = get_field('top_image', $this->post->id);
+        $custom_image = get_field('image', $this->post->id);
         if (isset($custom_image) && $custom_image != "") {
             return $custom_image;
         }
