@@ -28,6 +28,11 @@
   .carte-actualite-texte {
     font-size: 14px;
     padding: 10px 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   .carte-actualite-footer {
