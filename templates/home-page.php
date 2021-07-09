@@ -24,9 +24,9 @@ $timberContext['projectsPageId'] = $homePageService->getProjectsPageId();
 $timberContext['aLaUneModel'] = $aLaUneService->getALaUneList();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
 $timberContext['isHomePage'] = true;
-
-
 $projects = Timber::get_post($timberContext['projectsPageId']);
+$timberContext['projectsUrl'] = get_post_permalink($projects->ID);
+
 if (isset($projects)) {
     $children = $projects->{'children'};
 

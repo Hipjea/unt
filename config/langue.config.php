@@ -69,6 +69,7 @@ $message = [
         "latestPosts" => "Les derniers articles",
         "backToNews" => "Retour aux actualités",
         "readMore" => "En savoir plus",
+        "discordOutProjects" => "Découvrez nos projets"
     ],
     "en" => [
         "baseRechercheParmi" => "Search among courses, resources, ...",
@@ -132,6 +133,7 @@ $message = [
         "latestPosts" => "Latest posts",
         "backToNews" => "Back to the news page",
         "readMore" => "Read more",
+        "discordOutProjects" => "Discover our projects"
     ]
 ];
 
