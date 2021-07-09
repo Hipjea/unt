@@ -1,5 +1,14 @@
 $lineHeight: 1.4;
 
+.post-title {
+    color: var(--title-color);
+}
+
+.part-title {
+    color: var(--title-color);
+    font-weight: bold;
+}
+
 .text {
     .text-UVED {
         color: $uvedColor;

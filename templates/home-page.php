@@ -24,18 +24,20 @@ $timberContext['projectsPageId'] = $homePageService->getProjectsPageId();
 $timberContext['aLaUneModel'] = $aLaUneService->getALaUneList();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
 $timberContext['isHomePage'] = true;
-
-
 $projects = Timber::get_post($timberContext['projectsPageId']);
+$timberContext['projectsUrl'] = get_post_permalink($projects->ID);
+
 if (isset($projects)) {
     $children = $projects->{'children'};
 
     if (count($children) > 0) {
-        foreach ($children as $child) {
+        $tmp = 0;
+        foreach ($children as $child) if ($tmp < 3) {
             if ($child->post_content != "") {
                 $top_image_id = $child->top_image;
                 $child->topImage = new \Timber\Image($top_image_id);
                 $timberContext['projects_children'][] = $child;
+                $tmp++;
             }
         }
         $timberContext['projects_children'] = array_reverse($timberContext['projects_children']);

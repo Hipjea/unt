@@ -14,7 +14,6 @@ $message = [
         "homeSelectionRessource" => "Une sélection de ressources",
         "homeLireSuite" => "Lire la suite",
         "homeInscrireNewsletter" => "S'inscrire à la newsletter",
-        "homeValidNewsLetter" => "En validant votre inscription, vous acceptez que UNT mémorise et utilise votre adresse email dans le but de vous envoyer mensuellement sa lettre d’informations. Vous pouvez vous désinscrire à tout moment à l'aide du lien présent à la fin de chaque newsletter. ",
         "actualites" => "Actualités",
         "actualitesLireSuite" => "Lire la suite",
         "resultatsResultats" => "résultats",
@@ -70,6 +69,7 @@ $message = [
         "latestPosts" => "Les derniers articles",
         "backToNews" => "Retour aux actualités",
         "readMore" => "En savoir plus",
+        "discordOutProjects" => "Découvrez nos projets"
     ],
     "en" => [
         "baseRechercheParmi" => "Search among courses, resources, ...",
@@ -78,7 +78,6 @@ $message = [
         "homeSelectionRessource" => "A selection of resources",
         "homeLireSuite" => "Read more",
         "homeInscrireNewsletter" => "Subscribe to the newsletter",
-        "homeValidNewsLetter" => "By validating your registration, you agree that UNT remembers and uses your email address in order to send you its newsletter monthly. You can unsubscribe at any time using the link at the end of each newsletter.",
         "actualites" => "News",
         "actualitesLireSuite" => "Read more",
         "resultatsResultats" => "results",
@@ -134,6 +133,7 @@ $message = [
         "latestPosts" => "Latest posts",
         "backToNews" => "Back to the news page",
         "readMore" => "Read more",
+        "discordOutProjects" => "Discover our projects"
     ]
 ];
 
