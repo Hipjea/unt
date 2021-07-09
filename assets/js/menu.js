@@ -25,6 +25,7 @@ function stickIt() {
     }
 }
 
+// Mobile menu
 $('.menu-btn').on("click", function() {
     $('#mobile-menu').animate({ "right": "0" });
 });
