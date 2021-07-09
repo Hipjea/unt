@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="container content-text">
-        <div class="row mb-5">
+        <div class="row">
             <div class="col">
                 <h1>{{ post.post_title }}</h1>
                 <br/>
@@ -11,11 +11,6 @@
         </div>
 
 		{% if project_children %}
-            <div class="row">
-                <div class="col">
-                    <h3>{{ appMessage[currentLang].projectsList }}</h3>
-                </div>
-            </div>
             <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mt-5">
 				{% for child in project_children %}
 					<div class="col mb-4">
