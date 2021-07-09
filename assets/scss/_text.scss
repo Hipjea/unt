@@ -1,7 +1,11 @@
 $lineHeight: 1.4;
 
+.post-title {
+    color: var(--title-color);
+}
+
 .part-title {
-    color: var(--main-color);
+    color: var(--title-color);
     font-weight: bold;
 }
 

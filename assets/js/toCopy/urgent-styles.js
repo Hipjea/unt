@@ -1,6 +1,6 @@
 (function($) {
 	wp.customize('unt_urgent_styles', function(value) {
-        var options = ['main-color', 'secondary-color', 'tertiary-color'],
+        var options = ['main-color', 'secondary-color', 'title-color'],
             size = options.length,
             style = $('#custom-theme-options'),
             css = style.html();

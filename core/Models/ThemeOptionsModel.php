@@ -13,7 +13,7 @@ class ThemeOptionsModel
     private $secondaryColor = "";
 
     /** @var string */
-    private $tertiaryColor = "";
+    private $titleColor = "";
 
     /** @var string */
     private $headerTitle = "";
@@ -129,18 +129,18 @@ class ThemeOptionsModel
     /**
      * @return string
      */
-    public function getTertiaryColor(): string
+    public function getTitleColor(): string
     {
-        return $this->tertiaryColor;
+        return $this->titleColor;
     }
 
     /**
-     * @param string $tertiaryColor
+     * @param string $titleColor
      * @return ThemeOptionsModel
      */
-    public function setTertiaryColor(string $tertiaryColor): ThemeOptionsModel
+    public function setTitleColor(string $titleColor): ThemeOptionsModel
     {
-        $this->tertiaryColor = $tertiaryColor;
+        $this->titleColor = $titleColor;
         return $this;
     }
 

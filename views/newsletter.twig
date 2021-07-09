@@ -4,8 +4,7 @@
 
     <div class="wrapper">
     <div class="container content-text post-type-{{post.post_type}}" id="post-{{post.ID}}">
-		<h1>{{ post.post_title }}</h1>
-		{#<br/>#}
+		<h1 class="post-title">{{ post.post_title }}</h1>
         <p>{{ post.post_content }}</p>
 
         {% if subscribed %}
