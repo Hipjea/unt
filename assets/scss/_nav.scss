@@ -1,4 +1,4 @@
-$menuBorderWidth: 87px;
+$menuBorderWidth: 62px;
 
 .navbar-toggler {
     border: 0 !important;
@@ -39,6 +39,7 @@ $menuBorderWidth: 87px;
             #menu-close-btn {
                 text-align: center;
                 z-index: 1000;
+                padding: 0.25rem 0 0.25rem 0.75rem;
 
                 .navbar-toggler-icon {
                     background-image: url("../images/menu-close.svg");
@@ -78,6 +79,7 @@ $menuBorderWidth: 87px;
 
                     .dd-button {
                         margin-right: $menuBorderWidth;
+                        padding: 0.25rem 1rem;
                     }
                 }
 
