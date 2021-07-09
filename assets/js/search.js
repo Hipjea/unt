@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	$('#search-navbar').on('focus', function() {
+		$('#search-navbar')[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+	});
+
 	var $searchWrapper = $('#search-wrapper');
 	var solrEnabled = $searchWrapper.data('solrEnabled');
 	var externalSearchUrl = $searchWrapper.data('externalSearchUrl');
