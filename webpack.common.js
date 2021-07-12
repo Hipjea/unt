@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
+        fontawesome: './assets/js/fontawesome.js',
         app: './assets/js/app-main.js',
         notice: './assets/js/app-notice.js',
         resultats: './assets/js/app-resultats.js'

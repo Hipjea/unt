@@ -24,6 +24,8 @@ class PublicManager {
     }
 
     public function initScripts() {
+        $fonts = $this->assetService->getUri() . '/fontawesome.js';
+        wp_enqueue_script('unt-public-fonts', $fonts, '', '', true);
         $src = $this->assetService->getUri() . '/app.js';
         wp_enqueue_script('unt-public', $src, '', '', true);
     }
