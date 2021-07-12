@@ -23,7 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                         presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env']
                     }
                 }
             },
@@ -63,7 +63,8 @@ module.exports = {
                     {
                         loader: 'sass-loader'
                     }
-                ]
+                ],
+                sideEffects: true
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
