@@ -1,57 +1,77 @@
-.carte-actualite-lien {
-  &:hover {
-    text-decoration: none;
-  }
-}
+.carte-actualite-col {
+  margin-bottom: 15px;
 
-.carte-actualite {
-  background-color: $whiteBg;
-  color: $colorH1;
-  border-bottom: 2px var(--main-color) solid;
-  border-radius: 2px;
-  font-size: 14px;
-  height: 325px;
-  margin-bottom: 20px;
-  position: relative;
-
-  &:hover {
-    box-shadow: 3px 3px 8px $grayAlt;
-  }
-  
-  .carte-actualite-image {
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
-    position: relative;
+  .carte-actualite-lien {
+    &:hover {
+      text-decoration: none;
+    }
   }
 
-  .carte-actualite-texte {
+  .carte-actualite {
+    background-color: rgb(247, 247, 247);
+    color: $colorH1;
+    border-radius: 2px;
     font-size: 14px;
-    padding: 10px 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
+    height: 325px;
+    margin-bottom: 20px;
+    position: relative;
 
-  .carte-actualite-footer {
-    bottom: 0;
-    padding: 5px;
-    position: absolute;
-    width: 100%;
-  }
+    &:hover {
+      background: $whiteBg;
+      box-shadow: 0px 3px 6px $colorBtnBoxshadow;
+      border-bottom: 2px var(--main-color) solid;
 
-  .carte-actualite-date-footer {
-    color: $grayText;
-    position: absolute;
-    right: 5px;
-  }
+      .carte-actualite-texte {
+        h5 {
+          color: var(--main-color);
+        }
+      }
+    }
+    
+    .carte-actualite-image {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      position: relative;
+    }
 
-  h1 {
-    color: $colorH1 !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
+    .carte-actualite-texte {
+      font-size: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+      h5 {
+        margin-top: 0;
+        font-size: 1.2em;
+        transition: color .2s;
+        -webkit-transition: color .2s;
+      }
+    }
+
+    .carte-actualite-footer {
+      bottom: 0;
+      padding: 5px;
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .carte-actualite-date-footer {
+      color: $grayText;
+      position: absolute;
+      right: 5px;
+    }
+
+    h1 {
+      color: $colorH1 !important;
+      font-size: 18px !important;
+      font-weight: bold !important;
+    }
   }
 }
 
