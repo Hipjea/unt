@@ -4,7 +4,7 @@
     background-color: var(--main-color);
     border: none;
     border-radius: 2px;
-    color: $pagination!important;
+    color: $pagination !important;
     padding: 5px 12px;
 
     &:hover {
@@ -18,7 +18,7 @@
   }
 
   .resultats-pagination-box {
-    background-color: $pagination;
+    background-color: $pagination !important;
     border: none;
     border-radius: 2px;
     color: $colorH1 !important;

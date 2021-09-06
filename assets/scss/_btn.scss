@@ -1,8 +1,8 @@
 .btn-primary,
 .wp-block-button__link,
 .wp-block-file__button {
-  background-color: var(--main-color);
-  border-color: var(--main-color);
+  background: var(--main-color) !important;
+  border-color: var(--main-color) !important;
   box-shadow: none;
   border-radius: 4px;
   padding: .5em 1em;
@@ -12,7 +12,7 @@
 .btn-primary:hover,
 .wp-block-button__link:hover,
 .wp-block-file__button:hover {
-  color: $colorBtnPrimary;
+  color: $colorBtnPrimary !important;
 }
 
 .btn-outline-primary.btn-fiche-suplomfr {
@@ -29,7 +29,7 @@
 .btn-primary:focus,
 .wp-block-button__link:focus,
 .wp-block-file__button:focus {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-outline-primary {
