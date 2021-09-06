@@ -4,14 +4,17 @@
     <div class="content-text">
         <div class="container">
             <div class="row">
-                <div class="col-12 mb-5">
+                <div class="col-12 mb-3">
                     <h1 class="post-title">{{ titrePage }}</h1>
                 </div>
             </div>
-             <div class="row">
+            <div class="row">
                 <div class="col-12">
+                    {% if subCategories is not null %}
+                        <i class="fas fa-sliders-h filter-icon"></i>
+                    {% endif %}
                     {% for sub in subCategories %}
-                        <a class="btn btn-primary" href="{{sub.link}}">
+                        <a class="btn-category {{sub.active ? " active" : ""}}" href="{{sub.link}}">
                             {{ sub.name }}
                         </a>
                     {% endfor %}

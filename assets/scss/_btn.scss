@@ -52,3 +52,34 @@
   color: #6c6c6c;
   border-radius: 4px;
 }
+
+.btn-category {
+  background: #F4F4F4 !important;
+  border: 0px !important;
+  color: $grayText !important;
+  padding: .5em 1em;
+  box-shadow: none;
+  margin: 0 3px;
+  font-size: 0.85em;
+
+  &:first-child {
+    margin-left: 0 !important;
+  }
+
+  &:last-child {
+    margin-right: 0 !important;
+  }
+
+  &.active {
+    background: $grayText !important;
+    color: white !important;
+
+    &:hover {
+      color: white !important;
+    }
+  }
+
+  &:hover {
+    color: black !important;
+  }
+}

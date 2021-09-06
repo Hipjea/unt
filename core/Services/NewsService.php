@@ -38,8 +38,12 @@ class NewsService {
 
     public function getSubcategories($category) : array {
         $results = get_categories('child_of=' . $category->ID . '&hide_empty=1');
-        array_map(function ($obj) { 
-            $obj->link = get_category_link($obj->cat_ID);
+        array_map(function ($cat) use ($category) {
+            $cat->active = false;
+            $cat->link = get_category_link($cat->cat_ID);
+            if ($cat->cat_ID == $category->cat_ID) {
+                $cat->active = true;
+            }
         }, $results);
         return $results;
     }

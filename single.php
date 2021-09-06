@@ -21,12 +21,17 @@ global $themeOptions;
 
 $post = new \Timber\Post();
 
-$category = get_the_category($post->id)[0];
+$categories = get_the_category($post->id);
+array_map(function ($cat) {
+    $cat->name = strtolower($cat->name);
+    $cat->link = get_category_link($cat->cat_ID);
+}, $categories);
 $timberContext['news'] = $newsService->getCurrentNews();
-$timberContext['categorie'] = $category;
+$timberContext['category'] = $categories[0];
+$timberContext['categories'] = $categories;
 $timberContext['latestPosts'] = array();
-$timberContext['latestPosts'] = $newsService->getLatestNews($post, $category);
+$timberContext['latestPosts'] = $newsService->getLatestNews($post, $categories[0]);
 $timberContext['twitter'] = @$themeOptions->getSocialSettings('twitter');
 
-$templates = [ 'single.twig' ];
-Timber::render( $templates, $timberContext );
+$templates = ['single.twig'];
+Timber::render($templates, $timberContext);
