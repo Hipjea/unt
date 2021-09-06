@@ -36,22 +36,12 @@ class NewsService {
         return $results;
     }
 
-    public function getNewsCount($category) : int {
-        if (isset($category->id)) {
-            $query = array(
-                'post_type' => 'post', 
-                'cat' => $category->id,
-                'posts_per_page' => -1, 
-                'suppress_filters' => 0
-            );
-        } else {
-            $query = array(
-                'post_type' => 'post', 
-                'posts_per_page' => -1, 
-                'suppress_filters' => 0
-            );
-        }
-        return count(Timber::get_posts($query));
+    public function getSubcategories($category) : array {
+        $results = get_categories('child_of=' . $category->ID . '&hide_empty=1');
+        array_map(function ($obj) { 
+            $obj->link = get_category_link($obj->cat_ID);
+        }, $results);
+        return $results;
     }
 
     public function getNewsPerPage() : int {

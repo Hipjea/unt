@@ -5,7 +5,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-5">
-                    <h1 class="post-title">{{ appMessage[currentLang].actualites}}</h1>
+                    <h1 class="post-title">{{ titrePage }}</h1>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-12">
+                    {% for sub in subCategories %}
+                        <a class="btn btn-primary" href="{{sub.link}}">
+                            {{ sub.name }}
+                        </a>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row">
