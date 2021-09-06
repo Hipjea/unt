@@ -2,12 +2,9 @@
 
 namespace Unt\Services;
 
-use Unt\Models\NoticeModel;
-
 class SolrService {
     /** @var string */
     private $solrUrl = SOLR_URL;
-
     /** @var string */
     private $noticeIndex = NOTICE_INDEX;
     /** @var string */
