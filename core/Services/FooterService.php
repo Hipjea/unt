@@ -2,15 +2,12 @@
 
 namespace Unt\Services;
 
-class FooterService
-{
+class FooterService {
     /**
      * @return array of Menu
      */
-    public function getFooterMenuList() : array
-    {
+    public function getFooterMenuList() : array {
         $locations = get_nav_menu_locations();
-
         $result = [];
 
         if(isset($locations['footer'])) {
@@ -40,7 +37,6 @@ class FooterService
                 }
             }
         }
-
         return $result;
     }
 }

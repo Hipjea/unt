@@ -33,7 +33,6 @@ class NewsService {
             $model = $this->parsePostIntoNewsModel($post);
             array_push($results, $model);
         }
-
         return $results;
     }
 
@@ -93,8 +92,6 @@ class NewsService {
                 $results[] = $newPost;
             }
         }
-
         return $results;
     }
-    
 }

@@ -13,7 +13,6 @@ class PartnerService {
 
     public function getPartnersList() : array {
         $results = [];
-
         /** @var Post $post */
         $postList = Timber::get_posts(array(
             'post_type' => 'partner',
@@ -25,7 +24,6 @@ class PartnerService {
             $model = $this->parsePostIntoPartnerModel($post);
             array_push($results, $model);
         }
-
         return $results;
     }
 
@@ -36,7 +34,6 @@ class PartnerService {
         if (!is_null($post)) {
             $result = $this->parsePostIntoPartnerModel($post);
         }
-
         return $result;
     }
 }

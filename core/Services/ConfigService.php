@@ -13,7 +13,6 @@ class ConfigService {
      * @return array of config
      */
     public function getAppConfig() : array {
-
         $result = [
             'currentUrl' => $_SERVER['REQUEST_URI'],
             'serverDocuments' => SERVER_DOCUMENTS,
@@ -22,7 +21,6 @@ class ConfigService {
             'autocompIndex' => AUTOCOMPLETE_INDEX,
             'suplomIndex' => SUPLOM_INDEX
         ];
-
         return $result;
     }
 

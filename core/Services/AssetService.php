@@ -2,13 +2,11 @@
 
 namespace Unt\Services;
 
-class AssetService
-{
+class AssetService {
     /**
      * @return string
      */
-    public function getUri() : string
-    {
+    public function getUri() : string {
         $themeUri = get_template_directory_uri();
         $env = strtolower(UNT_ENV);
         return sprintf('%s/assets_dist/%s', $themeUri, $env);
@@ -18,8 +16,7 @@ class AssetService
      * @param string $vendorFilePath
      * @return string
      */
-    public function getVendorUrl(string $vendorFilePath) : string
-    {
+    public function getVendorUrl(string $vendorFilePath) : string {
         return sprintf('%s/vendors/%s', $this->getUri(), $vendorFilePath);
     }
 
@@ -27,8 +24,7 @@ class AssetService
      * @param string $imageName
      * @return string
      */
-    public function getImageUrl(string $imageName) : string
-    {
+    public function getImageUrl(string $imageName) : string {
         return sprintf('%s/images/%s', $this->getUri(), $imageName);
     }
 }

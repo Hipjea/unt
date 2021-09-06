@@ -19,15 +19,12 @@ class ALaUneService {
 
     public function getALaUneList() : array {
         $results = [];
-
         /** @var Post $post */
         $postList = Timber::get_posts(array('post_type' => 'aLaUne', "suppress_filters" => 0));
-
         foreach ($postList as $post) {
             $model = $this->parsePostIntoALaUneModel($post);
             array_push($results, $model);
         }
-
         return $results;
     }
 
@@ -38,7 +35,6 @@ class ALaUneService {
         if (!is_null($post)) {
             $result = $this->parsePostIntoALaUneModel($post);
         }
-
         return $result;
     }
 }

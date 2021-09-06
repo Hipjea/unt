@@ -36,7 +36,6 @@ class OrganigrammeService {
             }
             $i++;
         }
-
         return $results;
     }
 
@@ -47,7 +46,6 @@ class OrganigrammeService {
         if (!is_null($post)) {
             $result = $this->parsePostIntoModel($post);
         }
-
         return $result;
     }
 }

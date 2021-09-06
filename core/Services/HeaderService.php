@@ -15,7 +15,6 @@ class HeaderService {
      */
     public function getHeaderMenuList() : array {
         $locations = get_nav_menu_locations();
-
         $result = [];
 
         if(isset($locations['header'])) {
@@ -54,7 +53,6 @@ class HeaderService {
                 array_push($subMenusList,$subMenu);
             }
         }
-
         return $subMenusList;
     }
 }
