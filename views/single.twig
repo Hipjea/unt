@@ -12,7 +12,7 @@
 						<div class="dot"></div>
 						Publié le&nbsp;{{ news.date }}
 						{% if categorie.slug == "actualites" %}
-							dans les <a href="{{ site.link }}/liste-actualites/" class="link">actualités</a>
+							dans les <a href="{{ site.link }}/actus/" class="link">actualités</a>
 						{% endif %}
 					</div>
 					<div class="content">
@@ -50,7 +50,7 @@
 			{% if categorie.slug == "actualites" %}
 				<div class="row news-footer">
 					<div class="col unt-breadcrumb">
-						<a href="{{ site.link }}/liste-actualites/">
+						<a href="{{ site.link }}/actus/">
 							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
 							<span>{{ appMessage[currentLang].backToNews }}</span>
 						</a>

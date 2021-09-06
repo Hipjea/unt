@@ -12,7 +12,7 @@ Custom structure : `/%year%/%monthnum%/%day%/%postname%/`
 ### Pages nécessaires
 
 * Créer une page **Accueil** avec ACF lien_newsletter vers `newsletter`
-* Créer une page **Actualités** avec comme permalien `liste-actualites` et modèle `ListeActualites`
+* Créer une page **Actualités** avec comme permalien `actus` et modèle `ListeActualites`
 * Créer une page **Newsletter** avec comme permalien `newsletter` et modèle `Newsletter`
 
 
