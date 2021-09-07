@@ -7,7 +7,8 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build:re7": "webpack --config webpack.re7.js",
     "build:prod": "webpack --config webpack.prod.js",
-    "watch": "webpack --config webpack.dev.js --progress --watch"
+    "watch": "webpack --config webpack.dev.js --progress --watch",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -35,7 +36,9 @@
     "css-loader": "^5.2.6",
     "exports-loader": "^3.0.0",
     "file-loader": "^6.2.0",
+    "fs": "^0.0.1-security",
     "image-webpack-loader": "^7.0.1",
+    "jest": "^27.1.0",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
     "postcss": "^8.3.1",
