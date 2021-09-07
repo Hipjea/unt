@@ -65,7 +65,6 @@ const jsFiles = [
     `${jsPrefix}/jstree.js`,
     `${jsPrefix}/lazy-loading.js`,
     `${jsPrefix}/menu.js`,
-    `${jsPrefix}/notice.js`,
     `${jsPrefix}/scroll-scale.js`,
     `${jsPrefix}/search.js`,
     `${jsPrefix}/toCopy/customize-preview.js`,
