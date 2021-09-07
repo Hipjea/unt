@@ -95,4 +95,24 @@ describe("File presence", () => {
     it('has all the scss files', () => {
         scssFiles.forEach(file => expect(fileExists(file)).toBe(true));
     });
+
+    it('has all the scss dependencies files', () => {
+        const regex = /@import[^;]*;/gm
+        fs.readFile(`${scssPrefix}/app.scss`, 'utf8' , (err, data) => {
+            if (err) {
+                console.error(err);
+                return
+            }
+            const imports = data.match(regex);
+            const partials = [];
+            imports.forEach(imp => {
+                const match = imp.match(/"(.*?)"/);
+                if (match) {
+                    const partial = `${scssPrefix}/_${match[1]}.scss`;
+                    partials.push(partial);
+                };
+            });
+            partials.forEach(file => expect(fileExists(file)).toBe(true));
+        })
+    });
 });
