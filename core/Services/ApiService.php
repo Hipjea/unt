@@ -24,8 +24,9 @@ class ApiService {
             'methods' => 'GET',
             'callback' => [$this, 'autocompRoute'],
             'args' => [
-                'query'
+                'query' => []
             ],
+            'permission_callback' => '__return_true'
         ));
     }
 
