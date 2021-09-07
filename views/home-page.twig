@@ -11,7 +11,7 @@
 
         {% if aLaUneModel is not empty %}
             <div class="a-la-une">
-                <h3 class="part-title text-center mb-5">{{ appMessage[currentLang].homeALaUne }}</h3>
+                <h3 class="part-title text-center mb-5">{{ appStrings[currentLang].aLaUne }}</h3>
                 <div class="container carousel-container">
                     <div class="row">
                         <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
@@ -45,7 +45,7 @@
 	                                            </div>
 	                                            <div class="carte-a-la-une-footer">
 	                                                <div class="a-la-une-liens-footer">
-	                                                    <span>{{ appMessage[currentLang].homeLireSuite }} <i class="fas fa-angle-right"></i></span>
+	                                                    <span>{{ appStrings[currentLang].home.lireSuite }} <i class="fas fa-angle-right"></i></span>
 	                                                </div>
 	                                            </div>
 	                                        {% endif %}
@@ -67,8 +67,8 @@
                 <div class="container carousel-container">
                     <div class="row">
                         <div class="col-md-2">
-                            <h3>{{ appMessage[currentLang].homeZoomSur }}</h3>
-                            <h2>{{ appMessage[currentLang].homeSelectionRessource }}</h2>
+                            <h3>{{ appStrings[currentLang].home.zoomSur }}</h3>
+                            <h2>{{ appStrings[currentLang].home.selectionRessource }}</h2>
                         </div>
                         <div class="col-md-10 zoom-sur-carousel-wrapper">
                             <div id="zoom-sur-carousel">
@@ -129,7 +129,7 @@
                                     <div class="card-body">
                                         {% if child.resume %} <p class="small">{{ child.resume }}</p> {% endif %}
                                         <p class="card-text">
-                                            <a href="{{ child.link }}">En savoir plus</a>
+                                            <a href="{{ child.link }}">{{ appStrings[currentLang].knowMore }}</a>
                                         </p>
                                     </div>
                                 </a>
@@ -137,11 +137,11 @@
                         {% endfor %}
                     </div>
                     <div class="home-container-text col-sm-12 col-lg-6 order-1 order-sm-1 order-lg-2 mb-5 mb-lg-0">
-                        <h3 class="part-title mb-4">{{ appMessage[currentLang].ourProjects }}</h3>
+                        <h3 class="part-title mb-4">{{ appStrings[currentLang].home.ourProjects }}</h3>
                         <p>{{ homePageModel.blockProjects }}</p>
                         <p class="mt-4">
                             <a class="btn btn-primary" href="{{projectsUrl}}">
-                                {{ appMessage[currentLang].discordOutProjects }} 
+                                {{ appStrings[currentLang].home.discoverProjects }} 
                                 <img class="ml-2" src="{{ assets.imageUrl('goto-arrow.svg') }}" width="17">
                             </a>
                         </p>
@@ -153,7 +153,7 @@
 
     <div class="container home-container pt-150 pb-150">
         {% if partnersList is not empty %}
-            <h3 class="part-title text-center mb-5">Établissements membres</h3>
+            <h3 class="part-title text-center mb-5">{{ appStrings[currentLang].etablissementsMembres }}</h3>
             <div id="partners-wrapper" class="row">
                 {% for partners in partnersList %}
                     {% if partners is not null %}
@@ -180,10 +180,12 @@
     <div class="inscription-newsletter-wrapper">
         <div class="inscription-newsletter-wrapper-color">
             <div class="inscription-newsletter">
-                <h3 class="mt-0">{{ appMessage[currentLang].homeInscrireNewsletter }}</h3>
+                <h3 class="mt-0">{{ appStrings[currentLang].home.subscribeNewsletter }}</h3>
                 <div>{{ homePageModel.newsletterText }}</div>
                 <div class="mail-form mt-3">
-                    <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" class="btn">S'abonner à la newsletter</a>
+                    <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" class="btn">
+                        {{ appStrings[currentLang].home.subscribeNewsletterAlt }}
+                    </a>
                 </div>
             </div>
         </div>

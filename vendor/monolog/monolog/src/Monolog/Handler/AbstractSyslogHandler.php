@@ -82,7 +82,7 @@ abstract class AbstractSyslogHandler extends AbstractProcessingHandler
         }
 
         // convert textual description of facility to syslog constant
-        if (property_exists(strtolower($facility), $this->facilities)) {
+        if (array_key_exists(strtolower($facility), $this->facilities)) {
             $facility = $this->facilities[strtolower($facility)];
         } elseif (!in_array($facility, array_values($this->facilities), true)) {
             throw new \UnexpectedValueException('Unknown facility value "'.$facility.'" given');

@@ -24,8 +24,8 @@ class ConfigService {
         return $result;
     }
 
-    public function getAppMessages() : array {
-        return APP_MESSAGE;
+    public function getAppStrings() : array {
+        return APP_STRINGS;
     }
 
     public function getCurrentLanguage() : string {

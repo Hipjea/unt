@@ -3,21 +3,23 @@
         <ul class="pagination">
             {% if pagination.pages|first and pagination.pages|first.current != true %}
                 <li class="first btn">
-                    <a href="{{ pagination.pages|first.link }}">First</a>
+                    <a href="{{ pagination.pages|first.link }}">
+                        {{ appStrings[currentLang].pagination.first }}
+                    </a>
                 </li>
             {% else %}
                 <li class="first btn disabled">
-                    <button disabled>First</button>
+                    <button disabled>{{ appStrings[currentLang].pagination.first }}</button>
                 </li>
             {% endif %}
 
             {% if pagination.prev %}
                 <li class="prev btn">
-                    <a href="{{ pagination.prev.link }}">Previous</a>
+                    <a href="{{ pagination.prev.link }}">{{ appStrings[currentLang].pagination.previous }}</a>
                 </li>
             {% else %}
                 <li class="prev btn disabled">
-                    <button disabled>Previous</button>
+                    <button disabled>{{ appStrings[currentLang].pagination.previous }}</button>
                 </li>
             {% endif %}
 
@@ -36,23 +38,25 @@
             {% if pagination.next %}
                 <li class="next btn">
                     <a href="{{ pagination.next.link }}">
-                        Next
+                        {{ appStrings[currentLang].pagination.next }}
                     </a>
                 </li>
             {% else %}
                 <li class="next btn disabled">
                     <button disabled>
-                        Next
+                        {{ appStrings[currentLang].pagination.next }}
                     </button>
                 </li>
             {% endif %}
             {% if pagination.pages|last and pagination.pages|last.current != true %}
                 <li class="last btn">
-                    <a href="{{ pagination.pages|last.link }}">Last</a>
+                    <a href="{{ pagination.pages|last.link }}">
+                        {{ appStrings[currentLang].pagination.last }}
+                    </a>
                 </li>
             {% else %}
                 <li class="last btn disabled">
-                    <button disabled>Last</button>
+                    <button disabled>{{ appStrings[currentLang].pagination.last }}</button>
                 </li>
             {% endif %}
         </ul>

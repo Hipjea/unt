@@ -12,7 +12,7 @@
             {% if lienRetourRecherche is defined and lienRetourRecherche is not null %}
                 <div class="notice-lien-retour">
                     <a href="{{ lienRetourRecherche }}">
-                        <i class="fas fa-angle-left"></i> {{ appMessage[currentLang].noticeRetourRecherche }}
+                        <i class="fas fa-angle-left"></i> {{ appStrings[currentLang].notice.retourRecherche }}
                     </a>
                 </div>
             {% endif %}
@@ -38,7 +38,7 @@
                     </div>
                     {% if noticeModel.coursComplet is defined and noticeModel.coursComplet is not null and noticeModel.coursComplet == 1 %}
                         <div class="notice-cours-complet">
-                            {{ appMessage[currentLang].noticeCoursComplet }}
+                            {{ appStrings[currentLang].notice.coursComplet }}
                             <br/>
                         </div>
                     {% endif %}
@@ -83,13 +83,13 @@
                                 <div class="notice-boutons-acces">
                                     {% if noticeModel.evaluationForm is defined and noticeModel.evaluationForm is not null %}
                                         <a role="button" class="btn btn-outline-primary btn-ressource" target="_blank" href="{{ noticeModel.evaluationForm }}">
-                                            {{ appMessage[currentLang].noticeVotreAvis }}
+                                            {{ appStrings[currentLang].notice.votreAvis }}
                                         </a>
                                     {% endif %}
 
                                     {% if ressourceUrl %}
                                         <a id="notice-link_ressource" role="button" class="btn btn-primary btn-ressource" target="_blank" href="{{ ressourceUrl }}">
-                                            {{ appMessage[currentLang].noticeAccederRessource }}
+                                            {{ appStrings[currentLang].notice.accederRessource }}
                                         </a>
                                     {% endif %}
                                 </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-md">
                             <div id="notice-description" class="notice-description">
-                                <div class="notice-description-titre">{{ appMessage[currentLang].noticeDescription }}</div>
+                                <div class="notice-description-titre">{{ appStrings[currentLang].notice.description }}</div>
                                 <div id="notice-description">
                                     {{ noticeModel.description }}
                                 </div>
@@ -111,11 +111,11 @@
                     <nav class="pedagogie-nav">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-                                {{ appMessage[currentLang].noticePedagogie }}
+                                {{ appStrings[currentLang].notice.pedagogie }}
                             </a>
                             {% if noticeModel.complements is defined and noticeModel.complements is not null and noticeModel.complements is not empty %}
                                 <a class="nav-item nav-link {{ isDisabled }}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                    {{ appMessage[currentLang].noticeComplements }}
+                                    {{ appStrings[currentLang].notice.complements }}
                                 </a>
                             {% endif %}
                         </div>
@@ -123,17 +123,17 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                             {% if noticeModel.typesPedagogiques is defined and noticeModel.typesPedagogiques is not null %}
-                                <h2>{{ appMessage[currentLang].noticeTypesPedagogiques }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.typesPedagogiques }}</h2>
                                 <span id="notice-typesPedagogiques">{{ noticeModel.typesPedagogiques }}</span>
                                 <br/><br/>
                             {% endif %}
                             {% if noticeModel.niveau is defined and noticeModel.niveau is not null %}
-                                <h2>{{ appMessage[currentLang].noticeNiveaux }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.niveaux }}</h2>
                                 <span id="notice-niveaux">{{ noticeModel.niveau }}</span>
                                 <br/><br/>
                             {% endif %}
                             {% if noticeModel.objectifsPedagogiques is defined and noticeModel.objectifsPedagogiques is not null %}
-                                <h2>{{ appMessage[currentLang].noticeObjectifsPedagogiques }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.objectifsPedagogiques }}</h2>
                                 <ul>
                                     {% for objectifPedagogique in noticeModel.objectifsPedagogiques %}
                                         <li>{{ objectifPedagogique }}</li>
@@ -141,12 +141,12 @@
                                 </ul>
                             {% endif %}
                             {% if noticeModel.activiteInduite is defined and noticeModel.activiteInduite is not null %}
-                                <h2>{{ appMessage[currentLang].noticeActivitesInduites }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.activitesInduites }}</h2>
                                 <span id="notice-activitesInduites">{{ noticeModel.activiteInduite }}</span>
                                 <br/><br/>
                             {% endif %}
                             {% if noticeModel.propositionUtilisation is defined and noticeModel.propositionUtilisation is not null %}
-                                <h2>{{ appMessage[currentLang].noticePropositionUtilisation }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.propositionUtilisation }}</h2>
                                 <ul id="notice-objectifsPedagogiques">
                                     {% for propositionUtilisation in noticeModel.propositionUtilisation %}
                                         <li>{{ propositionUtilisation }}</li>
@@ -154,12 +154,12 @@
                                 </ul>
                             {% endif %}
                             {% if noticeModel.dureeDApprentissage is defined and noticeModel.dureeDApprentissage is not null %}
-                                <h2>{{ appMessage[currentLang].noticeDureeApprentissage }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.dureeApprentissage }}</h2>
                                 <span id="notice-dureeApprentissage">{{ noticeModel.dureeDApprentissage|slice(2)|lower }}</span>
                                 <br/><br/>
                             {% endif %}
                             {% if noticeModel.langueDeLApprenant is defined and noticeModel.langueDeLApprenant is not null %}
-                                <h2>{{ appMessage[currentLang].noticeLangueApprenant }}</h2>
+                                <h2>{{ appStrings[currentLang].notice.langueApprenant }}</h2>
                                 <span id="notice-languesUtilisateur">{{ noticeModel.langueDeLApprenant }}</span>
                             {% endif %}
                         </div>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-md-12 col-lg-3">
                     <div class="notice-partage">
-                        <div class="notice-partage-text">{{ appMessage[currentLang].noticePartagerSur }}</div>
+                        <div class="notice-partage-text">{{ appStrings[currentLang].notice.partagerSur }}</div>
                         <div>
                             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ currentUrl|url_encode }}&src=sdkpreparse">
                                 <img src="{{ assets.imageUrl('logo-facebook.png') }}"/>
@@ -188,7 +188,7 @@
                     </div>
                     {% if  noticeModel.universiteProductrice is defined and noticeModel.universiteProductrice is not null and noticeModel.universiteProductrice is not empty %}
                     <div class="notice-info">
-                        <h2>{{ appMessage[currentLang].noticeUniversiteProductrice }}</h2>
+                        <h2>{{ appStrings[currentLang].notice.universiteProductrice }}</h2>
                         <div class="notice-universite-logo">
                             {% if noticeModel.universiteProductriceId is defined and noticeModel.universiteProductriceId is not null and noticeModel.universiteProductriceId is not empty %}
                             <a href="{{ router.resultatsRoute(currentLang, "score", "1", noticeModel.universiteProductrice|url_encode)  }}">
@@ -204,13 +204,13 @@
                     {% endif %}
                     {% if  noticeModel.etablissementsCoEditeurs is defined and noticeModel.etablissementsCoEditeurs is not null and noticeModel.etablissementsCoEditeurs is not empty %}
                         <div class="notice-info">
-                            <h2>{{ appMessage[currentLang].noticeEtablissementCoEditeur }}</h2>
+                            <h2>{{ appStrings[currentLang].notice.etablissementCoEditeur }}</h2>
                                 <div id="notice-etablissementsCoEditeurs">{{ noticeModel.etablissementsCoEditeurs }}</div>
                         </div>
                     {% endif %}
                     {% if  noticeModel.disciplines is defined and noticeModel.disciplines is not null and noticeModel.disciplines is not empty %}
                     <div class="notice-info">
-                        <h2>{{ appMessage[currentLang].noticeDisciplines }}</h2>
+                        <h2>{{ appStrings[currentLang].notice.disciplines }}</h2>
                         <div id="notice-discipline">
                             {% if noticeModel.domaines|length > 1 %}
                                 {% for i in 0..noticeModel.domaines|length-1 %}
@@ -237,7 +237,7 @@
                     {% endif %}
                     {% if  noticeModel.motsClefs is defined and noticeModel.motsClefs is not null and noticeModel.motsClefs is not empty %}
                     <div class="notice-info">
-                        <h2>{{ appMessage[currentLang].noticeMotsClefs }}</h2>
+                        <h2>{{ appStrings[currentLang].notice.motsClefs }}</h2>
                         <div id="notice-motCle">
                             {% if noticeModel.motsClefs|length > 1 %}
                                 {% for i in 0..noticeModel.motsClefs|length-2 %}
@@ -255,16 +255,20 @@
                         {% else %}
                             {% set suplomUrl = serverSuplom~"suplom_not_exposed/suplomfr-"~noticeModel.uuid %}
                         {% endif %}
-                        <a id="notice-suplom" target="_blank" class="btn btn-outline-primary btn-fiche-suplomfr" href="{{ suplomUrl }}.xml" role="button">{{ appMessage[currentLang].noticeFicheSuplomfr }}</a>
+                        <a id="notice-suplom" target="_blank" class="btn btn-outline-primary btn-fiche-suplomfr" href="{{ suplomUrl }}.xml" role="button">
+                            {{ appStrings[currentLang].notice.ficheSuplomfr }}
+                        </a>
                     </div>
                 </div>
             </div>
         {% if noticeRelations|length > 0 %}
             <div class="notice-ressources-liees">
-                <div class="notice-titre-slider">{{ appMessage[currentLang].noticeRessourcesLiees }}</div>
+                <div class="notice-titre-slider">{{ appStrings[currentLang].notice.ressourcesLiees }}</div>
                 <div class="container carousel-container">
                     <div class="row">
-                        <div id="notice-lien-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
+                        <div id="notice-lien-left-arrow" class="col-2 col-xl-1 arrow-div">
+                            <div class="left-arrow"></div>
+                        </div>
                             <div class="owl-carousel-notice-lien owl-carousel owl-theme col-8 col-xl-9">
                                 {% for i in 0..noticeRelations|length-1 %}
                                     {%  set carteNotice = noticeRelations[i] %}
@@ -279,7 +283,7 @@
                                                 <img class="carte-notice-image" src="{{ carteNotice.image }}" />
                                             </a>
                                             <div class="carte-notice-association-type">
-                                                {{ appMessage[currentLang][carteNotice.associationType] }}
+                                                {{ appStrings[currentLang][carteNotice.associationType] }}
                                             </div>
                                             <div class="carte-notice-texte-relation">
                                                 <a target="_blank" href="{{ carteNoticeRessourceUrl }}">
@@ -298,7 +302,7 @@
                                             </div>
                                         {% else %}
                                             <div class="carte-notice-association-type">
-                                                {{ appMessage[currentLang][carteNotice.associationType] }}
+                                                {{ appStrings[currentLang][carteNotice.associationType] }}
                                             </div>
                                             <div class="carte-notice-texte-relation-full">
                                                 <a target="_blank" href="{{ carteNoticeRessourceUrl }}">
@@ -317,11 +321,11 @@
                                                 <span class="text-UNT">UNT</span>
                                             </div>
                                             <div class="carte-notice-liens-footer">
-                                                <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ carteNoticeRessourceUrl }}">
+                                                <a class="btn btn-primary" title="{{ appStrings[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ carteNoticeRessourceUrl }}">
                                                     <i class="fas fa-link"></i>
                                                 </a>
                                                 {% if not carteNotice.externalResource %}
-                                                <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(carteNotice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
+                                                <a class="btn btn-primary" title="{{ appStrings[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(carteNotice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
                                                 {% endif %}
                                             </div>
                                             <br/>
@@ -338,7 +342,7 @@
             {% if themeOptions.recommandationVisibility == 1 %}
                 <hr/>
                 <div id="notice-detail-recommandations" class="notice-recommandations">
-                    <div class="notice-titre-slider">{{ appMessage[currentLang].noticeRecommandations }}</div>
+                    <div class="notice-titre-slider">{{ appStrings[currentLang].notice.recommandations }}</div>
                     <br/>
                     {# Cette boîte est vide car remplie par ailleurs par le code du partenaire Sailendra, dans le cadre du projet Pericles #}
                     <div id="pericles-ressourcefooter"></div>
@@ -346,7 +350,7 @@
             {% endif %}
         </div>
         {% else %}
-            {{ appMessage[currentLang].noticeNExistePas }}
+            {{ appStrings[currentLang].notice.nExistePas }}
         {% endif %}
     </div>
 {% endblock %}

@@ -16,7 +16,7 @@
                     <li class="nav-item active">
                         {% if evaluationForm is defined and evaluationForm is not null %}
                             <a role="button" class="btn btn-outline-primary btn-ressource" target="_blank" href="{{ evaluationForm }}">
-                                {{ appMessage[currentLang].ressourceVotreAvis }}
+                                {{ appStrings[currentLang].ressourceVotreAvis }}
                             </a>
                         {% endif %}
                     </li>
@@ -35,7 +35,7 @@
          </div>
     {% else %}
         <div class="content-text">
-            {{ appMessage[currentLang].ressourceNonAffichee }}
+            {{ appStrings[currentLang].ressourceNonAffichee }}
         </div>
     {% endif %}
 {% endblock %}

@@ -12,7 +12,7 @@
                                 <div>
                                     <div class="align-left">
                                         <span class="tree-root">
-                                            {{ appMessage[currentLang].resultatsFacetteEstampillage }}
+                                            {{ appStrings[currentLang].resultats.facetteEstampillage }}
                                         </span>
                                     </div>
                                     <div class="align-right"><i class="fas fa-sort-up"></i></div>
@@ -30,7 +30,7 @@
                                                 {% endif %}
                                             {% endfor %}
                                             <li class="{{ selectedClass }}" data-facette="{{ facettes.facet_fields.estampillage[i] }}">
-                                                {{ appMessage[currentLang].resultatsFacetteEstampillage }} ({{ facettes.facet_fields.estampillage[i+1] }})
+                                                {{ appStrings[currentLang].resultats.facetteEstampillage }} ({{ facettes.facet_fields.estampillage[i+1] }})
                                             </li>
                                         {% endif %}
                                     {% endfor %}
@@ -44,7 +44,7 @@
                                 <div>
                                     <div class="align-left">
                                         <span class="tree-root">
-                                            {{ appMessage[currentLang].resultatsFacetteDisciplines }}
+                                            {{ appStrings[currentLang].resultats.facetteDisciplines }}
                                         </span>
                                     </div>
                                     <div class="align-right"><i class="fas fa-sort-up"></i></div>
@@ -94,7 +94,7 @@
                                 <div>
                                     <div class="align-left">
                                         <span class="tree-root">
-                                            {{ appMessage[currentLang].resultatsFacetteNiveaux }}
+                                            {{ appStrings[currentLang].resultats.facetteNiveaux }}
                                         </span>
                                     </div>
                                     <div class="align-right"><i class="fas fa-sort-up"></i></div>
@@ -126,7 +126,7 @@
                                 <div>
                                     <div class="align-left">
                                         <span class="tree-root">
-                                            {{ appMessage[currentLang].resultatsFacetteTypeRessource }}
+                                            {{ appStrings[currentLang].resultats.facetteTypeRessource }}
                                         </span>
                                     </div>
                                     <div class="align-right"><i class="fas fa-sort-down"></i></div>
@@ -160,9 +160,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="nb-resultats-query">
-                                        <span class="nb-resultats">{{ resultats.count }} {{ appMessage[currentLang].resultatsResultats }}</span>
+                                        <span class="nb-resultats">{{ resultats.count }} {{ appStrings[currentLang].resultats.resultats }}</span>
                                         {% if currentQuery is defined and currentQuery is not null and currentQuery is not empty %}
-                                            {{ appMessage[currentLang].resultatsPourVotreRecherche }} '{{ currentQuery }}'
+                                            {{ appStrings[currentLang].resultats.pourVotreRecherche }} '{{ currentQuery }}'
                                         {% endif %}
                                     </div>
                                 </div>
@@ -171,27 +171,27 @@
                                         <div class="container">
                                             <div class="row justify-content-right">
                                                 <div class="col-auto trier-par">
-                                                    {{ appMessage[currentLang].resultatsTrierPar }}
+                                                    {{ appStrings[currentLang].resultats.trierPar }}
                                                 </div>
                                                 <div class="col-auto">
                                                     <div class="dropdown">
                                                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                                                             {% if currentSort == "score" %}
-                                                                {{ appMessage[currentLang].resultatsTriPertinence }}
+                                                                {{ appStrings[currentLang].resultats.triPertinence }}
                                                             {% elseif currentSort == "date_publication" %}
-                                                                {{ appMessage[currentLang].resultatsTriDate }}
+                                                                {{ appStrings[currentLang].resultats.triDate }}
                                                             {% endif %}
                                                             <span class="caret"></span>
                                                         </button>
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <a class="link-tri" data-newtri="score" >
-                                                                    {{ appMessage[currentLang].resultatsTriPertinence }}
+                                                                    {{ appStrings[currentLang].resultats.triPertinence }}
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a  class="link-tri" data-newtri="date_publication">
-                                                                    {{ appMessage[currentLang].resultatsTriDate }}
+                                                                    {{ appStrings[currentLang].resultats.triDate }}
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -213,7 +213,7 @@
                                         {% set value = value|replace({'#': '', '/': ''}) %}
                                         {% set dataValue = currentFacettes[i].value[j] %}
                                     {% elseif currentFacettes[i].name == 'estampillage' %}
-                                        {% set value = appMessage[currentLang].resultatsFacetteEstampillage %}
+                                        {% set value = appStrings[currentLang].resultatsFacetteEstampillage %}
                                         {% set dataValue = currentFacettes[i].value[j] %}
                                     {% elseif currentFacettes[i].name == 'etablissement_porteur' %}
                                         {{ currentFacettes[i].value[j][0] }}
@@ -284,9 +284,9 @@
                                                     <span class="text-{{ notice.entrepotNom }}">{{ notice.entrepotNom }}</span>
                                                 </div>
                                                 <div class="carte-notice-liens-footer">
-                                                    <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ urlRessource }}"><i class="fas fa-link"></i></a>
+                                                    <a class="btn btn-primary" title="{{ appStrings[currentLang].carteNoticeAccederRessource }}" target="_blank" href="{{ urlRessource }}"><i class="fas fa-link"></i></a>
                                                     {% if not notice.externalResource %}
-                                                        <a class="btn btn-primary" title="{{ appMessage[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(notice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
+                                                        <a class="btn btn-primary" title="{{ appStrings[currentLang].carteNoticeAccederNotice }}" href="{{ router.noticeRoute(notice.uuid, currentLang) }}"><i class="fas fa-plus"></i></a>
                                                     {% endif %}
                                                 </div>
                                                 <br/>
@@ -297,7 +297,7 @@
                             </div>
                         </div>
                         {% else %}
-                            {{ appMessage[currentLang].resultatsErreurRequete }}
+                            {{ appStrings[currentLang].resultats.erreurRequete }}
                         {% endif %}
                         {% if resultats.count > 6 %}
                             {% if resultats.page == 1 %}
@@ -339,7 +339,7 @@
                         {% endif %}
                         <div class="resultats-elargir-recherche">
                             <a class="btn btn-primary" data-toggle="collapse" href="#elargir-recherche" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                {{ appMessage[currentLang].resultatsElargirRecherche }} <i class="fas fa-angle-down"></i>
+                                {{ appStrings[currentLang].resultats.elargirRecherche }} <i class="fas fa-angle-down"></i>
                             </a>
                             <div class="collapse" id="elargir-recherche">
                                 <div class="card card-body resultats-catalogue-recherche">

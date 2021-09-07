@@ -10,7 +10,7 @@
 					</h1>
 					<div class="news-date">
 						<div class="dot"></div>
-						Publié le&nbsp;{{ news.date }}
+						{{ appStrings[currentLang].publishedOn }}&nbsp;{{ news.date }}
 						{% for cat in categories %}
 							{% if cat.slug == "actualites" %}
 								dans <a href="{{ site.link }}/actus/" class="link">actualités</a>
@@ -25,7 +25,7 @@
 				</article>
 				{% if latestPosts > 1 %}
 					<aside class="news-siderbar d-none d-lg-inline col-lg-4">
-						<h4>{{ appMessage[currentLang].latestPosts }}</h4>
+						<h4>{{ appStrings[currentLang].latestPosts }}</h4>
 						<ul>
 							{% for post in latestPosts %}
 								<a class="actualite-lien" href="{{ post.postUrl }}">
@@ -56,7 +56,7 @@
 					<div class="col unt-breadcrumb">
 						<a href="{{ site.link }}/actus/">
 							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
-							<span>{{ appMessage[currentLang].backToNews }}</span>
+							<span>{{ appStrings[currentLang].backToNews }}</span>
 						</a>
 					</div>
 				</div>
