@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:re7": "webpack --config webpack.re7.js",
-    "build:prod": "webpack --config webpack.prod.js",
+    "build:dev": "jest && webpack --config webpack.dev.js",
+    "build:re7": "jest && webpack --config webpack.re7.js",
+    "build:prod": "jest && webpack --config webpack.prod.js",
     "watch": "webpack --config webpack.dev.js --progress --watch",
     "test": "jest"
   },
