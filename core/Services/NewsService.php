@@ -37,15 +37,19 @@ class NewsService {
     }
 
     public function getSubcategories($category) : array {
-        $results = get_categories('child_of=' . $category->ID . '&hide_empty=1');
+        $topcategories = get_categories('child_of=' . $category->ID . '&hide_empty=1&parent=0');
+        foreach ($topcategories as $topcategory) {
+            $subcategories = get_categories('parent=' . $topcategory->cat_ID . '&hide_empty=1');
+            $topcategories = array_merge($topcategories, $subcategories);
+        }
         array_map(function ($cat) use ($category) {
             $cat->active = false;
             $cat->link = get_category_link($cat->cat_ID);
             if ($cat->cat_ID == $category->cat_ID) {
                 $cat->active = true;
             }
-        }, $results);
-        return $results;
+        }, $topcategories);
+        return $topcategories;
     }
 
     public function getNewsPerPage() : int {

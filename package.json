@@ -34,6 +34,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^5.2.6",
     "exports-loader": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
     "jest": "^27.1.0",
