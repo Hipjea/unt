@@ -21,6 +21,8 @@ global $themeOptions;
 
 $post = new \Timber\Post();
 
+setup_postdata($post);
+
 $categories = get_the_category($post->id);
 array_map(function ($cat) {
     $cat->name = strtolower($cat->name);
@@ -32,6 +34,14 @@ $timberContext['categories'] = $categories;
 $timberContext['latestPosts'] = array();
 $timberContext['latestPosts'] = $newsService->getLatestNews($post, $categories[0]);
 $timberContext['twitter'] = @$themeOptions->getSocialSettings('twitter');
+
+if (array_filter($categories, function($obj) {
+        return $obj->name == "blog"; 
+    })) {
+    // Get the author infos if the category is "blog"
+    $timberContext['author'] = get_the_author();
+    $timberContext['authorAvatar'] = get_avatar(get_the_author_meta('ID'));
+}
 
 $templates = ['single.twig'];
 Timber::render($templates, $timberContext);
