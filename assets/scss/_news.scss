@@ -4,6 +4,13 @@
             border-bottom: 1px solid $borderColor;
             margin-bottom: 1.5em;
             padding-bottom: 2.5em;
+
+            label {
+                font-size: .85em;
+                color: $grayAltSecondary;
+                margin-bottom: 2em;
+                font-style: italic;
+            }
         }
 
         h1.article-heading {
