@@ -1,4 +1,4 @@
-jQuery(function () {
+$(function() {
     var options = {
         loop: false,
         margin: 10,
@@ -23,7 +23,7 @@ jQuery(function () {
         }
     };
     var carousel = $('.owl-carousel-a-la-une');
-    if (typeof owlCarousel === 'function') {
+    if (carousel) {
         carousel.on({
             'initialized.owl.carousel': function () {
                 carousel.find('.item').show();
@@ -64,7 +64,7 @@ jQuery(function () {
         }
     }
     var zoomSurCarousel = $('.owl-carousel-a-la-une');
-    if (typeof owlCarousel === 'function') {
+    if (zoomSurCarousel) {
         zoomSurCarousel.on({
             'initialized.owl.carousel': function () {
                 zoomSurCarousel.find('.item').show();
@@ -80,7 +80,8 @@ jQuery(function () {
         $('.owl-carousel-a-la-une').trigger('prev.owl.carousel');
     });
 
-    if (typeof owlCarousel === 'function') { 
+    var noticeCarousel = $('.owl-carousel-notice-lien');
+    if (noticeCarousel) { 
         $('.owl-carousel-notice-lien').owlCarousel({
             loop: false,
             margin: 10,
@@ -102,6 +103,7 @@ jQuery(function () {
             }
         });
     }
+
     $('#notice-lien-right-arrow').on('click', function() {
         $('.owl-carousel-notice-lien').trigger('next.owl.carousel');
     });

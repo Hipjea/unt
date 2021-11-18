@@ -22,6 +22,14 @@
 					<div class="content">
 						{{ news.fullContent }}
 					</div>
+					{% if author is not null %}
+						<div class="row mt-3 author-infos">
+							<div class="col text-right">
+								<span class="text-center">{{ author }}</span>
+								<div>{{ authorAvatar }}</div>
+							</div>
+						</div>
+					{% endif %}
 				</article>
 				{% if latestPosts > 1 %}
 					<aside class="news-siderbar d-none d-lg-inline col-lg-4">
@@ -51,7 +59,7 @@
 					</aside>
 				{% endif %}
 			</div>
-			{% if category.slug == "actualites" %}
+			{% if category.slug == "actualites" or category.slug == "blog" %}
 				<div class="row news-footer">
 					<div class="col unt-breadcrumb">
 						<a href="{{ site.link }}/actus/">
