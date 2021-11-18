@@ -136,6 +136,10 @@
   position: relative;
   margin-bottom: 100px;
 
+  @media (max-width: 380px) {
+    width: auto;
+  }
+
   .card {
     position: absolute;
     width: 280px;
@@ -151,6 +155,14 @@
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
+
+    @media (max-width: 530px) {
+      width: 200px;
+    }
+
+    @media (max-width: 380px) {
+      width: 150px;
+    }
 
     * {
       color: $colorH1;
