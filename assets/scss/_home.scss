@@ -17,6 +17,9 @@
 
 .loading-placeholder,
 #loading-placeholer-zoom-sur {
+  max-height: 450px;
+  overflow-y: hidden;
+
   img {
     width: 175px;
     height: 450px;
@@ -24,6 +27,7 @@
     float: left;
   }
 }
+
 .owl-carousel-a-la-une,
 #carouselZoomSur {
   .item {
