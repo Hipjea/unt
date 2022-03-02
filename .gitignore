@@ -12,3 +12,11 @@ v8-compile-cache-0
 node_modules
 node_modules/.yarn-integrity
 vendor
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

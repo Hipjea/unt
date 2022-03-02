@@ -6,11 +6,17 @@
   "require": {
     "monolog/monolog": "^1.24",
     "vlucas/phpdotenv": "^5.2",
-    "symfony/yaml": "^5.3"
+    "symfony/yaml": "^5.3",
+    "timber/timber": "^1.19"
   },
   "autoload": {
     "psr-4": {
       "Unt\\": "core"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
     }
   }
 }
