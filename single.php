@@ -34,6 +34,7 @@ $timberContext['categories'] = $categories;
 $timberContext['latestPosts'] = array();
 $timberContext['latestPosts'] = $newsService->getLatestNews($post, $categories[0]);
 $timberContext['twitter'] = @$themeOptions->getSocialSettings('twitter');
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 if (array_filter($categories, function($obj) {
         return $obj->name == "blog"; 

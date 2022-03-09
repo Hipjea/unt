@@ -12,6 +12,8 @@ global $newsletterService;
 
 $context = Timber::get_context();
 $timberContext['post'] = Timber::get_post();
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
+
 if (isset($_POST['email'])) {
     $valid = is_email($_POST['email']);
     if ($valid) {

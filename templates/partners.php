@@ -17,6 +17,7 @@ global $themeOptions;
 $context = Timber::get_context();
 $timberContext['post'] = Timber::get_post();
 $timberContext['partnersList'] = $partnerService->getPartnersList();
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 $timberContext['titrePage'] = "Nos membres";
 $templates = ['partners-list.twig'];

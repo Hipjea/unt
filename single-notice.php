@@ -14,6 +14,7 @@ use Timber\Timber;
 global $timberContext;
 $post = Timber::query_post();
 $timberContext['post'] = $post;
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $timberContext );

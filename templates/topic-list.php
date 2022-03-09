@@ -22,6 +22,7 @@ $timberContext['newsCount'] = $category->count;
 $timberContext['newsPage'] = $pagination;
 $timberContext['newsPerPage'] = $newsService->getNewsPerPage();
 $timberContext['pageCount'] = ceil($category->count / $newsService->getNewsPerPage());
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 $timberContext['titrePage'] = "Actualités";
 $templates = ['news-list.twig'];

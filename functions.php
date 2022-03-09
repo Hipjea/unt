@@ -128,9 +128,30 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
+
 // Allow SVG files
 function wpc_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
 add_filter('upload_mimes', 'wpc_mime_types');
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function unt_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar', 'unt' ),
+			'id'            => 'widget-sidebar',
+			'description'   => __( 'Widgets sidebar', 'unt' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'unt_widgets_init' );

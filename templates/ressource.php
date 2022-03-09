@@ -19,6 +19,7 @@ if($currentNotice->getDisplayInIframe()) {
 }
 $timberContext['ressourceContent'] = $currentNotice->getRessource();
 $timberContext['evaluationForm'] = $currentNotice->getEvaluationForm();
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 $timberContext['titrePage'] = "Ressource";
 $templates = [ 'ressource.twig' ];

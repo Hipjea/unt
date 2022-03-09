@@ -26,6 +26,7 @@ $timberContext['partnersList'] = $partnerService->getPartnersList();
 $timberContext['isHomePage'] = true;
 $projects = Timber::get_post($timberContext['projectsPageId']);
 $timberContext['projectsUrl'] = get_post_permalink($projects->ID);
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 if (isset($projects)) {
     $children = $projects->{'children'};

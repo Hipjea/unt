@@ -26,7 +26,6 @@ use Timber\Timber;
 global $timberContext;
 $post = new \Timber\Post();
 $timberContext['post'] = $post;
-
-
+$timberContext['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $timberContext );
