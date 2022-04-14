@@ -103,20 +103,22 @@ $timberContext['siteTitle'] = get_bloginfo();
 function add_images_lazyloading($content) {
     $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
     $dom = new DOMDocument();
-    @$dom->loadHTML($content);
+    if ($content) {
+        @$dom->loadHTML($content);
 
-    foreach ($dom->getElementsByTagName('img') as $node) {  
-        $oldsrc = $node->getAttribute('src');
-        $node->setAttribute('data-src', $oldsrc);
-        $tempsrc = get_theme_root_uri().'/assets/images/placeholder.png';
-        $node->setAttribute('src', $tempsrc);
-        $classes = $node->getAttribute('class');
-        $node->setAttribute('class', $classes . ' lozad');
+        foreach ($dom->getElementsByTagName('img') as $node) {  
+            $oldsrc = $node->getAttribute('src');
+            $node->setAttribute('data-src', $oldsrc);
+            $tempsrc = get_theme_root_uri().'/assets/images/placeholder.png';
+            $node->setAttribute('src', $tempsrc);
+            $classes = $node->getAttribute('class');
+            $node->setAttribute('class', $classes . ' lozad');
+        }
+        $newHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace(
+            array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $dom->saveHTML())
+        );
+        return $newHtml;
     }
-    $newHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace(
-        array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $dom->saveHTML())
-    );
-    return $newHtml;
 }
 
 add_filter('the_content', 'add_images_lazyloading');
