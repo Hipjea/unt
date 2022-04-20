@@ -206,28 +206,30 @@
   .projects-tabs-inner {
 
     ul.nav-tabs {
+      background: #cdcfd1;
       border-bottom: 0;
-      padding-right: 20px;
+      padding-right: 0px;
 
       li {
         margin-bottom: 0;
         color: white;
-        border-bottom: 2px solid rgba(255,255,255,.4);
+        border-bottom: 2px solid rgba(255,255,255,1);
         transition-duration: .2s;
         transition-timing-function: linear;
         transition-delay: 0s;
 
         &:hover {
-          margin-right: 10px;
+          background: rgba(62, 67, 92, .9);
         }
 
         a {
-          color: white;
-          background: #abb4c4;
+          color: black;
+          font-family: "Montserrat-SemiBold";
+          background: rgba(255, 255, 255, .8);
           padding: 1em 1.5em;
 
           .dot {
-            background: rgba(255,255,255,.4);
+            background: none;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -236,10 +238,11 @@
           }
 
           &.active {
+            color: white;
             background: var(--main-color);
 
             .dot {
-              background: #FFC937;
+              background: rgb(255, 255, 255);
               animation: 2.5s ease infinite pulseProject;
             }
               
@@ -257,6 +260,7 @@
     }
 
     .tab-content {
+      padding-left: 25px;
       color: $grayText;
     }
   }

@@ -11,7 +11,10 @@
     
         {% if aLaUneModel is not empty %}
             <div class="a-la-une">
-                <h3 class="part-title text-center mb-5">{{ appStrings[currentLang].home.aLaUne }}</h3>
+                <div class="title-wrapper">
+                    <h3 class="part-title mb-5">{{ appStrings[currentLang].home.aLaUne }}</h3>
+                </div>
+
                 <div class="container carousel-container">
                     <div class="row">
                         <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
@@ -115,7 +118,7 @@
 
     <div class="container-fluid fat-container container-white home-container mb-0">
         <div class="container">
-            <div class="content-text fat-text text-black">
+            <div class="content-text fat-text text-black my-5">
                 {{ homePageModel.content }}
             </div>
         </div>
@@ -124,7 +127,9 @@
     {% if projects_children %}
         <div class="container-fluid fat-container container-white home-container">
             <div class="container">
-                <h2>Nos projets</h2>
+                <div class="title-wrapper">
+                    <h3 class="part-title my-5">{{ appStrings[currentLang].ourProjects }}</h3>
+                </div>
 
                 <div class="projects-tabs p-3">
                     <div class="row projects-tabs-inner">
@@ -145,7 +150,10 @@
                                     <p class="small">{{ child.resume }}</p>
                                     <div class="">
                                         <p class="">
-                                            <a href="{{ child.link }}">{{ appStrings[currentLang].knowMore }}</a>
+                                            <a href="{{ child.link }}">
+                                                {{ appStrings[currentLang].knowMore }}
+                                                <img src="{{ assets.imageUrl('link-arrow.svg') }}" width="12" class="ml-1"> 
+                                            </a> 
                                         </p>
                                     </div>
                                 </div>
@@ -159,7 +167,9 @@
 
     <div class="container home-container pt-150 pb-150">
         {% if partnersList is not empty %}
-            <h3 class="part-title text-center mb-5">{{ appStrings[currentLang].etablissementsMembres }}</h3>
+            <div class="title-wrapper">
+                <h3 class="part-title my-5">{{ appStrings[currentLang].etablissementsMembres }}</h3>
+            </div>
             <div id="partners-wrapper" class="row">
                 {% for partners in partnersList %}
                     {% if partners is not null %}
@@ -169,7 +179,7 @@
                                 target="_blank" 
                                 alt="site web {{ partners.title }}"
                                 data-toggle="tooltip" data-placement="top" title="{{ partners.title }}">
-                                <div class="scale-card text-center d-flex">
+                                <div class="scale-card d-flex">
                                     {% if partners.imageUrl %} 
                                         <img class="carte-scale-image mx-auto my-auto img-fluid lozad" data-src="{{ partners.imageUrl }}" />
                                     {% endif %}
