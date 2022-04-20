@@ -109,42 +109,44 @@
         </div>
     {% endif %}
 
-    <div class="container-fluid fat-container home-container mb-0">
+    <div class="container-fluid fat-container container-white home-container mb-0">
         <div class="container">
-            <div class="content-text fat-text">
+            <div class="content-text fat-text text-black">
                 {{ homePageModel.content }}
             </div>
         </div>
     </div>
 
     {% if projects_children %}
-        <div class="container-fluid fat-container container-white home-container pt-150">
+        <div class="container-fluid fat-container container-white home-container">
             <div class="container">
-                <div class="row">
-                    <div class="projects-spread col-sm-12 col-lg-6 order-2 order-sm-2 order-lg-1 mt-4 mt-lg-4">
-                        {% for child in projects_children %}
-                            <div class="card">
-                                <a class="projects-spread-link" href="{{ child.link }}">
-                                    <img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top pl-2 pr-2 lozad" alt="{{ child.title }}">
-                                    <div class="card-body">
-                                        {% if child.resume %} <p class="small">{{ child.resume }}</p> {% endif %}
-                                        <p class="card-text">
+                <h2>Nos projets</h2>
+
+                <div class="projects-tabs p-3">
+                    <div class="row projects-tabs-inner">
+                        <ul class="nav nav-tabs col-lg-5 d-flex flex-column order-2 order-lg-1" data-tabs="tabs">
+                            {% for child in projects_children %}
+                                <li>
+                                    <a class="d-flex {% if loop.first %}active{% endif %}" href="#project-{{ child.id }}" data-toggle="tab">
+                                        <div class="dot align-self-center"></div>
+                                        {{ child.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="col-lg-7 tab-content order-1 order-lg-2">
+                            {% for child in projects_children %}
+                                <div class="tab-pane {% if loop.first %}active{% endif %}" id="project-{{ child.id }}">
+                                    <img data-src="{{ child.topImage.src|letterbox(200, 100, '#FFFFFF') }}" class="pl-2 pr-2 lozad" alt="{{ child.title }}">
+                                    <p class="small">{{ child.resume }}</p>
+                                    <div class="">
+                                        <p class="">
                                             <a href="{{ child.link }}">{{ appStrings[currentLang].knowMore }}</a>
                                         </p>
                                     </div>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="home-container-text col-sm-12 col-lg-6 order-1 order-sm-1 order-lg-2 mb-5 mb-lg-0">
-                        <h3 class="part-title mb-4">{{ appStrings[currentLang].home.ourProjects }}</h3>
-                        <p>{{ homePageModel.blockProjects }}</p>
-                        <p class="mt-4">
-                            <a class="btn btn-primary" href="{{projectsUrl}}">
-                                {{ appStrings[currentLang].home.discoverProjects }} 
-                                <img class="ml-2" src="{{ assets.imageUrl('goto-arrow.svg') }}" width="17">
-                            </a>
-                        </p>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

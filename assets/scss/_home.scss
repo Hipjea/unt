@@ -201,3 +201,63 @@
   padding-left: 55px;
   padding-right: 55px;
 }
+
+.projects-tabs {
+  .projects-tabs-inner {
+
+    ul.nav-tabs {
+      border-bottom: 0;
+      padding-right: 20px;
+
+      li {
+        margin-bottom: 0;
+        color: white;
+        border-bottom: 2px solid rgba(255,255,255,.4);
+        transition-duration: .2s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+
+        &:hover {
+          margin-right: 10px;
+        }
+
+        a {
+          color: white;
+          background: #abb4c4;
+          padding: 1em 1.5em;
+
+          .dot {
+            background: rgba(255,255,255,.4);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 0;
+            margin-right: 14px;
+          }
+
+          &.active {
+            background: var(--main-color);
+
+            .dot {
+              background: #FFC937;
+              animation: 2.5s ease infinite pulseProject;
+            }
+              
+            @keyframes pulseProject {
+              0% {
+                box-shadow: 0 0 0 0 rgba(255, 241, 201, 0.38);
+              }
+              100% {
+                box-shadow: 0 0 0 8px rgba(255, 241, 201, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      color: $grayText;
+    }
+  }
+}
