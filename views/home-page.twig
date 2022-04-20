@@ -27,8 +27,10 @@
                                     <a class="item" href="{{ carteALaUne.url }}">
 	                                    <div class="carte-notice">
 	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}
-	                                            <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
-	                                            <div class="carte-notice-texte">
+	                                            <div class="carte-notice-image-div">
+                                                    <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
+	                                            </div>
+                                                <div class="carte-notice-texte">
 	                                            </div>
 	                                            <div class="carte-a-la-une-footer">
 	                                                <div class="a-la-une-liens-footer">
@@ -36,7 +38,9 @@
 	                                                </div>
 	                                            </div>
 	                                        {% else %}
-	                                            <img class="carte-notice-image" src="{{ carteALaUne.imageUrl }}" />
+                                                <div class="carte-notice-image-div">
+                                                    <img class="carte-notice-image" src="{{ carteALaUne.imageUrl }}" />
+                                                </div>
 	                                            <div class="carte-notice-texte">
 	                                                <h5>{{ carteALaUne.title }}</h5>
 	                                                <div class="carte-notice-description">
