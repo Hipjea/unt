@@ -125,3 +125,14 @@ h3 {
         }
     }
 }
+
+.post-type {
+    .icon {
+        color: var(--main-color) !important;
+        font-size: .8em;
+        align-self: center;
+    }
+    span {
+        color: $grayText;
+    }
+}

@@ -4,7 +4,13 @@
     <div class="container content-text">
         <div class="row">
             <div class="col">
-                <h1 class="post-title">{{ post.post_title }}</h1>
+                <h1 class="post-title mb-0">{{ post.post_title }}</h1>
+				<div class="post-type mb-5 d-flex">
+					<div class="icon">
+						<i class="fa-solid fa-diagram-project mr-1"></i>
+					</div>
+					<span>{{ appStrings[currentLang].ourProjects }}</span>
+				</div>
                 {{ post.content }}
             </div>
         </div>
