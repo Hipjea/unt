@@ -4,6 +4,11 @@ $lineHeight: 1.4;
     color: var(--title-color);
 }
 
+.title-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .part-title {
     color: var(--title-color);
     font-weight: bold;
@@ -11,6 +16,10 @@ $lineHeight: 1.4;
 
 h3.part-title {
     font-size: 1.95rem;
+}
+
+.text-black {
+    color: $blackText !important;
 }
 
 .text {
@@ -114,5 +123,16 @@ h3 {
             height: 7px;
             bottom: 2px;
         }
+    }
+}
+
+.post-type {
+    .icon {
+        color: var(--main-color) !important;
+        font-size: .8em;
+        align-self: center;
+    }
+    span {
+        color: $grayText;
     }
 }

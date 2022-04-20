@@ -201,3 +201,67 @@
   padding-left: 55px;
   padding-right: 55px;
 }
+
+.projects-tabs {
+  .projects-tabs-inner {
+
+    ul.nav-tabs {
+      border-bottom: 0;
+      padding-right: 0px;
+
+      li {
+        background: #cdcfd1;
+        margin-bottom: 0;
+        color: white;
+        border-bottom: 2px solid rgba(255,255,255,1);
+        transition-duration: .2s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+
+        &:hover {
+          background: rgba(62, 67, 92, .9);
+        }
+
+        a {
+          color: black;
+          font-family: "Montserrat-SemiBold";
+          background: rgba(255, 255, 255, .8);
+          padding: 1em 1.5em;
+
+          .dot {
+            background: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 0;
+            margin-right: 14px;
+          }
+
+          &.active {
+            color: white;
+            background: var(--main-color);
+
+            .dot {
+              background: rgb(255, 255, 255);
+              animation: 2.5s ease infinite pulseProject;
+            }
+              
+            @keyframes pulseProject {
+              0% {
+                box-shadow: 0 0 0 0 rgba(255, 241, 201, 0.38);
+              }
+              100% {
+                box-shadow: 0 0 0 8px rgba(255, 241, 201, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      padding-left: 25px;
+      color: $grayText;
+    }
+  }
+}
