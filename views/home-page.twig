@@ -147,12 +147,11 @@
                             {% for child in projects_children %}
                                 <div class="tab-pane {% if loop.first %}active{% endif %}" id="project-{{ child.id }}">
                                     <img data-src="{{ child.topImage.src|letterbox(200, 100, '#FFFFFF') }}" class="pl-2 pr-2 lozad" alt="{{ child.title }}">
-                                    <p class="small">{{ child.resume }}</p>
+                                    <p>{{ child.resume }}</p>
                                     <div class="">
                                         <p class="">
-                                            <a href="{{ child.link }}">
+                                            <a href="{{ child.link }}" class="wp-block-button__link">
                                                 {{ appStrings[currentLang].knowMore }}
-                                                <img src="{{ assets.imageUrl('link-arrow.svg') }}" width="12" class="ml-1"> 
                                             </a> 
                                         </p>
                                     </div>
