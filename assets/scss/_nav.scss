@@ -66,7 +66,7 @@ $menuBorderWidth: 62px;
                     cursor: pointer;
 
                     &.dd {
-                        .dd-menu {
+                        .dd-menu {
                             display: block;
                         }
                     }
@@ -86,7 +86,7 @@ $menuBorderWidth: 62px;
                     }
                 }
 
-                .dd-menu {   
+                .dd-menu {   
                     display: none !important;
                 }
 
@@ -100,7 +100,7 @@ $menuBorderWidth: 62px;
                     padding-bottom: 10px;
                 }
 
-                a, .menu-link {
+                a, .menu-link {
                     color: white;
                 }
             }

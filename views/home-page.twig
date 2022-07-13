@@ -33,7 +33,7 @@
                                         <div class="carte-notice">
                                             {% if carteALaUne.title is empty and carteALaUne.description is empty %}
                                                 <div class="carte-notice-image-div">
-                                                    <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
+                                                    <img class="carte-notice-image-full lazy" data-src="{{ carteALaUne.imageUrl }}" />
                                                 </div>
                                                 <div class="carte-notice-texte">
                                                 </div>
@@ -100,7 +100,7 @@
                                         <div class="item carte-zoom-sur">
                                             {% if zoomSurItem.image %}
                                                 <a href="{{ urlRessource }}" target="_blank" >
-                                                    <img class="carte-zoom-sur-image lozad" data-src="{{ zoomSurItem.image }}" />
+                                                    <img class="carte-zoom-sur-image lazy" data-src="{{ zoomSurItem.image }}" />
                                                 </a>
                                             {% endif %}
                                             <div class="carte-zoom-sur-titre">
@@ -153,7 +153,7 @@
                                 <div class="tab-pane {% if loop.first %}active{% endif %}" id="project-{{ child.id }}">
                                     {% if child.topImage.src %}
                                         <img data-src="{{ child.topImage.src|letterbox(200, 100, '#FFFFFF') }}" 
-                                            class="pl-2 pr-2 lozad" alt="{{ child.title }}">
+                                            class="pl-2 pr-2 lazy" alt="{{ child.title }}">
                                     {% endif %}
                                     <p>{{ child.resume }}</p>
                                     <div class="">
@@ -188,7 +188,7 @@
                                 data-toggle="tooltip" data-placement="top" title="{{ partners.title }}">
                                 <div class="scale-card d-flex">
                                     {% if partners.imageUrl %} 
-                                        <img class="carte-scale-image mx-auto my-auto img-fluid lozad" data-src="{{ partners.imageUrl }}" />
+                                        <img class="carte-scale-image mx-auto my-auto img-fluid lazy" data-src="{{ partners.imageUrl }}" />
                                     {% endif %}
                                 </div>
                             </a>

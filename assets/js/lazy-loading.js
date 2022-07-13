@@ -1,4 +1,3 @@
-import lozad from 'lozad';
+import LazyLoad from "vanilla-lazyload";
 
-const observer = lozad();
-observer.observe();
+var lazyLoadInstance = new LazyLoad();
