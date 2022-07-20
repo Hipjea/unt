@@ -16,6 +16,14 @@
 @import "nav";
 @import "sidebar";
 
+html {
+  scroll-behavior: smooth;
+}
+
+.container-fluid {
+  max-width: 1500px;
+}
+
 .form-control:focus {
   border-color: rgb(206, 212, 218);
   box-shadow: none;
@@ -25,7 +33,8 @@ a:hover {
   text-decoration: none;
 }
 
-.home-header {
+.home-header,
+.header-home {
   background-size: cover !important; /* !important because custom-theme-options.twig styles are passed after the CSS inclusion */
   background-color: white;
   color: $whiteBg;
@@ -247,7 +256,7 @@ a:hover {
 
 .home-header-scroll {
   background-color: white;
-  box-shadow: 0px 2px 3px $colorBtnBoxshadow;
+  box-shadow: 0px 1px 2px $colorBtnBoxshadow;
 
   .navbar-light .navbar-nav .menu-item a {
     color: $blackText;
@@ -369,91 +378,15 @@ a:hover {
     max-width: 1300px;
   }
 
-  .left-arrow {
-    background-image: none;
-    left: 60px;
-    position: relative;
-    top: 225px;
-  }
-
-  @media (min-width: 640px) {
-    .left-arrow {
-      left: 60px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .left-arrow {
-      left: 40px;
-    }
-  }
-
-  .left-arrow:after, .left-arrow:before {
-    right: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-  }
-
-  .left-arrow:after {
-    border-color: rgba(242, 242, 242, 0);
-    border-right-color: #f2f2f2;
-    border-width: 40px;
-    margin-top: -40px;
-  }
-  .left-arrow:before {
-    border-color: rgba(245, 0, 0, 0);
-    border-right-color: var(--main-color);
-    border-width: 44px;
-    margin-top: -44px;
-  }
-
-  .right-arrow {
-    background-image: none;
-    position: relative;
-    top: 225px;
-  }
-  @media (min-width: 640px) {
-    .right-arrow {
-      right: 60px;
-    }
-  }
-  @media (max-width: 640px) {
-    .right-arrow {
-      right: 40px;
-    }
-  }
-
-  .right-arrow:after, .right-arrow:before {
-    left: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-  }
-
-  .right-arrow:after {
-    border-color: rgba(242, 242, 242, 0);
-    border-left-color: #f2f2f2;
-    border-width: 40px;
-    margin-top: -40px;
-  }
-  .right-arrow:before {
-    border-color: rgba(245, 0, 0, 0);
-    border-left-color: var(--main-color);
-    border-width: 44px;
-    margin-top: -44px;
-  }
-
   .arrow-div {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: var(--main-color);
+    }
   }
 
   .carousel-container {
@@ -984,6 +917,176 @@ a:hover {
 
       .resultats-catalogue-site:hover {
         background-color: $colorBtnPrimary;
+      }
+    }
+  }
+}
+
+$homeLogoSize: 700px;
+$homeLogoTransition: .5s;
+
+/* Home page header */
+.header-home {
+  height: 100vh;
+
+  .home-header-wrapper {
+    height: 100vh;
+    background-size: cover;
+    background-color: var(--main-color);
+    /*background-color: white;*/
+    position: relative;
+    overflow: hidden;
+  
+    .home-header {
+      position: absolute;
+      right: calc(($homeLogoSize * 10 / -100));
+      top: calc(50vh - ($homeLogoSize / 2.9));
+      width: $homeLogoSize;
+      height: $homeLogoSize;
+      animation: fadeInAnimation ease 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      -moz-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+      -webkit-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+      -moz-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+      -o-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+      transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+
+      .header-image {
+        background-image: url("../images/unit-home-header-logo.png");
+        /*background-image: url("../images/unit-home-header-logo-white.png");*/
+        background-repeat: no-repeat;
+        background-size: 100%;
+        overflow: hidden;
+        right: -75px;
+        height: $homeLogoSize;
+        width: $homeLogoSize;
+        -moz-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+        -webkit-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+        -moz-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+        -o-transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+        transition: all $homeLogoTransition linear, right $homeLogoTransition linear;
+      }
+    }
+
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .header-title {
+      z-index: 2;
+      color: white;
+      /*color: var(--main-color);*/
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: left;
+      margin: 0 35px;
+    }
+
+    #header-title {
+      font-size: 3.3em;
+      font-family: "Montserrat-SemiBold";
+    }
+
+    #header-sub-title {
+      font-size: 1.8em;
+      font-family: "Montserrat-Regular" !important;
+
+      span {
+        font-family: "Montserrat-SemiBold" !important;
+        color: #4aace0;
+      }
+    }
+
+    p {
+      margin-top: 80px;
+      color: #CDCDCC;
+    }
+
+    .btn-header {
+      border: 2px solid #4aace0;
+      color: white;
+      /*color: var(--main-color);*/
+      padding: 10px 15px;
+      background: transparent;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleY(0);
+        transform-origin: top center;
+        background: #4aace0;
+        z-index: -1;
+        transition: transform 0.3s;
+      }
+    
+      &:hover {
+        cursor: pointer;
+
+        &::after {
+          transform: scaleY(1);
+        }
+      }
+    }
+
+    .research {
+      position: relative;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .bg-light {
+      background-color: transparent !important;
+    }
+
+    .navigation-link {
+      position: absolute;
+      margin-top: calc(10vh - 50px);
+
+      .navigation-arrow {
+        filter: opacity(.5);
+        transition: all 0.3s;
+
+        &:hover {
+          filter: opacity(1);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1480px) {
+    .home-header-wrapper {
+      .home-header {
+        right: 0px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    .home-header-wrapper {
+      .home-header {
+        right: 30px;
+        top: calc(100vh - $homeLogoSize / 2 - 30px);
+        width: $homeLogoSize / 2;
+        height: $homeLogoSize / 2;
+
+        .header-image {
+          height: $homeLogoSize / 2;
+          width: $homeLogoSize / 2;
+        }
       }
     }
   }

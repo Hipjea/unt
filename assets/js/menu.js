@@ -9,7 +9,7 @@ scrollIntervalID = setInterval(stickIt, 10);
 
 function stickIt() {
     var orgElementTop = $('.original')[0].offsetTop;
-    if ($(window).scrollTop() > (orgElementTop)) {
+    if ($(window).scrollTop() > (orgElementTop + 4)) {
         // scrolled past the original position; now only show the cloned, sticky element.
         // Cloned element should always have same left position and width as original element.
         orgElement = $('.original');

@@ -193,13 +193,26 @@
 }
 
 #content-home {
-  background-color: $wrapperBg;
+  background-color: white;
   padding-bottom: 80px;
 }
 
 .col-8 {
   padding-left: 55px;
   padding-right: 55px;
+}
+
+.home-page-content {
+  .fa-quote-left {
+    position: absolute;
+    font-size: 2em;
+    color: var(--main-color);
+    margin-top: -20px;
+  }
+
+  p {
+    margin-left: 60px;
+  }
 }
 
 .projects-tabs {

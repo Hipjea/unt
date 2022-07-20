@@ -1,23 +1,25 @@
-{% extends "base.twig" %}
+{% extends "base-home.twig" %}
 
 {% block content %}
 
-    <div class="a-la-une-wrapper home-container" id="content-home">
-        <div class="content-text pb-1">
+    <div class="a-la-une-wrapper home-container container-fluid" id="content-home">
+        <div class="container-xxl content-text pb-1">
             <div class="wp-home-text">
                 {{ homePageModel.paragrapheIntroduction }}
             </div>
         </div>
     
         {% if aLaUneModel is not empty %}
-            <div class="a-la-une">
+            <div class="container-xxl pt-5">
                 <div class="title-wrapper">
                     <h3 class="part-title mb-5">{{ appStrings[currentLang].home.aLaUne }}</h3>
                 </div>
 
-                <div class="container carousel-container">
+                <div class="carousel-container">
                     <div class="row">
-                        <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
+                        <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div">
+                            <i class="fas fa-4x fa-chevron-left"></i>
+                        </div>
                         <div class="col-8 col-xl-10">
                             <div class="loading-placeholder">
                                 <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
@@ -28,48 +30,50 @@
                                 {% for i in 0..aLaUneModel|length-1 %}
                                     {% set carteALaUne = aLaUneModel[i] %}
                                     <a class="item" href="{{ carteALaUne.url }}">
-	                                    <div class="carte-notice">
-	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}
-	                                            <div class="carte-notice-image-div">
-                                                    <img class="carte-notice-image-full lozad" data-src="{{ carteALaUne.imageUrl }}" />
-	                                            </div>
+                                        <div class="carte-notice">
+                                            {% if carteALaUne.title is empty and carteALaUne.description is empty %}
+                                                <div class="carte-notice-image-div">
+                                                    <img class="carte-notice-image-full lazy" data-src="{{ carteALaUne.imageUrl }}" />
+                                                </div>
                                                 <div class="carte-notice-texte">
-	                                            </div>
-	                                            <div class="carte-a-la-une-footer">
-	                                                <div class="a-la-une-liens-footer">
-	                                                    <span>Lire la suite <i class="fas fa-angle-right"></i></span>
-	                                                </div>
-	                                            </div>
-	                                        {% else %}
+                                                </div>
+                                                <div class="carte-a-la-une-footer">
+                                                    <div class="a-la-une-liens-footer">
+                                                        <span>Lire la suite <i class="fas fa-angle-right"></i></span>
+                                                    </div>
+                                                </div>
+                                            {% else %}
                                                 <div class="carte-notice-image-div">
                                                     <img class="carte-notice-image" src="{{ carteALaUne.imageUrl }}" />
                                                 </div>
-	                                            <div class="carte-notice-texte">
-	                                                <h5>{{ carteALaUne.title }}</h5>
-	                                                <div class="carte-notice-description">
-	                                                    {{ carteALaUne.description }}
-	                                                </div>
-	                                            </div>
-	                                            <div class="carte-a-la-une-footer">
-	                                                <div class="a-la-une-liens-footer">
-	                                                    <span>{{ appStrings[currentLang].home.lireSuite }} <i class="fas fa-angle-right"></i></span>
-	                                                </div>
-	                                            </div>
-	                                        {% endif %}
-	                                    </div>
+                                                <div class="carte-notice-texte">
+                                                    <h5>{{ carteALaUne.title }}</h5>
+                                                    <div class="carte-notice-description">
+                                                        {{ carteALaUne.description }}
+                                                    </div>
+                                                </div>
+                                                <div class="carte-a-la-une-footer">
+                                                    <div class="a-la-une-liens-footer">
+                                                        <span>{{ appStrings[currentLang].home.lireSuite }} <i class="fas fa-angle-right"></i></span>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
                                     </a>
                                 {% endfor %}
                             </div>
                         </div>
-                        <div id="a-la-une-right-arrow" class="col-2 col-xl-1 arrow-div"><div class="right-arrow"></div></div>
+                        <div id="a-la-une-right-arrow" class="col-2 col-xl-1 arrow-div">
+                            <i class="fas fa-4x fa-chevron-right"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 
     {% if listeZoomSur is defined and listeZoomSur is not null %}
-        <div class="zoom-sur-wrapper home-container">
+        <div class="container-fluid zoom-sur-wrapper home-container">
             <div class="zoom-sur">
                 <div class="container carousel-container">
                     <div class="row">
@@ -96,7 +100,7 @@
                                         <div class="item carte-zoom-sur">
                                             {% if zoomSurItem.image %}
                                                 <a href="{{ urlRessource }}" target="_blank" >
-                                                    <img class="carte-zoom-sur-image lozad" data-src="{{ zoomSurItem.image }}" />
+                                                    <img class="carte-zoom-sur-image lazy" data-src="{{ zoomSurItem.image }}" />
                                                 </a>
                                             {% endif %}
                                             <div class="carte-zoom-sur-titre">
@@ -117,16 +121,17 @@
     {% endif %}
 
     <div class="container-fluid fat-container container-white home-container mb-0">
-        <div class="container">
-            <div class="content-text fat-text text-black my-5">
-                {{ homePageModel.content }}
+        <div class="container-xxl">
+            <div class="home-page-content content-text fat-text text-black my-5">
+                <i class="fas fa-quote-left"></i>
+                <p>{{ homePageModel.content }}</p>
             </div>
         </div>
     </div>
 
     {% if projects_children %}
         <div class="container-fluid fat-container container-white home-container">
-            <div class="container">
+            <div class="container-xxl">
                 <div class="title-wrapper">
                     <h3 class="part-title my-5">{{ appStrings[currentLang].ourProjects }}</h3>
                 </div>
@@ -146,7 +151,10 @@
                         <div class="col-lg-7 tab-content order-1 order-lg-2">
                             {% for child in projects_children %}
                                 <div class="tab-pane {% if loop.first %}active{% endif %}" id="project-{{ child.id }}">
-                                    <img data-src="{{ child.topImage.src|letterbox(200, 100, '#FFFFFF') }}" class="pl-2 pr-2 lozad" alt="{{ child.title }}">
+                                    {% if child.topImage.src %}
+                                        <img data-src="{{ child.topImage.src|letterbox(200, 100, '#FFFFFF') }}" 
+                                            class="pl-2 pr-2 lazy" alt="{{ child.title }}">
+                                    {% endif %}
                                     <p>{{ child.resume }}</p>
                                     <div class="">
                                         <p class="">
@@ -164,7 +172,7 @@
         </div>
     {% endif %}
 
-    <div class="container home-container pt-150 pb-150">
+    <div class="container-fluid home-container pt-150 pb-150">
         {% if partnersList is not empty %}
             <div class="title-wrapper">
                 <h3 class="part-title my-5">{{ appStrings[currentLang].etablissementsMembres }}</h3>
@@ -180,7 +188,7 @@
                                 data-toggle="tooltip" data-placement="top" title="{{ partners.title }}">
                                 <div class="scale-card d-flex">
                                     {% if partners.imageUrl %} 
-                                        <img class="carte-scale-image mx-auto my-auto img-fluid lozad" data-src="{{ partners.imageUrl }}" />
+                                        <img class="carte-scale-image mx-auto my-auto img-fluid lazy" data-src="{{ partners.imageUrl }}" />
                                     {% endif %}
                                 </div>
                             </a>
