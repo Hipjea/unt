@@ -53,6 +53,8 @@ $GLOBALS['newsletterService'] = $newsletterService;
 $organigrammeService = new \Unt\Services\OrganigrammeService();
 $GLOBALS['organigrammeService'] = $organigrammeService;
 
+$equipeService = new \Unt\Services\EquipeService();
+$GLOBALS['equipeService'] = $equipeService;
 
 // init ajax routes
 $apiService = new \Unt\Services\ApiService($solrService);
@@ -112,7 +114,7 @@ function add_images_lazyloading($content) {
             $tempsrc = get_theme_root_uri().'/assets/images/placeholder.png';
             $node->setAttribute('src', $tempsrc);
             $classes = $node->getAttribute('class');
-            $node->setAttribute('class', $classes . ' lozad');
+            $node->setAttribute('class', $classes . ' lazy');
         }
         $newHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace(
             array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $dom->saveHTML())

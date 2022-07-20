@@ -8,6 +8,7 @@ npm-debug.log
 
 assets_dist
 package-lock.json
+yarn.lock
 v8-compile-cache-0
 node_modules
 node_modules/.yarn-integrity
