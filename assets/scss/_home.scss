@@ -1,280 +1,203 @@
 .home-container {
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: 0 !important;
-    margin-bottom: 0;
-    word-break: normal;
-    hyphens: auto;
-  }
-
-  h1 {
-    font-size: 2.2rem !important;
-  }
-
-  .home-container-text {
-    font-size: 1.1em;
-  }
-}
-
-.loading-placeholder,
-#loading-placeholer-zoom-sur {
-  img {
-    width: 175px;
-    height: 450px;
-    margin-right: 10px;
-    float: left;
-  }
-}
-
-.owl-carousel-a-la-une,
-#carouselZoomSur {
-  .item {
-    display: none;
-  }
-}
-
-.container-white {
-  background: white !important;
-}
-
-.fat-container {
-  background: var(--main-color);
-
-  .fat-text {
-    font-size: 24px;
-    line-height: 38px;
-    color: white;
-  }
-}
-
-.a-la-une-wrapper {
-  background-color: $wrapperBg;
-
-  @media (min-width: 640px) {
-    .a-la-une {
-      margin: auto;
-      width: 80%;
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0 !important;
+      margin-bottom: 0;
+      word-break: normal;
+      hyphens: auto;
     }
-  }
-
-  @media (max-width: 640px) {
-    .a-la-une {
-      margin: auto;
-      width: 100%;
-    }
-  }
-
-  h1 {
-    color: var(--main-color);
-    font-size: 30px;
-    font-weight: bold;
-  }
-}
-
-@media (min-width: 1024px) {
-  .a-la-une-wrapper {
-    padding: 40px 30px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .a-la-une-wrapper {
-    padding: 30px 15px;
-  }
-}
-
-@media (max-width: 640px) {
-  .a-la-une-wrapper {
-    padding: 5px 2px;
-  }
-}
-
-.zoom-sur-wrapper {
-  background-color: $colorBtnBoxshadow;
-  padding: 60px 30px;
-
-  @media (min-width: 1000px) {
-    .zoom-sur {
-      width: 80%;
-    }
-  }
-
-  .zoom-sur {
-    margin: auto;
-
+  
     h1 {
-      font-size: 25px;
-      font-weight: bold;
+      font-size: 2.2rem !important;
     }
-
-    h2 {
-      font-size: 18px;
+  
+    .home-container-text {
+      font-size: 1.1em;
     }
-
-    .carte-zoom-sur {
-      height: 400px;
-      margin: 10px;
+  }
+  
+  .loading-placeholder,
+  #loading-placeholer-zoom-sur {
+    img {
+      width: 175px;
+      height: 450px;
+      margin-right: 10px;
+      float: left;
     }
-
-    .carte-zoom-sur-image {
-      height: 200px;
-      object-fit: cover;
-      width: 100%;
+  }
+  
+  .owl-carousel-a-la-une,
+  #carouselZoomSur {
+    .item {
+      display: none;
     }
-
-    .carte-zoom-sur-titre a {
-      color: $colorH1;
-      font-weight: bold;
-      padding: 4px;
+  }
+  
+  .container-white {
+    background: white !important;
+  }
+  
+  .fat-container {
+    background: var(--main-color);
+  
+    .fat-text {
+      font-size: 24px;
+      line-height: 38px;
+      color: white;
     }
-
-    .carte-zoom-sur-description {
-      font-size: 14px;
-    }
-
-    .owl-dot span {
-      background: #B3B3B3;
-
-      &.active span {
-        background: #869791;
+  }
+  
+  .a-la-une-wrapper {
+    background-color: $wrapperBg;
+  
+    @media (min-width: 640px) {
+      .a-la-une {
+        margin: auto;
+        width: 80%;
       }
     }
-
-    .zoom-sur-carousel-wrapper {
-      cursor: grab;
-    }
-  }
-}
-
-.inscription-newsletter-wrapper {
-  background-size: cover !important; /* !important because custom-theme-options.twig styles are passed after the CSS inclusion */
-  margin-bottom: -50px;
   
-  .inscription-newsletter-wrapper-color {
-    padding: 40px 30px;
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      background-color: var(--main-color);
-      content: "";
-      height: 100%;
-      left: 0;
-      opacity: .8;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: -1;
+    @media (max-width: 640px) {
+      .a-la-une {
+        margin: auto;
+        width: 100%;
+      }
     }
-  }
-
-  .inscription-newsletter {
-    color: white;
-    font-size: 13px;
-    margin: auto;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-
+  
     h1 {
-      color: white;
+      color: var(--main-color);
       font-size: 30px;
       font-weight: bold;
-      text-align: center;
-    }
-
-    .btn {
-      background-color: white;
-    }
-
-    .mail-form {
-      text-align: center;
     }
   }
-}
-
-#content-home {
-  background-color: white;
-  padding-bottom: 80px;
-}
-
-.col-8 {
-  padding-left: 55px;
-  padding-right: 55px;
-}
-
-.home-page-content {
-  .fa-quote-left {
-    position: absolute;
-    font-size: 2em;
-    color: var(--main-color);
-    margin-top: -20px;
+  
+  @media (min-width: 1024px) {
+    .a-la-une-wrapper {
+      padding: 40px 30px;
+    }
   }
-
-  p {
-    margin-left: 60px;
+  
+  @media (max-width: 1024px) {
+    .a-la-une-wrapper {
+      padding: 30px 15px;
+    }
   }
-}
-
-.projects-tabs {
-  .projects-tabs-inner {
-
-    ul.nav-tabs {
-      border-bottom: 0;
-      padding-right: 0px;
-
-      li {
-        background: #cdcfd1;
-        margin-bottom: 0;
-        color: white;
-        border-bottom: 2px solid rgba(255,255,255,1);
-        transition-duration: .2s;
-        transition-timing-function: linear;
-        transition-delay: 0s;
-
-        &:hover {
-          background: rgba(62, 67, 92, .9);
-        }
-
-        a {
-          color: black;
-          font-family: "Montserrat-SemiBold";
-          background: rgba(255, 255, 255, .8);
-          padding: 1em 1.5em;
-
-          .dot {
-            background: none;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            box-shadow: 0 0 0;
-            margin-right: 14px;
-          }
-
-          &.active {
-            color: white;
-            background: var(--main-color);
-
-            .dot {
-              background: rgb(255, 255, 255);
-              animation: 2.5s ease infinite pulseProject;
-            }
-              
-            @keyframes pulseProject {
-              0% {
-                box-shadow: 0 0 0 0 rgba(255, 241, 201, 0.38);
-              }
-              100% {
-                box-shadow: 0 0 0 8px rgba(255, 241, 201, 0);
-              }
-            }
-          }
-        }
+  
+  @media (max-width: 640px) {
+    .a-la-une-wrapper {
+      padding: 5px 2px;
+    }
+  }
+  
+  .zoom-sur-wrapper {
+    background-color: $colorBtnBoxshadow;
+    padding: 60px 30px;
+  
+    @media (min-width: 1000px) {
+      .zoom-sur {
+        width: 80%;
       }
     }
-
-    .tab-content {
-      padding-left: 25px;
-      color: $grayText;
+  
+    .zoom-sur {
+      margin: auto;
+  
+      h1 {
+        font-size: 25px;
+        font-weight: bold;
+      }
+  
+      h2 {
+        font-size: 18px;
+      }
+  
+      .carte-zoom-sur {
+        height: 400px;
+        margin: 10px;
+      }
+  
+      .carte-zoom-sur-image {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+  
+      .carte-zoom-sur-titre a {
+        color: $colorH1;
+        font-weight: bold;
+        padding: 4px;
+      }
+  
+      .carte-zoom-sur-description {
+        font-size: 14px;
+      }
+  
+      .owl-dot span {
+        background: #B3B3B3;
+  
+        &.active span {
+          background: #869791;
+        }
+      }
+  
+      .zoom-sur-carousel-wrapper {
+        cursor: grab;
+      }
     }
   }
-}
+  
+  .inscription-newsletter-wrapper {
+    background-size: cover !important; /* !important because custom-theme-options.twig styles are passed after the CSS inclusion */
+    margin-bottom: -50px;
+  
+    .inscription-newsletter-wrapper-color {
+      padding: 40px 30px;
+      position: relative;
+      z-index: 1;
+  
+      &::before {
+        background-color: var(--main-color);
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: .8;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+  
+    .inscription-newsletter {
+      color: white;
+      font-size: 13px;
+      margin: auto;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+  
+      h1 {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+  
+      .btn {
+        background-color: white;
+      }
+  
+      .mail-form {
+        text-align: center;
+      }
+    }
+  }
+  
+  #content-home {
+    background-color: $wrapperBg;
+    padding-bottom: 80px;
+  }
+  
+  .col-8 {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
