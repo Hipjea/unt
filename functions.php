@@ -53,6 +53,8 @@ $GLOBALS['newsletterService'] = $newsletterService;
 $organigrammeService = new \Unt\Services\OrganigrammeService();
 $GLOBALS['organigrammeService'] = $organigrammeService;
 
+$equipeService = new \Unt\Services\EquipeService();
+$GLOBALS['equipeService'] = $equipeService;
 
 // init ajax routes
 $apiService = new \Unt\Services\ApiService($solrService);
