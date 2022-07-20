@@ -33,7 +33,7 @@ if (isset($projects)) {
 
     if (count($children) > 0) {
         $tmp = 0;
-        foreach ($children as $child) if ($tmp < 5) {
+        foreach ($children as $child) if ($tmp < 3) {
             if ($child->post_content != "") {
                 $top_image_id = $child->top_image;
                 $child->topImage = new \Timber\Image($top_image_id);
