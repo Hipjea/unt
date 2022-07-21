@@ -29,7 +29,7 @@ class HomePageService {
             'meta_value' => 'templates/project.php'
         ];
         $pages = get_posts($args);
-        return $pages[0];
+        return isset($pages[0]) ? $pages[0] : null;
     }
 
     /**
