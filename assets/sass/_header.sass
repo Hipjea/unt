@@ -11,29 +11,6 @@
                     color: var(--secondary-color)
                     font-weight: bold
 
-.home-header-scroll
-    background-color: white
-    box-shadow: 0px 1px 2px $colorBtnBoxshadow
-    .navbar-light
-        .navbar-nav
-            .menu-item 
-                a
-                    color: $blackText
-                    font-weight: bold
-        &:hover
-            color: var(--main-color)
-    .dropdown-menu
-        background-color: white
-    .wpml-ls
-        padding-top: 10px
-        width: 60px
-    .wpml-ls-item
-        a
-            background-color: transparent
-            color: var(--secondary-color)
-            &:hover
-                background-color: white
-
 .home-header,
 .header-home
     background-size: cover !important // !important because custom-theme-options.twig styles are passed after the CSS inclusion
@@ -181,3 +158,25 @@
                 border-color: var(--main-color)
                 border-bottom-right-radius: $searchBorderRadiusPx
                 border-top-right-radius: $searchBorderRadiusPx
+    .home-header-scroll
+        background-color: white
+        box-shadow: 0px 1px 2px $colorBtnBoxshadow
+        .navbar-light
+            .navbar-nav
+                .menu-item 
+                    a
+                        color: $blackText
+                        font-weight: bold
+            &:hover
+                color: var(--main-color)
+        .dropdown-menu
+            background-color: white
+        .wpml-ls
+            padding-top: 10px
+            width: 60px
+        .wpml-ls-item
+            a
+                background-color: transparent
+                color: var(--secondary-color)
+                &:hover
+                    background-color: white

@@ -1,4 +1,12 @@
 .home-container
+    &.container-white
+        background: white !important
+    &.fat-container
+        background: var(--main-color)
+        .fat-text
+            font-size: 24px
+            line-height: 38px
+            color: white
     h1, h2, h3, h4, h5, h6
         margin-top: 0 !important
         margin-bottom: 0
@@ -19,16 +27,10 @@
     #carouselZoomSur
         .item
             display: none
-    .container-white
-        background: white !important
-    .fat-container
-        background: var(--main-color)
-        .fat-text
-            font-size: 24px
-            line-height: 38px
-            color: white
-    .a-la-une-wrapper
+    &.a-la-une-wrapper
         background-color: $wrapperBg
+        .a-la-une
+            padding: 40px 0 80px 0
         @media (min-width: 640px)
             .a-la-une
                 margin: auto
@@ -82,7 +84,7 @@
                     background: #869791
             .zoom-sur-carousel-wrapper
                 cursor: grab
-    .inscription-newsletter-wrapper
+    &.inscription-newsletter-wrapper
         background-size: cover !important // !important because custom-theme-options.twig styles are passed after the CSS inclusion
         margin-bottom: -50px
         .inscription-newsletter-wrapper-color
@@ -115,9 +117,6 @@
                 background-color: white
             .mail-form
                 text-align: center
-    #content-home
-        background-color: $wrapperBg
-        padding-bottom: 80px
     .col-8
         padding-left: 55px
         padding-right: 55px
