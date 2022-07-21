@@ -1,0 +1,5 @@
+@mixin fontFace($fontname, $fontfile, $fontformat: "truetype", $fontweight: normal, $fontsize: normal)
+    font-family: $fontname
+    src: url("../fonts/#{$fontfile}") format($fontformat)
+    font-weight: $fontweight
+    font-style: $fontsize
