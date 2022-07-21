@@ -8,7 +8,7 @@
 
 .wp-block-button__link,
 .wp-block-file__button
-    color: black
+    color: black !important
     box-shadow: none
     background: none
     border-radius: 0
@@ -37,8 +37,8 @@
         transition: all .3s
     &:hover
         color: $grayText
-    &::before
-        width: calc(100% - 5px)
+        &::before
+            width: calc(100% - 5px)
     
 .btn-primary:hover
     color: $colorBtnPrimary !important
