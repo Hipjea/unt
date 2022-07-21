@@ -16,7 +16,7 @@
 							<a class="navbar-brand" 
 								href="{{ site.link }}/" 
 								up-follow 
-								up-target=".content-wrapper">
+								up-target=".content">
 								<img id="logo-header-menu" 
 									class="header-logo" 
 									src="{{themeOptions.headerLogo }}" 
@@ -36,7 +36,8 @@
 													href="{{ menuItem.value }}" 
 													aria-expanded="false" 
 													up-follow 
-													up-target=".content-wrapper">
+													up-target=".content"
+													up-transition="cross-fade">
 													{{ menuItem.title }}
 												</a>
 												<ul class="dropdown-menu">
@@ -47,7 +48,8 @@
 											<li class="nav-item menu-item active">
 												<a href="{{ menuItem.value }}" 
 													up-follow 
-													up-target=".content-wrapper">
+													up-target=".content"
+													up-transition="cross-fade">
 													{{ menuItem.title }}
 												</a>
 											</li>
