@@ -29,7 +29,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(scss)$/,
+                test: /\.(sass)$/,
                 use: [
                     {
                         // Adds CSS to the DOM by injecting a `<style>` tag
