@@ -1,5 +1,3 @@
-import '../scss/app.scss';
-
 import './search';
 import './menu';
 import './carousel';
