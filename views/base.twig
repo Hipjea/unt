@@ -6,13 +6,6 @@
 	</head>
 {% endblock %}
 	<body class="{{body_class}}" data-template="base.twig">
-		<a id="menu-close-btn"
-			class="navbar-toggler ml-auto" 
-			href="{{ site.link }}/mobile-menu"
-			up-layer="new" 
-			up-mode="drawer">
-			<i class="fas fa-burger"></i>
-		</a>
 		<header class="header" >
 			{% block header %}
 				<div class="home-header" id="home-header">
@@ -27,11 +20,13 @@
 									src="{{themeOptions.headerLogo }}" 
 									data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
 							</a>
-							<button class="menu-btn navbar-toggler" 
-								type="button">
+							<a id="menu-close-btn"
+								class="navbar-toggler ml-auto" 
+								href="{{ site.link }}/mobile-menu"
+								up-layer="new" 
+								up-mode="drawer">
 								<span class="navbar-toggler-icon"></span>
-							</button>
-
+							</a>
 							<div class="collapse navbar-collapse" id="menu">
 								<ul class="navbar-nav ml-auto">
 									{% for menuItem in header %}
