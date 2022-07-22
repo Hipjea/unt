@@ -6,8 +6,13 @@
 	</head>
 {% endblock %}
 	<body class="{{body_class}}" data-template="base.twig">
-		{% include "partial/mobile-menu.twig" with {'header': header, 'themeOptions': themeOptions} %}
-
+		<a id="menu-close-btn"
+			class="navbar-toggler ml-auto" 
+			href="{{ site.link }}/mobile-menu"
+			up-layer="new" 
+			up-mode="drawer">
+			<i class="fas fa-burger"></i>
+		</a>
 		<header class="header" >
 			{% block header %}
 				<div class="home-header" id="home-header">
