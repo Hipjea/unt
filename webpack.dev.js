@@ -8,5 +8,11 @@ module.exports = merge(common, {
     output: {
         path: path.resolve(__dirname, 'assets_dist/dev'),
         publicPath: '/wp-content/themes/unt/assets_dist/dev/'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: 'vendor'
+        }
     }
 });

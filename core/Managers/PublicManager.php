@@ -26,8 +26,8 @@ class PublicManager {
     public function initScripts() {
         $bootstrap = $this->assetService->getUri() . '/bootstrap.js';
         wp_enqueue_script('unt-public-bootstrap', $bootstrap, '', '', true);
-        $fonts = $this->assetService->getUri() . '/fontawesome.js';
-        wp_enqueue_script('unt-public-fonts', $fonts, '', '', true);
+        $vendor = $this->assetService->getUri() . '/vendor.js';
+        wp_enqueue_script('unt-public-vendor', $vendor, '', '', true);
         $src = $this->assetService->getUri() . '/app.js';
         wp_enqueue_script('unt-public', $src, '', '', true);
     }
