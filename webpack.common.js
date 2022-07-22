@@ -89,7 +89,8 @@ module.exports = {
                     { from: 'node_modules/jstree/dist', to: 'vendors/jstree' },
                     { from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel' },
                     { from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill' },
-                    { from: 'node_modules/unpoly/', to: 'vendors/unpoly' },
+                    { from: 'node_modules/unpoly', to: 'vendors/unpoly' },
+                    { from: 'node_modules/vanilla-lazyload', to: 'vendors/vanilla-lazyload' },
                 ]
             }
         ),
