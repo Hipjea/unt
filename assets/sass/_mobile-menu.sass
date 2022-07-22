@@ -11,6 +11,8 @@ ul.mobile-menu
                 padding: 0
             .dropdown-menu
                 width: 100%
+                border: none
+                font-size: inherit
                 > *
                     display: none
                 &.show
@@ -20,3 +22,7 @@ ul.mobile-menu
                             display: none
                         .dropdown-item
                             display: flex
+                            padding: 0
+                            &::before
+                                content: "└"
+                                padding-right: 10px

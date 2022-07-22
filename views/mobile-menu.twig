@@ -3,6 +3,14 @@
 {% block content %}
 
 <main>
+<a class="navbar-brand" 
+    href="{{ site.link }}/" 
+    up-follow 
+    up-target=".content">
+    <img id="logo-header-menu" 
+        class="header-logo" 
+        src="{{themeOptions.headerLogoOnScroll }}" />
+    </a>
     <ul id="mobile-menu" class="mobile-menu ml-auto">
         {% for menuItem in header %}
             {% if menuItem.subMenus is not empty %}
