@@ -7,9 +7,12 @@ ul.mobile-menu
         a
             color: $blackText
         &.dropdown
+            display: flex
+            flex-direction: column
             a.dropdown-toggle
                 padding: 0
             .dropdown-menu
+                position: relative
                 width: 100%
                 border: none
                 font-size: inherit
