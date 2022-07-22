@@ -2,7 +2,12 @@
 	<ul>
 	{% for item in menu %}
 		<li class="{{ item.classes | join(' ') }}">
-			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			<a target="{{ item.target }}" 
+				href="{{ item.link }}"
+				up-follow 
+				up-target=".content">
+				{{ item.title }}
+			</a>
 			{% include "menu.twig" with {'menu': item.children} %}
 		</li>
 	{% endfor %}

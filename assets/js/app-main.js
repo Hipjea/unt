@@ -1,5 +1,5 @@
+import 'unpoly';
+
 import './search';
-import './menu';
-import './carousel';
 import './scroll-scale';
-import './lazy-loading';
+import './unpoly-init';

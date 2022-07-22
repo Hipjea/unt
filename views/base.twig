@@ -6,30 +6,39 @@
 	</head>
 {% endblock %}
 	<body class="{{body_class}}" data-template="base.twig">
-		{% include "partial/mobile-menu.twig" with {'header': header, 'themeOptions': themeOptions} %}
-
 		<header class="header" >
 			{% block header %}
 				<div class="home-header" id="home-header">
 					<div class="menu-header-bar">
 						<nav class="navbar navbar-expand-lg navbar-light bg-light">
-							<a class="navbar-brand" href="{{ site.link }}/">
+							<a class="navbar-brand" 
+								href="{{ site.link }}/" 
+								up-follow 
+								up-target=".content">
 								<img id="logo-header-menu" 
 									class="header-logo" 
 									src="{{themeOptions.headerLogo }}" 
 									data-logo-scroll="{{themeOptions.headerLogoOnScroll }}"/>
 							</a>
-							<button class="menu-btn navbar-toggler" 
-								type="button">
+							<a id="menu-close-btn"
+								class="navbar-toggler ml-auto" 
+								href="{{ site.link }}/mobile-menu"
+								up-layer="new" 
+								up-mode="drawer"
+								up-size="large">
 								<span class="navbar-toggler-icon"></span>
-							</button>
-
+							</a>
 							<div class="collapse navbar-collapse" id="menu">
 								<ul class="navbar-nav ml-auto">
 									{% for menuItem in header %}
 										{% if menuItem.subMenus is not empty %}
 											<li class="nav-item menu-item dropdown">
-												<a class="nav-link dropdown-toggle" href="{{ menuItem.value }}" aria-expanded="false">
+												<a class="nav-link dropdown-toggle" 
+													href="{{ menuItem.value }}" 
+													aria-expanded="false" 
+													up-follow 
+													up-target=".content"
+													up-transition="cross-fade">
 													{{ menuItem.title }}
 												</a>
 												<ul class="dropdown-menu">
@@ -38,7 +47,12 @@
 											</li>
 										{% else %}
 											<li class="nav-item menu-item active">
-												<a href="{{ menuItem.value }}">{{ menuItem.title }}</a>
+												<a href="{{ menuItem.value }}" 
+													up-follow 
+													up-target=".content"
+													up-transition="cross-fade">
+													{{ menuItem.title }}
+												</a>
 											</li>
 										{% endif %}
 									{% endfor %}
@@ -107,5 +121,30 @@
 				 {{ themeOptions.footerCopyright }}
 			</div>
 		{% endblock %}
+
+		<script>
+			up.on('up:fragment:inserted', function(event) {
+				const mobileMenu = document.querySelector('.mobile-menu')
+				if (mobileMenu) {
+					const menuContent = mobileMenu.childNodes
+					menuContent.forEach(function(el) {
+						if (el.classList && el.classList.contains('dropdown')) {
+							el.addEventListener('click', function() {
+								const uls = this.childNodes
+								uls.forEach(function(ul) {
+									if (ul.classList && ul.classList.contains('dropdown-menu')) {
+										if (ul.classList.contains('show')) {
+											ul.classList.remove('show')
+										} else {
+											ul.classList.add('show')
+										}
+									}
+								})
+							})
+						}
+					})
+				}
+			})
+		</script>
 	</body>
 </html>

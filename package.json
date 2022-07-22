@@ -8,8 +8,8 @@
     "build:re7": "jest && webpack --config webpack.re7.js",
     "build:prod": "jest && webpack --config webpack.prod.js",
     "watch": "webpack --config webpack.dev.js --progress --watch",
-    "sass": "sass --watch --no-source-map assets/sass/main.sass assets_dist/dev/app.css",
-    "sass:prod": "sass --no-source-map --style compressed assets/sass/main.sass:assets_dist/prod/app.css node_modules/bootstrap/scss/bootstrap.scss:assets_dist/prod/bootstrap.css",
+    "sass": "sass --watch --no-source-map assets/sass/main.sass:assets_dist/dev/app.css node_modules/bootstrap/scss/bootstrap.scss:assets_dist/dev/bootstrap.css node_modules/unpoly/unpoly.min.css:assets_dist/dev/unpoly.css",
+    "sass:prod": "sass --no-source-map --style compressed assets/sass/main.sass:assets_dist/prod/app.css node_modules/bootstrap/scss/bootstrap.scss:assets_dist/prod/bootstrap.css node_modules/unpoly/unpoly.min.css:assets_dist/prod/unpoly.css",
     "test": "jest"
   },
   "author": "",
@@ -25,6 +25,7 @@
     "owl.carousel": "^2.3.4",
     "popper.js": "^1.14.7",
     "tippy.js": "^6.3.1",
+    "unpoly": "^2.6.1",
     "vanilla-lazyload": "^17.8.2",
     "webfontloader": "^1.6.28"
   },

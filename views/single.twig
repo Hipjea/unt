@@ -13,9 +13,15 @@
 						{{ appStrings[currentLang].publishedOn }}&nbsp;{{ news.date }}
 						{% for cat in categories %}
 							{% if cat.slug == "actualites" %}
-								dans <a href="{{ site.link }}/actus/" class="link">actualités</a>
+								dans <a href="{{ site.link }}/actus/" 
+										class="link"
+										up-follow 
+										up-target=".content">actualités</a>
 							{% else %}
-								<a href="{{ cat.link }}" class="link">{{cat.name}}</a>
+								<a href="{{ cat.link }}" 
+									class="link"
+									up-follow 
+									up-target=".content">{{cat.name}}</a>
 							{% endif %}
 						{% endfor %}
 					</div>
@@ -36,7 +42,10 @@
 						<h4>{{ appStrings[currentLang].latestPosts }}</h4>
 						<ul>
 							{% for post in latestPosts %}
-								<a class="actualite-lien" href="{{ post.postUrl }}">
+								<a class="actualite-lien" 
+									href="{{ post.postUrl }}"
+									up-follow 
+									up-target=".content">
 									<li class="row">
 										<h6 class="col {% if post.imageUrl != '/images/default.jpg' %} col-md-8{% endif %}">
 											{{ post.post_title }}
@@ -62,7 +71,9 @@
 			{% if category.slug == "actualites" or category.slug == "blog" %}
 				<div class="row news-footer">
 					<div class="col unt-breadcrumb">
-						<a href="{{ site.link }}/actus/">
+						<a href="{{ site.link }}/actus/"
+							up-follow 
+							up-target=".content">
 							<img src="{{ assets.imageUrl('link-arrow.svg') }}" width="14"> 
 							<span>{{ appStrings[currentLang].backToNews }}</span>
 						</a>

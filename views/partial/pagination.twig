@@ -3,7 +3,9 @@
         <ul class="pagination">
             {% if pagination.pages|first and pagination.pages|first.current != true %}
                 <li class="first btn">
-                    <a href="{{ pagination.pages|first.link }}">
+                    <a href="{{ pagination.pages|first.link }}"
+                        up-follow 
+                        up-target=".content">
                         {{ appStrings[currentLang].pagination.first }}
                     </a>
                 </li>
@@ -15,7 +17,11 @@
 
             {% if pagination.prev %}
                 <li class="prev btn">
-                    <a href="{{ pagination.prev.link }}">{{ appStrings[currentLang].pagination.previous }}</a>
+                    <a href="{{ pagination.prev.link }}"
+                        up-follow 
+                        up-target=".content">
+                        {{ appStrings[currentLang].pagination.previous }}
+                    </a>
                 </li>
             {% else %}
                 <li class="prev btn disabled">
@@ -26,7 +32,12 @@
             {% for page in pagination.pages %}
                 {% if page.link %}
                     <li>
-                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                        <a href="{{ page.link }}" 
+                            class="{{ page.class }}"
+                            up-follow 
+                            up-target=".content">
+                            {{ page.title }}    
+                        </a>
                     </li>
                 {% else %}
                     <li class="current">
@@ -37,7 +48,9 @@
 
             {% if pagination.next %}
                 <li class="next btn">
-                    <a href="{{ pagination.next.link }}">
+                    <a href="{{ pagination.next.link }}"
+                        up-follow 
+                        up-target=".content">
                         {{ appStrings[currentLang].pagination.next }}
                     </a>
                 </li>
@@ -50,7 +63,9 @@
             {% endif %}
             {% if pagination.pages|last and pagination.pages|last.current != true %}
                 <li class="last btn">
-                    <a href="{{ pagination.pages|last.link }}">
+                    <a href="{{ pagination.pages|last.link }}"
+                        up-follow 
+                        up-target=".content">
                         {{ appStrings[currentLang].pagination.last }}
                     </a>
                 </li>

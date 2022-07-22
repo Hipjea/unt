@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<main>
+<a class="navbar-brand" 
+    href="{{ site.link }}/" 
+    up-follow 
+    up-target=".content">
+    <img id="logo-header-menu" 
+        class="header-logo" 
+        src="{{themeOptions.headerLogoOnScroll }}" />
+    </a>
+    <ul id="mobile-menu" class="mobile-menu ml-auto">
+        {% for menuItem in header %}
+            {% if menuItem.subMenus is not empty %}
+                <li class="nav-item menu-item dropdown">
+                    <a class="nav-link dropdown-toggle" 
+                        href="#">
+                        {{ menuItem.title }}
+                        <ul class="dropdown-menu">
+                            {% include "partial/recursive-menu.twig" with {'menuItem': menuItem.subMenus} %}
+                        </ul>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item menu-item active">
+                    <a href="{{ menuItem.value }}" 
+                        up-follow 
+                        up-target=".content"
+                        up-transition="cross-fade"
+                        up-layer="root">
+                        {{ menuItem.title }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        <li class="nav-item item-langues">
+            {% do action('icl_language_selector') %}
+        </li>
+    </ul>
+</main>
+<script type="text/javascript">window.location.replace("/");</script>
+{% endblock %}
