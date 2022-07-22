@@ -1,0 +1,22 @@
+ul.mobile-menu
+    list-style-type: none
+    margin: $mobile-menu-margin-y 0
+    padding: 0
+    font-size: 1.8em
+    li.nav-item
+        a
+            color: $blackText
+        &.dropdown
+            a.dropdown-toggle
+                padding: 0
+            .dropdown-menu
+                width: 100%
+                > *
+                    display: none
+                &.show
+                    .submenu-item
+                        display: flex
+                        > *
+                            display: none
+                        .dropdown-item
+                            display: flex

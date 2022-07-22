@@ -24,7 +24,8 @@
 								class="navbar-toggler ml-auto" 
 								href="{{ site.link }}/mobile-menu"
 								up-layer="new" 
-								up-mode="drawer">
+								up-mode="drawer"
+								up-size="large">
 								<span class="navbar-toggler-icon"></span>
 							</a>
 							<div class="collapse navbar-collapse" id="menu">
@@ -120,5 +121,30 @@
 				 {{ themeOptions.footerCopyright }}
 			</div>
 		{% endblock %}
+
+		<script>
+			up.on('up:fragment:inserted', function(event) {
+				const mobileMenu = document.querySelector('.mobile-menu')
+				if (mobileMenu) {
+					const menuContent = mobileMenu.childNodes
+					menuContent.forEach(function(el) {
+						if (el.classList && el.classList.contains('dropdown')) {
+							el.addEventListener('click', function() {
+								const uls = this.childNodes
+								uls.forEach(function(ul) {
+									if (ul.classList && ul.classList.contains('dropdown-menu')) {
+										if (ul.classList.contains('show')) {
+											ul.classList.remove('show')
+										} else {
+											ul.classList.add('show')
+										}
+									}
+								})
+							})
+						}
+					})
+				}
+			})
+		</script>
 	</body>
 </html>

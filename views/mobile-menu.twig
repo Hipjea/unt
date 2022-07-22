@@ -3,22 +3,17 @@
 {% block content %}
 
 <main>
-    <ul class="navbar-nav ml-auto">
+    <ul id="mobile-menu" class="mobile-menu ml-auto">
         {% for menuItem in header %}
             {% if menuItem.subMenus is not empty %}
                 <li class="nav-item menu-item dropdown">
                     <a class="nav-link dropdown-toggle" 
-                        href="{{ menuItem.value }}" 
-                        aria-expanded="false" 
-                        up-follow 
-                        up-target=".content"
-                        up-transition="cross-fade"
-                        up-layer="root">
+                        href="#">
                         {{ menuItem.title }}
+                        <ul class="dropdown-menu">
+                            {% include "partial/recursive-menu.twig" with {'menuItem': menuItem.subMenus} %}
+                        </ul>
                     </a>
-                    <ul class="dropdown-menu">
-                        {% include "partial/recursive-menu.twig" with {'menuItem': menuItem.subMenus} %}
-                    </ul>
                 </li>
             {% else %}
                 <li class="nav-item menu-item active">
@@ -37,5 +32,5 @@
         </li>
     </ul>
 </main>
-
+<script type="text/javascript">window.location.replace("/");</script>
 {% endblock %}

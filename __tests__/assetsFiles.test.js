@@ -63,7 +63,6 @@ const jsFiles = [
     `${jsPrefix}/fontawesome.js`,
     `${jsPrefix}/jstree.js`,
     `${jsPrefix}/unpoly-init.js`,
-    `${jsPrefix}/menu.js`,
     `${jsPrefix}/scroll-scale.js`,
     `${jsPrefix}/search.js`,
     `${jsPrefix}/toCopy/customize-preview.js`,
