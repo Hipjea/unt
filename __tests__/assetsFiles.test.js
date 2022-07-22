@@ -68,10 +68,9 @@ const jsFiles = [
     `${jsPrefix}/toCopy/urgent-styles.js`
 ];
 
-const scssPrefix = './assets/scss';
-const scssFiles = [
-    `${scssPrefix}/app.scss`,
-    `${scssPrefix}/bootstrap.scss`,
+const sassPrefix = './assets/sass';
+const sassFiles = [
+    `${sassPrefix}/main.sass`,
 ];
 
 describe("File presence", () => {
@@ -87,13 +86,13 @@ describe("File presence", () => {
         jsFiles.forEach(file => expect(fileExists(file)).toBe(true));
     });
 
-    it('has all the scss files', () => {
-        scssFiles.forEach(file => expect(fileExists(file)).toBe(true));
+    it('has all the sass files', () => {
+        sassFiles.forEach(file => expect(fileExists(file)).toBe(true));
     });
 
-    it('has all the scss dependencies files', () => {
-        const regex = /@import[^;]*;/gm
-        fs.readFile(`${scssPrefix}/app.scss`, 'utf8' , (err, data) => {
+    it('has all the sass dependencies files', () => {
+        const regex = /@import*/gm
+        fs.readFile(`${sassPrefix}/main.sass`, 'utf8' , (err, data) => {
             if (err) {
                 console.error(err);
                 return
@@ -103,7 +102,7 @@ describe("File presence", () => {
             imports.forEach(imp => {
                 const match = imp.match(/"(.*?)"/);
                 if (match) {
-                    const partial = `${scssPrefix}/_${match[1]}.scss`;
+                    const partial = `${sassPrefix}/_${match[1]}.sass`;
                     partials.push(partial);
                 };
             });
