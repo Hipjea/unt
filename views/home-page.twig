@@ -14,8 +14,8 @@
                 <h3 class="part-title text-center mb-5">{{ appStrings[currentLang].home.aLaUne }}</h3>
                 <div class="container carousel-container">
                     <div class="row">
-                        <div id="a-la-une-left-arrow" class="col-2 col-xl-1 arrow-div"><div class="left-arrow"></div></div>
-                        <div class="col-8 col-xl-10">
+                        <div id="a-la-une-left-arrow" class="d-none d-xl-flex col-xl-1 arrow-div"><div class="left-arrow"></div></div>
+                        <div class="col col-xl-10">
                             <div class="loading-placeholder">
                                 <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
                                 <img src="{{ assets.imageUrl('loading-placeholder.svg') }}">
@@ -56,7 +56,7 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <div id="a-la-une-right-arrow" class="col-2 col-xl-1 arrow-div"><div class="right-arrow"></div></div>
+                        <div id="a-la-une-right-arrow" class="d-none d-xl-flex col-xl-1 arrow-div"><div class="right-arrow"></div></div>
                     </div>
                 </div>
             </div>
