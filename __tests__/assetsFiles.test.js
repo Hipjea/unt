@@ -60,7 +60,6 @@ const jsFiles = [
     `${jsPrefix}/app-notice.js`,
     `${jsPrefix}/app-resultats.js`,
     `${jsPrefix}/bootstrap.js`,
-    `${jsPrefix}/fontawesome.js`,
     `${jsPrefix}/jstree.js`,
     `${jsPrefix}/unpoly-init.js`,
     `${jsPrefix}/scroll-scale.js`,
@@ -73,7 +72,6 @@ const scssPrefix = './assets/scss';
 const scssFiles = [
     `${scssPrefix}/app.scss`,
     `${scssPrefix}/bootstrap.scss`,
-    `${scssPrefix}/fontawesome.scss`
 ];
 
 describe("File presence", () => {

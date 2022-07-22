@@ -1,4 +1,3 @@
-import 'unpoly';
 import LazyLoad from "vanilla-lazyload";
 
 var lazyLoadInstance = new LazyLoad();
@@ -21,10 +20,11 @@ function stickIt() {
     }
 }
 
+
 up.on('up:fragment:inserted', function(event) {
     // Images lazyloading
     lazyLoadInstance.update();
-   
+
     $(function() {
         // Carousel
         var options = {
@@ -59,7 +59,7 @@ up.on('up:fragment:inserted', function(event) {
                 }
             }).owlCarousel(options);
         }
-    
+
         var zoomSurOptions = {
             loop:false,
             items: 3,
@@ -100,14 +100,14 @@ up.on('up:fragment:inserted', function(event) {
                 }
             }).owlCarousel(zoomSurOptions);
         }
-    
+
         $('#a-la-une-right-arrow').on('click', function() {
             $('.owl-carousel-a-la-une').trigger('next.owl.carousel');
         });
         $('#a-la-une-left-arrow').on('click', function() {
             $('.owl-carousel-a-la-une').trigger('prev.owl.carousel');
         });
-    
+
         var noticeCarousel = $('.owl-carousel-notice-lien');
         if (noticeCarousel) { 
             $('.owl-carousel-notice-lien').owlCarousel({
@@ -131,7 +131,7 @@ up.on('up:fragment:inserted', function(event) {
                 }
             });
         }
-    
+
         $('#notice-lien-right-arrow').on('click', function() {
             $('.owl-carousel-notice-lien').trigger('next.owl.carousel');
         });
@@ -148,6 +148,27 @@ up.on('up:fragment:inserted', function(event) {
         const logoScroll = cloneHeaderLogo.data('logo-scroll');
         cloneHeaderLogo.attr("src", logoScroll);
         const scrollIntervalID = setInterval(stickIt, 100);
+
+        // Mobile menu
+        const mobileMenu = document.querySelector('.mobile-menu')
+        if (mobileMenu) {
+            const menuContent = mobileMenu.childNodes
+            menuContent.forEach(function(el) {
+                if (el.classList && el.classList.contains('dropdown')) {
+                    el.addEventListener('click', function() {
+                        const uls = this.childNodes
+                        uls.forEach(function(ul) {
+                            if (ul.classList && ul.classList.contains('dropdown-menu')) {
+                                if (ul.classList.contains('show')) {
+                                    ul.classList.remove('show')
+                                } else {
+                                    ul.classList.add('show')
+                                }
+                            }
+                        })
+                    })
+                }
+            })
+        }
     });
 });
-
