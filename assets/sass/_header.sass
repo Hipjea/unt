@@ -52,6 +52,12 @@
                 a
                     color: white
                     font-weight: bold
+                    i
+                        &.far,
+                        &.fas,
+                        &.fab,
+                        &.fa
+                            filter: invert(100%)
     .navbar-nav
         .menu-item
             padding-right: 0
@@ -102,11 +108,25 @@
         a
             border: none
     .menu-header-bar
+        .navbar-nav
+            .nav-item
+                i
+                    &.far,
+                    &.fas,
+                    &.fab,
+                    &.fa
+                        margin-top: .25em
         .navbar-toggler-icon
             background-image: url("images/menu.svg")
         &.cloned
             .navbar-toggler-icon
                 filter: brightness(0) invert(0) !important
+            i
+                &.far,
+                &.fas,
+                &.fab,
+                &.fa
+                    filter: brightness(0) saturate(100%) !important
     @media (max-width: 991px)
         .original .nav-item
             padding: 0px 4px
