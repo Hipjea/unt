@@ -45,6 +45,9 @@ class PublicManager {
         // FontAwesome
         $fonts = $this->assetService->getUri() . '/fontawesome.js';
         wp_enqueue_script('unt-public-fonts', $fonts, '', '', true);
+        // Lazyload
+        $lazyload = $this->assetService->getUri() . '/vendors/vanilla-lazyload/dist/lazyload.min.js';
+        wp_enqueue_script('unt-public-lazyload', $lazyload, '', '', true);
         // Unpoly
         $unpoly = $this->assetService->getUri() . '/vendors/unpoly/unpoly.min.js';
         wp_enqueue_script('unt-public-unpoly', $unpoly, '', '', true);
