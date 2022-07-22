@@ -24,7 +24,10 @@
                             <div class="owl-carousel-a-la-une owl-carousel owl-theme">
                                 {% for i in 0..aLaUneModel|length-1 %}
                                     {% set carteALaUne = aLaUneModel[i] %}
-                                    <a class="item" href="{{ carteALaUne.url }}">
+                                    <a class="item" 
+                                        href="{{ carteALaUne.url }}"
+                                        up-follow 
+								        up-target=".content">
 	                                    <div class="carte-notice">
 	                                        {% if carteALaUne.title is empty and carteALaUne.description is empty %}
 	                                            <img class="carte-notice-image-full lazy" data-src="{{ carteALaUne.imageUrl }}" />
@@ -196,7 +199,10 @@
                 <h3 class="mt-0">{{ appStrings[currentLang].home.subscribeNewsletter }}</h3>
                 <div>{{ homePageModel.newsletterText }}</div>
                 <div class="mail-form mt-3">
-                    <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" class="btn">
+                    <a href="{{site.url}}/{{ homePageModel.newsletterLink }}" 
+                        class="btn"
+                        up-follow 
+                        up-target=".content">
                         {{ appStrings[currentLang].home.subscribeNewsletterAlt }}
                     </a>
                 </div>

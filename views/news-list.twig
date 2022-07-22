@@ -15,7 +15,10 @@
                             <i class="fas fa-sliders-h filter-icon"></i>
                         {% endif %}
                         {% for sub in subCategories %}
-                            <a class="btn-category {{sub.active ? " active" : ""}}" href="{{sub.link}}">
+                            <a class="btn-category {{sub.active ? " active" : ""}}" 
+                                href="{{sub.link}}"
+                                up-follow 
+								up-target=".content">
                                 {{ sub.name }}
                             </a>
                         {% endfor %}
@@ -26,7 +29,10 @@
                 {% for news in newsList %}
                     {% if news is not null %}
                         <div class="col-md-4 carte-actualite-col">
-                            <a class="carte-actualite-lien" href="{{ news.newsUrl }}">
+                            <a class="carte-actualite-lien" 
+                                href="{{ news.newsUrl }}"
+                                up-follow 
+								up-target=".content">
                                 <div class="carte-actualite">
                                     <img class="carte-actualite-image lazy" 
                                         data-src="{{ news.imageUrl ? news.imageUrl : assets.imageUrl('news-default.svg') }}" />

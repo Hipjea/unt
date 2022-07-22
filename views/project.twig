@@ -19,7 +19,9 @@
             <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mt-5">
 				{% for child in project_children %}
 					<div class="col mb-4">
-						<a href="{{ child.link }}">
+						<a href="{{ child.link }}"
+							up-follow 
+							up-target=".content">
 							<div class="card card-project">
 								<img data-src="{{ child.topImage.src|letterbox(400, 250, '#FFFFFF') }}" class="card-img-top lazy" alt="{{ child.title }}">
 								<div class="card-body">
@@ -28,7 +30,11 @@
 										{% if child.resume %}
 											<p class="small">{{ child.resume }}</p>
 										{% endif %}
-										<a href="{{ child.link }}">{{ appStrings[currentLang].readMore }}</a>
+										<a href="{{ child.link }}"
+											up-follow 
+											up-target=".content">
+											{{ appStrings[currentLang].readMore }}
+										</a>
 									</p>
 								</div>
 							</div>
