@@ -24,12 +24,31 @@ class PublicManager {
     }
 
     public function initScripts() {
+        // JQuery
+        $jquery = $this->assetService->getUri() . '/vendors/jquery/jquery.min.js';
+        wp_enqueue_script('unt-public-jquery', $jquery, '', '', true);
+        // JQuery
+        $jqueryui = $this->assetService->getUri() . '/vendors/jquery-ui/jquery-ui.min.js';
+        wp_enqueue_script('unt-public-jqueryui', $jqueryui, '', '', true);
+        // JSTree
+        $jstree = $this->assetService->getUri() . '/vendors/jstree/jstree.js';
+        wp_enqueue_script('unt-public-jstree', $jstree, '', '', true);
+        // OwlCarousel
+        $owlcarousel = $this->assetService->getUri() . '/vendors/owlcarousel/owl.carousel.min.js';
+        wp_enqueue_script('unt-public-owlcarousel', $owlcarousel, '', '', true);
+        // Ponyfill
+        $ponyfill = $this->assetService->getUri() . '/vendors/ponyfill/css-vars-ponyfill.min.js';
+        wp_enqueue_script('unt-public-ponyfill', $ponyfill, '', '', true);
+        // Bootstrap
         $bootstrap = $this->assetService->getUri() . '/bootstrap.js';
         wp_enqueue_script('unt-public-bootstrap', $bootstrap, '', '', true);
+        // FontAwesome
         $fonts = $this->assetService->getUri() . '/fontawesome.js';
         wp_enqueue_script('unt-public-fonts', $fonts, '', '', true);
-        $vendor = $this->assetService->getUri() . '/vendor.js';
-        wp_enqueue_script('unt-public-vendor', $vendor, '', '', true);
+        // Unpoly
+        $unpoly = $this->assetService->getUri() . '/vendors/unpoly/unpoly.min.js';
+        wp_enqueue_script('unt-public-unpoly', $unpoly, '', '', true);
+        // App
         $src = $this->assetService->getUri() . '/app.js';
         wp_enqueue_script('unt-public', $src, '', '', true);
     }

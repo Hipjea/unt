@@ -81,7 +81,7 @@ module.exports = {
         new CopyWebpackPlugin(
             { 
                 patterns: [
-                    { from: 'assets/images', to: 'images' },
+                    { from: 'assets/images', to: 'images' },
                     { from: 'assets/fonts', to: 'fonts' },
                     { from: 'assets/js/toCopy', to: 'js' },
                     { from: 'node_modules/jquery/dist', to: 'vendors/jquery' },
@@ -89,6 +89,7 @@ module.exports = {
                     { from: 'node_modules/jstree/dist', to: 'vendors/jstree' },
                     { from: 'node_modules/owl.carousel/dist', to: 'vendors/owlcarousel' },
                     { from: 'node_modules/css-vars-ponyfill/dist', to: 'vendors/ponyfill' },
+                    { from: 'node_modules/unpoly/', to: 'vendors/unpoly' },
                 ]
             }
         ),
