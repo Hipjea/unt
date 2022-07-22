@@ -38,6 +38,9 @@ class PublicManager {
         $bootstrap = $this->assetService->getUri() . '/bootstrap.css';
         wp_register_style('unt-public-bootstrap', $bootstrap, array(), null);
         wp_enqueue_style('unt-public-bootstrap', $bootstrap, array(), null);
+        $unpoly = $this->assetService->getUri() . '/unpoly.css';
+        wp_register_style('unt-public-unpoly', $unpoly, array(), null);
+        wp_enqueue_style('unt-public-unpoly', $unpoly, array(), null);
         $src = $this->assetService->getUri() . '/app.css';
         wp_register_style('unt-public-css', $src, array(), null);
         wp_enqueue_style('unt-public-css', $src, array(), null);
